@@ -4204,6 +4204,9 @@ msgstr "ID инстанса"
 msgid "Instance Name"
 msgstr "Имя инстанса"
 
+msgid "Instance NameUvr"
+msgstr "Имя ВМ"
+
 msgid "Instance Overview"
 msgstr "Обзор инстансы"
 
@@ -4221,6 +4224,9 @@ msgstr "Машина для назначения"
 
 msgid "Instances"
 msgstr "Инстансы"
+
+msgid "InstancesUvr"
+msgstr "Виртуальные машины"
 
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "Недостаточный уровень полномочий для просмотра списка образов"

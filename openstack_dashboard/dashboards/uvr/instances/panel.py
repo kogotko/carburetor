@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Copyright 2012 Nebula, Inc.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,19 +13,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# The slug of the dashboard to be added to HORIZON['dashboards']. Required.
-DASHBOARD = 'identity'
-# If set to True, this dashboard will be set as the default dashboard.
-DEFAULT = False
+from django.utils.translation import ugettext_lazy as _
 
-DISABLED = False
-# A dictionary of exception classes to be added to HORIZON['exceptions'].
-ADD_EXCEPTIONS = {}
-# A list of applications to be added to INSTALLED_APPS.
-ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.identity']
+import horizon
+from openstack_dashboard.dashboards.uvr import dashboard
 
-ADD_ANGULAR_MODULES = [
-    'horizon.dashboard.identity',
-]
 
-AUTO_DISCOVER_STATIC_FILES = True
+class Instances(horizon.Panel):
+    name = "Виртуальные машины"
+    slug = 'instances'
+    permissions = ('openstack.services.compute',)
+
+dashboard.Uvr.register(Instances)

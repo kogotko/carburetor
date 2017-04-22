@@ -10,19 +10,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# The slug of the dashboard to be added to HORIZON['dashboards']. Required.
-DASHBOARD = 'identity'
-# If set to True, this dashboard will be set as the default dashboard.
-DEFAULT = False
+from openstack_dashboard.dashboards.project.instances.workflows.\
+    create_instance import LaunchInstance
+from openstack_dashboard.dashboards.project.instances.workflows.\
+    resize_instance import ResizeInstance
+from openstack_dashboard.dashboards.project.instances.workflows.\
+    update_instance import UpdateInstance
 
-DISABLED = False
-# A dictionary of exception classes to be added to HORIZON['exceptions'].
-ADD_EXCEPTIONS = {}
-# A list of applications to be added to INSTALLED_APPS.
-ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.identity']
-
-ADD_ANGULAR_MODULES = [
-    'horizon.dashboard.identity',
+__all__ = [
+    'LaunchInstance',
+    'ResizeInstance',
+    'UpdateInstance',
 ]
-
-AUTO_DISCOVER_STATIC_FILES = True

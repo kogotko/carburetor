@@ -18,13 +18,12 @@ import horizon
 class Mygroup(horizon.PanelGroup):
     slug = "uvr_group"
     name = _("uvr_group")
-    panels = ('vm_manage',)
+    panels = ('vm_manage','instances',)
 
 class Uvr(horizon.Dashboard):
     name = "Управление ресурсами ВМ"
     slug = "uvr"
-    panels = ('vm_manage',)  # Add your panels here.
-    default_panel = 'vm_manage'  # Specify the slug of the dashboard's default panel.
-
+    panels = ('instances','vm_manage')  # Add your panels here.
+    default_panel = 'instances'  # Specify the slug of the dashboard's default panel.
 
 horizon.register(Uvr)

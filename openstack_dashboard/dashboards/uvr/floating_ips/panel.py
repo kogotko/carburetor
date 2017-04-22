@@ -1,3 +1,5 @@
+# Copyright 2017 Cisco Systems, Inc.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,19 +12,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# The slug of the dashboard to be added to HORIZON['dashboards']. Required.
-DASHBOARD = 'identity'
-# If set to True, this dashboard will be set as the default dashboard.
-DEFAULT = False
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+import horizon
 
-DISABLED = False
-# A dictionary of exception classes to be added to HORIZON['exceptions'].
-ADD_EXCEPTIONS = {}
-# A list of applications to be added to INSTALLED_APPS.
-ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.identity']
 
-ADD_ANGULAR_MODULES = [
-    'horizon.dashboard.identity',
-]
+class FloatingIps(horizon.Panel):
+    name = _("Floating IPs")
+    slug = 'floating_ips'
 
-AUTO_DISCOVER_STATIC_FILES = True
+    @staticmethod
+    def can_register():
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        return network_config.get('enable_router', True)

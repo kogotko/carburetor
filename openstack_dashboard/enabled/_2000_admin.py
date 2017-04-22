@@ -15,7 +15,7 @@
 # The slug of the dashboard to be added to HORIZON['dashboards']. Required.
 DASHBOARD = 'admin'
 
-DISABLED = False
+DISABLED = True
 
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = [

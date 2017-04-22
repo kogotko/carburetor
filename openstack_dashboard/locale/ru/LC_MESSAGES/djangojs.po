@@ -1136,6 +1136,9 @@ msgstr "Инстанс"
 msgid "Instance Name"
 msgstr "Имя инстанса"
 
+msgid "Instance NameUvr"
+msgstr "Имя ВМ"
+
 msgid "Instance Snapshot"
 msgstr "Снимок инстанса"
 
