@@ -131,7 +131,7 @@ ADD_TEMPLATE_LOADERS = []
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(ROOT_PATH, 'templates'),os.path.join(ROOT_PATH, 'dashboards/uvr/templates')],
+        'DIRS': [os.path.join(ROOT_PATH, 'templates')],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
