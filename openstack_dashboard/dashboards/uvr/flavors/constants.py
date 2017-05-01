@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# Copyright 2012 Nebula, Inc.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -13,15 +10,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
-import horizon
-from openstack_dashboard.dashboards.uvr import dashboard
-
-
-class Instances(horizon.Panel):
-    name = "Управление ВМ"
-    slug = 'instances'
-    permissions = ('openstack.services.compute',)
-
-dashboard.Uvr.register(Instances)
+FLAVORS_TEMPLATE_NAME = 'horizon/common/_data_table_view.html'
+FLAVORS_INDEX_URL = 'horizon:admin:flavors:index'
+FLAVORS_CREATE_URL = 'horizon:admin:flavors:create'
+FLAVORS_CREATE_VIEW_TEMPLATE = 'admin/flavors/create.html'
+FLAVORS_UPDATE_URL = 'horizon:admin:flavors:update'
+FLAVORS_UPDATE_VIEW_TEMPLATE = 'admin/flavors/update.html'

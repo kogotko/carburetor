@@ -17,7 +17,7 @@ import horizon
 from openstack_dashboard.dashboards.uvr import dashboard
 
 class Vm_Manage(horizon.Panel):
-    name = "Управление ВМ"
+    name = "Управление образами ВМ"
     slug = "vm_manage"
 
 

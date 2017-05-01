@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# Copyright 2012 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -19,9 +23,10 @@ import horizon
 from openstack_dashboard.dashboards.uvr import dashboard
 
 
-class Instances(horizon.Panel):
-    name = "Управление ВМ"
-    slug = 'instances'
+class Flavors(horizon.Panel):
+    name = "Конфигурирование ВМ"
+    slug = 'flavors'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "context_is_admin"),)
 
-dashboard.Uvr.register(Instances)
+dashboard.Uvr.register(Flavors)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 B1 Systems GmbH
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -19,9 +19,10 @@ import horizon
 from openstack_dashboard.dashboards.uvr import dashboard
 
 
-class Instances(horizon.Panel):
-    name = "Управление ВМ"
-    slug = 'instances'
+class Hypervisors(horizon.Panel):
+    name = "Управление гипервизорами"
+    slug = 'hypervisors'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "os_compute_api:os-hypervisors"),)
 
-dashboard.Uvr.register(Instances)
+dashboard.Uvr.register(Hypervisors)
