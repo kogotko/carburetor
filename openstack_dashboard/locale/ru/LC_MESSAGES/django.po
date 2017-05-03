@@ -155,7 +155,7 @@ msgstr "%s ГБ"
 
 #, python-format
 msgid "%s instances"
-msgstr "%s инстансов"
+msgstr "%s виртуальных машин"
 
 #, python-format
 msgid "%sGB"
@@ -234,7 +234,7 @@ msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
-"Скрипт или набор команд, который будет выполнен после построения инстанса "
+"Скрипт или набор команд, который будет выполнен после построения виртуальной машины "
 "(максимально 16 Кб)"
 
 msgid "A single IP Address or CIDR"
@@ -243,7 +243,7 @@ msgstr "Один IP-адрес или CIDR"
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
-"Снимок это образ который сохраняет состояние диска запущенной инстансы."
+"Снимок это образ который сохраняет состояние диска запущенной виртуальной машины."
 
 msgid "A valid MAC Address"
 msgstr "Валидный MAC адрес"
@@ -479,7 +479,7 @@ msgstr ""
 "Добавьте узлы в этот агрегатор. Узлы могут быть в нескольких агрегаторах."
 
 msgid "Add selected router(s) to the firewall."
-msgstr "Добавить выбранные маршрутизаторы к межсетевому экрану"
+msgstr "Добавить выбранные маршрутизаторы к межсетевому экрану."
 
 msgid "Add static route to the router."
 msgstr "Добавить статический маршрут для маршрутизатора."
@@ -562,7 +562,7 @@ msgid ""
 msgstr ""
 "Некоторые типы ресурсов требуют указания префикса при применении метаданных. "
 "В некоторых случаях префикс может отличаться между типами ресурсов "
-"(например, тип инстансов и образ)."
+"(например, тип виртуальной машины и образ)."
 
 msgid "Address pool"
 msgstr "Пул IP адресов"
@@ -617,7 +617,7 @@ msgid ""
 "After launching an instance, you login using the private key (the username "
 "might be different depending on the image you launched):"
 msgstr ""
-"После запуска инстанса, вы подключаетесь используя приватный ключ (имя "
+"После запуска виртуальной машины, вы подключаетесь используя приватный ключ (имя "
 "пользователя может быть различаться, в зависимости от запускаемого образа):"
 
 #, python-format
@@ -721,7 +721,7 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr ""
-"Инстан может быть запущен с различными типами подключенных хранилищ. Вы "
+"Виртуальная машина может быть запущена с различными типами подключенных хранилищ. Вы "
 "можете выбрать эти опции здесь."
 
 msgid ""
@@ -775,19 +775,19 @@ msgid "Attach Interface"
 msgstr "Подключить интерфейс"
 
 msgid "Attach To Instance"
-msgstr "Подключить к инстансу"
+msgstr "Подключить к виртуальной машине"
 
 msgid "Attach Volume"
 msgstr "Подключить диск"
 
 msgid "Attach Volume to Running Instance."
-msgstr "Подключить диск к запущенному инстансу."
+msgstr "Подключить диск к запущенной виртуальной машине."
 
 msgid "Attach a Volume"
 msgstr "Подключить диск"
 
 msgid "Attach to Instance"
-msgstr "Подключить к инстансу"
+msgstr "Подключить к виртуальной машине"
 
 msgid "Attached"
 msgstr "Подключено"
@@ -807,11 +807,11 @@ msgstr "Подключение"
 
 #, python-format
 msgid "Attaching interface for instance %s."
-msgstr "Подключить интерфейс к инстансу %s."
+msgstr "Подключить интерфейс к виртуальной машине %s."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr "Подключить диск %(vol)s к инстансу %(inst)s на %(dev)s."
+msgstr "Подключить диск %(vol)s к виртуальной машине %(inst)s на %(dev)s."
 
 msgid "Attachments"
 msgstr "Подключения"
@@ -1020,7 +1020,7 @@ msgstr "Не удалось найти машину %s."
 
 #, python-format
 msgid "Cannot get console for instance %s."
-msgstr "Не удалось получить консоль для инстансы %s."
+msgstr "Не удалось получить консоль для виртуальной машины %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Нельзя одновременно указать файл и прямой ввод."
@@ -1112,7 +1112,7 @@ msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
 msgstr ""
-"Выберите целевой узел для эвакуации инстансов. Если не выбрать, планировщик "
+"Выберите целевой узел для эвакуации серверов. Если не выбрать, планировщик "
 "выберет целевые узлы автоматически."
 
 msgid "Choose a Host to migrate to."
@@ -1165,7 +1165,7 @@ msgstr ""
 "мышью, вы также можете изменить порядок с помощью мыши. "
 
 msgid "Choose the flavor to launch."
-msgstr "Выберите тип инстансов для запуска."
+msgstr "Выберите конфигурацию виртуальной машины для запуска."
 
 msgid "Choose the router(s) you want to add."
 msgstr "Выберите маршрутизатор(ы) для добавления."
@@ -1256,7 +1256,7 @@ msgid ""
 "attaches to the instance when it boots."
 msgstr ""
 "Настройке OpenStack для записи метаданных в специальный конфигурационный "
-"диск, которые подключается к инстансу при загрузке."
+"диск, которые подключается к виртуальной машине при загрузке."
 
 msgid "Confirm Admin Password"
 msgstr "Подтвердите пароль администратора"
@@ -1332,7 +1332,7 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr ""
-"Контроль доступа к инстансу с помощью ключевой пары, групп безопасности и "
+"Контроль доступа к виртуальной машине с помощью ключевой пары, групп безопасности и "
 "других механизмов."
 
 msgid "Copy Data"
@@ -1348,7 +1348,7 @@ msgstr "В Keystone не удалось найти стандартную рол
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "Не удалось получить список групп безопасности для инстанса %s."
+msgstr "Не удалось получить список групп безопасности для виртуальной машины %s."
 
 msgid "Couldn't get security group list."
 msgstr "Не удалось получить список групп безопасности."
@@ -1400,7 +1400,7 @@ msgid "Create Firewall"
 msgstr "Создать межсетевой экран"
 
 msgid "Create Flavor"
-msgstr "Создать тип инстансов"
+msgstr "Создать конфигурацию ВМ"
 
 msgid "Create Group"
 msgstr "Создать группу"
@@ -1690,7 +1690,7 @@ msgstr "Создан новый домен «%s»."
 
 #, python-format
 msgid "Created new flavor \"%s\"."
-msgstr "Создан новый тип инстансов «%s»."
+msgstr "Создан новая конфигурация ВМ «%s»."
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
@@ -1962,9 +1962,9 @@ msgstr[2] "Удалить межсетевые экраны"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Удалить тип инстансов"
-msgstr[1] "Удалить типы инстансов"
-msgstr[2] "Удалить типы инстансов"
+msgstr[0] "Удалить конфигурацию ВМ"
+msgstr[1] "Удалить конфигурации ВМ"
+msgstr[2] "Удалить конфигурации ВМ"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -2163,7 +2163,7 @@ msgstr[1] "Удалить типы дисков"
 msgstr[2] "Удалить типы дисков"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "Удалить диск при удалении инстанса"
+msgstr "Удалить диск при удалении виртуальной машины"
 
 msgid "Delete Volumes"
 msgstr "Удалить диски."
@@ -2173,7 +2173,7 @@ msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Удалите созданную сеть \"%s\" в связи со сбоем создания подсети."
 
 msgid "Delete volume when the instance is deleted"
-msgstr "Удалить диск в случае удалении инстанса"
+msgstr "Удалить диск в случае удаления виртуальной машины"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -2212,9 +2212,9 @@ msgstr[2] "Доп. параметры удалены"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] "Тип инстансов удален"
-msgstr[1] "Типы инстансов удалены"
-msgstr[2] "Типы инстансов удалены"
+msgstr[0] "Конфигурация ВМ удалена"
+msgstr[1] "Конфигурации ВМ удалены"
+msgstr[2] "Конфигурации ВМ удалены"
 
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
@@ -2358,7 +2358,7 @@ msgid "Deleted images are not recoverable."
 msgstr "Удаленные образы не восстановимы."
 
 msgid "Deleted instances are not recoverable."
-msgstr "Удаленные инстансы нельзя восстановить."
+msgstr "Удаленные виртуальные машины нельзя восстановить."
 
 msgid "Deleted volume backups are not recoverable."
 msgstr "Удаленные резервные копии дисков нельзя восстановить."
@@ -2445,7 +2445,7 @@ msgstr[1] "Отсоединить диски"
 msgstr[2] "Отсоединить диски"
 
 msgid "Detach Volume from Running Instance."
-msgstr "Отключить диск от запущенного инстанса."
+msgstr "Отключить диск от запущенной виртуальной машины."
 
 msgid "Detach a Volume"
 msgstr "Отсоединить диск"
@@ -2455,7 +2455,7 @@ msgstr "Отключено"
 
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
-msgstr "Отключен  интерфейс %(port)s инстанса %(instance)s."
+msgstr "Отключен  интерфейс %(port)s виртуальной машины %(instance)s."
 
 msgid "Detaching"
 msgstr "Отсоединение"
@@ -2473,7 +2473,7 @@ msgstr[2] "Отсоединение дисков"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
-msgstr "Отключение тома %(vol)s от инстанса %(inst)s."
+msgstr "Отключение тома %(vol)s от виртуальной машины %(inst)s."
 
 msgid "Details"
 msgstr "Подробности"
@@ -2747,7 +2747,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Редактирование межсетевого экрана {{ name }}"
 
 msgid "Edit Flavor"
-msgstr "Изменить тип инстансов"
+msgstr "Изменить конфигурацию ВМ"
 
 msgid "Edit Group"
 msgstr "Редактировать группу"
@@ -2768,7 +2768,7 @@ msgid "Edit Image"
 msgstr "Редактирование образа"
 
 msgid "Edit Instance"
-msgstr "Редактировать инстанс"
+msgstr "Редактировать виртуальную машину"
 
 msgid "Edit Metadata Namespace"
 msgstr "Редактировать метаданные пространства имён"
@@ -2843,9 +2843,9 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"Редактировать данные типа инстанса. Типы инстанса определяют размер RAM, "
-"диска, количества ядер и другие ресурсы. Тип инстансов выбирается когда "
-"пользователи запускают инстансы."
+"Редактировать данные конфигурации ВМ. Конфигурации ВМ определяют размер RAM, "
+"диска, количества ядер и другие ресурсы. Конфигурация ВМ выбирается когда "
+"пользователи запускают виртуальные машины."
 
 msgid "Edit the identity provider's details."
 msgstr "Редактирование свойств провайдера идентификации."
@@ -2854,16 +2854,16 @@ msgid "Edit the image details."
 msgstr "Изменить данные образа"
 
 msgid "Edit the instance details."
-msgstr "Изменить данные инстанса"
+msgstr "Изменить данные виртуальной машины."
 
 msgid "Edit the mapping's details."
 msgstr "Изменить сведения о преобразования."
 
 msgid "Edit the project details."
-msgstr "Изменить данные проекта"
+msgstr "Изменить данные проекта."
 
 msgid "Edit the role's details."
-msgstr "Изменить данные ролей"
+msgstr "Изменить данные ролей."
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Изменение деталей пользователя, включая основной проект"
@@ -3125,7 +3125,7 @@ msgstr "Эвакуировать узел"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
-"Эвакуировать инстансы с выбранного недоступного узла нв активный целевой узел"
+"Эвакуировать виртуальные машины с выбранного недоступного узла нв активный целевой узел"
 
 msgid "Events"
 msgstr "События"
@@ -3146,7 +3146,7 @@ msgid ""
 msgstr ""
 "Пример: Префикс 'hw:' добавлен к типу OS::Nova::Flavor для пространства имен "
 "топологии виртуальных CPU, таким образом свойства применяемые к типам "
-"инстансов будут иметь префикс 'hw:'."
+"виртуальных машин будут иметь префикс 'hw:'."
 
 msgid "Extend Volume"
 msgstr "Расширить диск"
@@ -3297,7 +3297,7 @@ msgstr "Не удалось эвакуировать узел: %s"
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "Не удалось эвакуировать инстансы: %s"
+msgstr "Не удалось эвакуировать виртуальные машины: %s"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3319,7 +3319,7 @@ msgstr "Не удалось добавить правило в политику 
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
-msgstr "Живая миграция инстанс на узел «%s» не удалась."
+msgstr "Живая миграция виртуальных машин на узел «%s» не удалась."
 
 #, python-format
 msgid "Failed to migrate host \"%s\"."
@@ -3327,7 +3327,7 @@ msgstr "Не удалось мигрировать узел \"%s\"."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Не удалось мигрировать инстансы: %s"
+msgstr "Не удалось мигрировать виртуальные машины: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Не удалось мигрировать диск."
@@ -3336,7 +3336,7 @@ msgstr "Не удалось мигрировать диск."
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr ""
-"Не удалось изменить %(num_groups_to_modify)d групп безопасности инстанса: "
+"Не удалось изменить %(num_groups_to_modify)d групп безопасности виртуальной машины: "
 "%(err)s"
 
 #, python-format
@@ -3349,7 +3349,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "Не удалось изменить %d групп безопасности инстансы"
+msgstr "Не удалось изменить %d групп безопасности виртуальной машины"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3524,55 +3524,55 @@ msgid "Flat"
 msgstr "Flat"
 
 msgid "Flavor"
-msgstr "Тип инстансов"
+msgstr "Конфигурация ВМ"
 
 msgid "Flavor Access"
-msgstr "Права доступа типа инстансов"
+msgstr "Права доступа конфигурации ВМ"
 
 msgid "Flavor Choice"
-msgstr "Выбор типа инстансов"
+msgstr "Выбор конфигурации ВМ"
 
 msgid "Flavor Details"
-msgstr "Детали типа инстансов"
+msgstr "Подробности конфигурации ВМ"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Детали типа инстансов: %(name)s\">%(name)s"
+msgstr "Подробности конфигурации ВМ: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
-msgstr "ID типа инстансов"
+msgstr "ID Конфигурации ВМ"
 
 msgid "Flavor ID ="
-msgstr "ID Типа инстансов ="
+msgstr "ID Конфигурации ВМ ="
 
 msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
 msgstr ""
-"ID типа инстансов должен содержать UUID4 или целое число. Оставьте это поле "
+"ID конфигурации ВМ должен содержать UUID4 или целое число. Оставьте это поле "
 "пустым или введите 'auto' для указания сгенерированного UUID4."
 
 msgid "Flavor Information"
-msgstr "Информация о типе инстансов"
+msgstr "Информация о конфигурации ВМ"
 
 msgid "Flavor Name"
-msgstr "Имя типа инстансов"
+msgstr "Имя конфигурации ВМ"
 
 msgid "Flavor Name ="
-msgstr "Имя типа инстанса = "
+msgstr "Имя конфигурации ВМ ="
 
 msgid "Flavor name cannot be empty."
-msgstr "Имя типа инстанса не может быть пустым."
+msgstr "Имя конфигурации ВМ не может быть пустым."
 
 msgid "Flavors"
-msgstr "Типы инстансов"
+msgstr "Конфигурации ВМ"
 
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"Типы инстансов определяют размер RAM, диска, количество ядер и другие "
-"ресурсы и могут быть выбраны когда пользователи запускают инстансы."
+"Конфигурации ВМ определяют размер RAM, диска, количество ядер и другие "
+"ресурсы и могут быть выбраны когда пользователи запускают виртуальные машины."
 
 msgid "Floating IP"
 msgstr "Плавающий IP"
@@ -3740,9 +3740,9 @@ msgstr "Жесткая перезагрузка"
 
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] "Холодная перезагрузка инстанса"
-msgstr[1] "Холодная перезагрузка инстансов"
-msgstr[2] "Холодная перезагрузка инстансов"
+msgstr[0] "Холодная перезагрузка виртуальной машины"
+msgstr[1] "Холодная перезагрузка виртуальных машин"
+msgstr[2] "Холодная перезагрузка виртуальных машин"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
@@ -3754,9 +3754,9 @@ msgstr "Запущена принудительная перезагрузка"
 
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] "Инстанс перезагружен"
-msgstr[1] "Инстансы перезагружены"
-msgstr[2] "Инстансы перезагружены"
+msgstr[0] "Виртуальная машина перезагружен"
+msgstr[1] "Виртуальные машины перезагружены"
+msgstr[2] "Виртуальные машины перезагружены"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
@@ -3827,7 +3827,7 @@ msgid "Hypervisor"
 msgstr "Гипервизор"
 
 msgid "Hypervisor Instances"
-msgstr "Инстансы гипервизора"
+msgstr "Виртуальные машины гипервизора"
 
 msgid "Hypervisor Servers"
 msgstr "Серверы гипервизора"
@@ -4181,49 +4181,49 @@ msgid "Instance"
 msgstr "Машина"
 
 msgid "Instance Action List"
-msgstr "Список действий инстанса"
+msgstr "Список действий виртуальной машины"
 
 msgid "Instance Admin Password"
-msgstr "Пароль администратора инстанса"
+msgstr "Пароль администратора виртуальной машины"
 
 msgid "Instance Boot Source"
-msgstr "Источник загрузки инстанса"
+msgstr "Источник загрузки виртуальной машины"
 
 msgid "Instance Console"
-msgstr "Консоль инстанса"
+msgstr "Консоль виртуальной машины"
 
 msgid "Instance Console Log"
-msgstr "Лог консоли инстанса"
+msgstr "Лог консоли виртуальной машины"
 
 msgid "Instance ID"
-msgstr "ID инстанса"
+msgstr "ID виртуальной машины"
 
 msgid "Instance ID ="
-msgstr "ID инстанса"
+msgstr "ID виртуальной машины ="
 
 msgid "Instance Name"
-msgstr "Имя инстанса"
+msgstr "Имя виртуальной машины"
 
 msgid "Instance NameUvr"
 msgstr "Имя ВМ"
 
 msgid "Instance Overview"
-msgstr "Обзор инстансы"
+msgstr "Обзор виртуальных машин"
 
 msgid "Instance Password is not set or is not yet available"
-msgstr "Пароль инстанса не установлен или пока не доступен"
+msgstr "Пароль виртуальной машины не установлен или пока не доступен"
 
 msgid "Instance Security Groups"
-msgstr "Группы безопасности инстанса"
+msgstr "Группы безопасности виртуальной машины"
 
 msgid "Instance Snapshot"
-msgstr "Снимок инстанса"
+msgstr "Снимок виртуальной машины"
 
 msgid "Instance to be associated"
 msgstr "Машина для назначения"
 
 msgid "Instances"
-msgstr "Инстансы"
+msgstr "Виртуальные машины"
 
 msgid "InstancesUvr"
 msgstr "Виртуальные машины"
@@ -4316,7 +4316,7 @@ msgid "Key Pairs"
 msgstr "Ключевые пары"
 
 msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr "Ключевые пары нужны для входа в инстанс после его запуска."
+msgstr "Ключевые пары нужны для входа в виртуальную машину после его запуска."
 
 msgid "Key Size (bits)"
 msgstr "Размер Ключа (бит)"
@@ -4364,10 +4364,10 @@ msgid "Launch"
 msgstr "Запустить"
 
 msgid "Launch Instance"
-msgstr "Запустить инстанс"
+msgstr "Запустить виртуальную машину"
 
 msgid "Launch Instance (Quota exceeded)"
-msgstr "Запустить инстанс (Превышен лимит)"
+msgstr "Запустить виртуальную машину (Превышен лимит)"
 
 msgid "Launch Parameters"
 msgstr "Параметры запуска"
@@ -4376,13 +4376,13 @@ msgid "Launch Stack"
 msgstr "Запустить стек"
 
 msgid "Launch as Instance"
-msgstr "Запустить как инстанс"
+msgstr "Запустить как виртуальную машину"
 
 msgid "Launch instance in these security groups."
-msgstr "Запустить инстанс в этих группах безопасности."
+msgstr "Запустить виртуальную машину в этих группах безопасности."
 
 msgid "Launch instance with these networks"
-msgstr "Запустить инстанс с этими сетями"
+msgstr "Запустить виртуальную машину с этими сетями"
 
 msgid "Launch instance with these ports"
 msgstr "Запустить экземпляр с этими портами"
@@ -4391,8 +4391,8 @@ msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr ""
-"Запуск нескольких инстансов поддерживается только для образов и снимков "
-"инстансов."
+"Запуск нескольких виртуальных машин поддерживается только для образов и снимков "
+"виртуальных машин."
 
 msgid "Length of Injected File Path"
 msgstr "Протяженность пути загруженного файла"
@@ -4441,10 +4441,10 @@ msgid "Live Migrate"
 msgstr "Живая миграция"
 
 msgid "Live Migrate Instance"
-msgstr "Живая миграция инстанса"
+msgstr "Живая миграция виртуальной машины"
 
 msgid "Live migrate an instance to a specific host."
-msgstr "Живая миграция инстанса на конкретный узел"
+msgstr "Живая миграция виртуальной машины на конкретный узел"
 
 #, python-format
 msgid "Load Balancer VIP %s"
@@ -4467,14 +4467,14 @@ msgstr "Локальное хранилище (использовано)"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
-msgstr[0] "Заблокировать инстанс"
-msgstr[1] "Заблокировать инстансы"
-msgstr[2] "Заблокировать инстансы"
+msgstr[0] "Заблокировать виртуальную машину"
+msgstr[1] "Заблокировать виртуальные машины"
+msgstr[2] "Заблокировать виртуальные машины"
 
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
-msgstr[0] "Заблокированный инстанс"
-msgstr[1] "Заблокированные инстансы"
+msgstr[0] "Заблокированная виртуальная машина"
+msgstr[1] "Заблокированные виртуальные машины"
 msgstr[2] "Машины заблокированы"
 
 msgid "Log"
@@ -4484,7 +4484,7 @@ msgid "Log Length"
 msgstr "Длина лога"
 
 msgid "Log Lines Per Instance"
-msgstr "Строк журнала для инстансы"
+msgstr "Количество строк журнала на виртуальную машину"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "Длинна журнала должна быть неотрицательным целым числом. "
@@ -4636,9 +4636,9 @@ msgstr "Мигрировать хост"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] "Мигрировать инстанс"
-msgstr[1] "Мигрировать инстансы"
-msgstr[2] "Мигрировать инстансы"
+msgstr[0] "Мигрировать виртуальную машину"
+msgstr[1] "Мигрировать виртуальные машины"
+msgstr[2] "Мигрировать виртуальные машины"
 
 msgid "Migrate Volume"
 msgstr "Мигрировать диск"
@@ -4658,10 +4658,10 @@ msgid ""
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
 "each instance of migrated host."
 msgstr ""
-"Мигрируйте все инстансы с узла с отключенной службой nova-compute. "
-"Дополнительно вы можете выбрать тип миграции. Все запущенные инстансы узла "
+"Мигрируйте все виртуальные машины с узла с отключенной службой nova-compute. "
+"Дополнительно вы можете выбрать тип миграции. Все запущенные виртуальные машины узла "
 "могут быть смигрированы \"вживую\". В случае холодной миграции будет "
-"использоваться команда nova-migrate для каждого инстанса."
+"использоваться команда nova-migrate для каждой виртуальной машины."
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
@@ -4672,7 +4672,7 @@ msgid "Migrating"
 msgstr "Миграция"
 
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr "Миграция инстансов может привести к безвозвратным результатам."
+msgstr "Миграция виртуальных машин может привести к безвозвратным результатам."
 
 msgid "Migration Policy"
 msgstr "Миграционная политика"
@@ -4701,14 +4701,14 @@ msgstr "Домен «%s» изменён."
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "Изменен тип инстансов «%s»."
+msgstr "Изменена конфигурация ВМ «%s»."
 
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Данные типа инстансов изменены, но не его права."
+msgstr "Данные конфигурации ВМ изменены, но не его права."
 
 #, python-format
 msgid "Modified instance \"%s\"."
-msgstr "Изменен инстанс \"%s\"."
+msgstr "Изменена виртуальная машина \"%s\"."
 
 #, python-format
 msgid "Modified project \"%s\"."
@@ -4895,7 +4895,7 @@ msgid "New DHCP Agent"
 msgstr "Новый DHCP агент"
 
 msgid "New Flavor"
-msgstr "Новый тип инстансов"
+msgstr "Новая конфигурация ВМ"
 
 msgid "New Host"
 msgstr "Новый узел"
@@ -4969,11 +4969,11 @@ msgid "No available projects"
 msgstr "Нет доступных проектов"
 
 msgid "No flavors available"
-msgstr "Нет доступных типов инстансов"
+msgstr "Нет доступных конфигураций ВМ"
 
 msgid "No flavors meet minimum criteria for selected boot source."
 msgstr ""
-"Ни один из типов инстансов не удовлетворяет минимальным требованиям для "
+"Ни одна из конфигураций ВМ не удовлетворяет минимальным требованиям для "
 "загрузки."
 
 msgid "No floating IP addresses allocated"
@@ -5046,7 +5046,7 @@ msgid "No projects found."
 msgstr "Проекты не найдены."
 
 msgid "No projects selected. All projects can use the flavor."
-msgstr "Не выбраны проекты. Тип инстансов будет доступен во всех проектах."
+msgstr "Не выбраны проекты. Конфигурация ВМ будет доступна во всех проектах."
 
 msgid "No router"
 msgstr "Маршрутизатор не найден"
@@ -5169,7 +5169,7 @@ msgstr ""
 "нумерация которых поддерживается в API, максимальное значение: %s)"
 
 msgid "Number of log lines to be shown per instance"
-msgstr "Количество строк журнала отображаемое для одной инстансы"
+msgstr "Количество строк журнала отображаемое для одной виртуальной машины"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "Скопируйте/Вставьте ваш личный ключ"
@@ -5181,7 +5181,7 @@ msgid "Object Store"
 msgstr "Хранилище Объектов"
 
 msgid "Old Flavor"
-msgstr "Старый тип инстансов"
+msgstr "Старая конфигурация ВМ"
 
 msgid "Old password and new password must be different"
 msgstr "Новый пароль должен отличаться от старого."
@@ -5295,8 +5295,8 @@ msgstr "Пауза"
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
 msgstr[0] "Приостановить машину"
-msgstr[1] "Приостановить инстансы"
-msgstr[2] "Приостановить инстансы"
+msgstr[1] "Приостановить виртуальную машину"
+msgstr[2] "Приостановить виртуальные машины"
 
 msgctxt "Current status of an Instance"
 msgid "Paused"
@@ -5308,9 +5308,9 @@ msgstr "На паузе"
 
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] "Приостановленный инстанс"
-msgstr[1] "Приостановленные инстансы"
-msgstr[2] "Приостановлены инстансы"
+msgstr[0] "Приостановленная виртуальная машина"
+msgstr[1] "Приостановленные виртуальные машины"
+msgstr[2] "Приостановлены виртуальные машины"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
@@ -5722,7 +5722,7 @@ msgid "Rebuild Block Device Mapping"
 msgstr "Восстановить сопоставление блочного устройства"
 
 msgid "Rebuild Instance"
-msgstr "Перестроить инстанс"
+msgstr "Перестроить виртуальную машину"
 
 msgid "Rebuild Password"
 msgstr "Замена Пароля"
@@ -5737,7 +5737,7 @@ msgstr "Восстановление"
 
 #, python-format
 msgid "Rebuilding instance %s."
-msgstr "Перестроение инстанса %s."
+msgstr "Перестроение виртуальной машины %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Повторно создать идентификационные данные ec2"
@@ -5863,7 +5863,7 @@ msgstr "Запрос на запуск %(count)s экземпляров \"%(name
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
-msgstr "Запрос на изменение размера инстанса \"%s\" отправлен."
+msgstr "Запрос на изменение размера виртуальной машины \"%s\" отправлен."
 
 #, python-format
 msgid ""
@@ -5889,14 +5889,14 @@ msgid "Rescuing"
 msgstr "В безопасном режиме"
 
 msgid "Resize"
-msgstr "Изменение типа инстансов"
+msgstr "Изменение типа виртуальной машины"
 
 msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Замена схемы"
 
 msgid "Resize Instance"
-msgstr "Изменить размер инстансы"
+msgstr "Изменить размер виртуальной машины"
 
 msgid ""
 "Resize the canvas by scrolling up/down with your mouse/trackpad on the "
@@ -5947,7 +5947,7 @@ msgstr "Ресурсы"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
-"Перезапущенные инстансы потеряют все данных не сохраненные в постоянном "
+"Перезапущенные виртуальные машины потеряют все данных не сохраненные в постоянном "
 "хранилище."
 
 msgid "Restore Backup"
@@ -5992,9 +5992,9 @@ msgstr "Выполняется возобновление"
 
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
-msgstr[0] "Возобновить инстанс"
-msgstr[1] "Возобновить инстансы"
-msgstr[2] "Возобновить инстансы"
+msgstr[0] "Возобновить виртуальную машину"
+msgstr[1] "Возобновить виртуальные машины"
+msgstr[2] "Возобновить виртуальные машины"
 
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
@@ -6004,9 +6004,9 @@ msgstr[2] "Возобновить стеки"
 
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
-msgstr[0] "Возобновленный инстанс"
-msgstr[1] "Возобновленные инстансы"
-msgstr[2] "Возобновлены инстансы"
+msgstr[0] "Возобновленная виртуальная машина"
+msgstr[1] "Возобновленные виртуальные машины"
+msgstr[2] "Возобновлены виртуальные машины"
 
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
@@ -6019,7 +6019,7 @@ msgid "Resuming"
 msgstr "Восстановление"
 
 msgid "Retrieve Instance Password"
-msgstr "Получить пароль инстанса"
+msgstr "Получить пароль виртуальной машины"
 
 msgid "Retrieve Password"
 msgstr "Получить пароль"
@@ -6159,7 +6159,7 @@ msgid "Running"
 msgstr "Запущенный"
 
 msgid "Running Instance Migration Type"
-msgstr "Тип миграции запущенных инстансов."
+msgstr "Тип миграции запущенной виртуальной машины"
 
 msgid "S3 URL"
 msgstr "S3 URL"
@@ -6268,9 +6268,9 @@ msgstr[2] "Запланировано удаление снимков диска
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
-msgstr[0] "Запланирована миграция инстанса (ожидает подтверждения)"
-msgstr[1] "Запланирована миграция инстансов (ожидает подтверждения)"
-msgstr[2] "Запланирована миграция инстансов (ожидает подтверждения)"
+msgstr[0] "Запланирована миграция виртуальной машины (ожидает подтверждения)"
+msgstr[1] "Запланирована миграция виртуальных машин (ожидает подтверждения)"
+msgstr[2] "Запланирована миграция виртуальных машин (ожидает подтверждения)"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -6318,7 +6318,7 @@ msgid "Segmentation ID:"
 msgstr "ID сегментации:"
 
 msgid "Select Flavor"
-msgstr "Выберите тип инстансов"
+msgstr "Выберите конфигурацию ВМ"
 
 msgid "Select IKE Policy"
 msgstr "Выберите политику IKE"
@@ -6330,7 +6330,7 @@ msgid "Select Image"
 msgstr "Выберите Образ"
 
 msgid "Select Instance Snapshot"
-msgstr "Выберите снимок инстанса"
+msgstr "Выберите снимок виртуальной машины"
 
 msgid "Select Mapping"
 msgstr "Выберите преобразование"
@@ -6363,7 +6363,7 @@ msgid "Select Volume Snapshot"
 msgstr "Выбрать снимок диска"
 
 msgid "Select a New Flavor"
-msgstr "Выберите новый тип инстансов"
+msgstr "Выберите новую конфигурацию ВМ"
 
 msgid "Select a Policy"
 msgstr "Выберите политику"
@@ -6423,10 +6423,10 @@ msgid "Select a volume"
 msgstr "Выберите диск"
 
 msgid "Select a volume to attach to this instance."
-msgstr "Выберите диск для подключения к инстансу."
+msgstr "Выберите диск для подключения к виртуальной машине."
 
 msgid "Select a volume to detach from this instance."
-msgstr "Выберите диск для отключения от инстанса."
+msgstr "Выберите диск для отключения от виртуальной машины."
 
 msgid "Select a volume to restore to."
 msgstr "Выбрать диск для восстановления."
@@ -6438,7 +6438,7 @@ msgid "Select an instance"
 msgstr "Выбрать машину"
 
 msgid "Select an instance to attach to."
-msgstr "Выбрать инстанс для подключения."
+msgstr "Выбрать виртуальную машину для подключения."
 
 msgid "Select format"
 msgstr "Выберите формат"
@@ -6447,7 +6447,7 @@ msgid "Select network"
 msgstr "Выберите сеть"
 
 msgid "Select networks for your instance."
-msgstr "выберите сети для вашего инстанса."
+msgstr "Выберите сети для вашей виртуальной машины."
 
 msgid "Select routers for your firewall."
 msgstr "Выберите машрутизаторы для вашего межсетевого экрана"
@@ -6464,7 +6464,7 @@ msgid ""
 msgstr "Выберите IP-адрес вы хотите связать с выбранной машиной или портом. "
 
 msgid "Select the image to rebuild your instance."
-msgstr "Выберите образ для перестройки инстанса."
+msgstr "Выберите образ для перестройки виртуальной машины."
 
 msgid "Select the network for interface attaching."
 msgstr "Выберите сеть для подключения к интерфейсу."
@@ -6476,8 +6476,8 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
-"Выберите проекты, в которых будут использоваться типы инстансов. Если ни "
-"один проект не выбран, то тип инстансов будет доступен во всех проектах."
+"Выберите проекты, в которых будут использоваться конфигурации ВМ. Если ни "
+"один проект не выбран, то конфигурация ВМ будет доступна во всех проектах."
 
 msgid "Selected Hosts"
 msgstr "Выбранные узлы"
@@ -6516,7 +6516,7 @@ msgid "Server error"
 msgstr "Ошибка сервера"
 
 msgid "Server group to associate with this instance."
-msgstr "Группа серверов для связи с инстансом."
+msgstr "Группа серверов для связи с виртуальной машиной."
 
 msgid "Servers"
 msgstr "Серверы"
