@@ -16,6 +16,7 @@
 DASHBOARD = 'uvr'
 
 DISABLED = False
+DEFAULT = True
 
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = [

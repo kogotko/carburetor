@@ -2,6 +2,7 @@
 
 <ul id="sidebar-accordion" class="nav nav-pills nav-stacked">
   {% for dashboard, panel_info in components %}
+    {% if dashboard.slug != 'project' and dashboard.slug != 'admin' and dashboard.slug != 'identity' %}
     {% if user|has_permissions:dashboard %}
       <li class="panel openstack-dashboard">
         <a data-toggle="collapse"
@@ -51,6 +52,7 @@
           {% endfor %}
         </ul>
       </li>
+    {% endif %}
     {% endif %}
   {% endfor %}
 </ul>
