@@ -18,7 +18,7 @@ import copy
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -116,14 +116,7 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_with_mac_learning(self):
         self._test_port_update_post(mac_learning=True)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
-    def test_port_update_post_with_port_security(self):
-        self._test_port_update_post(port_security=True)
-
-    def _test_port_update_post(self, mac_learning=False, binding=False,
-                               port_security=False):
+    def _test_port_update_post(self, mac_learning=False, binding=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
@@ -133,16 +126,11 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'port-security')\
-            .AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
-        if port_security:
-            extension_kwargs['port_security_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
@@ -158,8 +146,6 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
-        if port_security:
-            form_data['port_security_enabled'] = True
         url = reverse('horizon:project:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)
@@ -179,15 +165,8 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_exception_with_mac_learning(self):
         self._test_port_update_post_exception(mac_learning=True)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
-    def test_port_update_post_exception_with_port_security(self):
-        self._test_port_update_post_exception(port_security=True)
-
     def _test_port_update_post_exception(self, mac_learning=False,
-                                         binding=False,
-                                         port_security=False):
+                                         binding=False):
 
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
@@ -198,16 +177,11 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'port-security')\
-            .AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
-        if port_security:
-            extension_kwargs['port_security_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
@@ -223,8 +197,6 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
-        if port_security:
-            form_data['port_security_enabled'] = True
         url = reverse('horizon:project:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)
@@ -351,251 +323,3 @@ class NetworkPortTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, url)
         self.assertMessageCount(success=1)
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',)})
-    def test_port_create_get(self):
-        self._test_port_create_get()
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',)})
-    def test_port_create_get_with_mac_learning(self):
-        self._test_port_create_get(mac_learning=True)
-
-    def _test_port_create_get(self, mac_learning=False, binding=False):
-        network = self.networks.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id) \
-            .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'port-security') \
-            .AndReturn(True)
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:networks:addport',
-                      args=[network.id])
-        res = self.client.get(url)
-
-        self.assertTemplateUsed(res, 'project/networks/ports/create.html')
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',
-                                      'port_create',)})
-    def test_port_create_post(self):
-        self._test_port_create_post()
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',
-                                      'port_create',)})
-    def test_port_create_post_with_mac_learning(self):
-        self._test_port_create_post(mac_learning=True, binding=False)
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',
-                                      'port_create',)})
-    def test_port_create_post_with_port_security(self):
-        self._test_port_create_post(port_security=True)
-
-    def _test_port_create_post(self, mac_learning=False, binding=False,
-                               port_security=False):
-        network = self.networks.first()
-        port = self.ports.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id) \
-            .MultipleTimes().AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'port-security') \
-            .AndReturn(True)
-        extension_kwargs = {}
-        if binding:
-            extension_kwargs['binding__vnic_type'] = \
-                port.binding__vnic_type
-        if mac_learning:
-            extension_kwargs['mac_learning_enabled'] = True
-        if port_security:
-            # The default value is True, so False is intentionally used.
-            extension_kwargs['port_security_enabled'] = False
-        api.neutron.port_create(IsA(http.HttpRequest),
-                                tenant_id=network.tenant_id,
-                                network_id=network.id,
-                                name=port.name,
-                                admin_state_up=port.admin_state_up,
-                                device_id=port.device_id,
-                                device_owner=port.device_owner,
-                                fixed_ips=port.fixed_ips,
-                                mac_address=port.mac_address,
-                                **extension_kwargs) \
-            .AndReturn(port)
-        self.mox.ReplayAll()
-
-        form_data = {'network_id': port.network_id,
-                     'network_name': network.name,
-                     'name': port.name,
-                     'admin_state': port.admin_state_up,
-                     'device_id': port.device_id,
-                     'device_owner': port.device_owner,
-                     'specify_ip': 'fixed_ip',
-                     'fixed_ip': port.fixed_ips[0]['ip_address'],
-                     'subnet_id': port.fixed_ips[0]['subnet_id'],
-                     'mac_address': port.mac_address}
-        if binding:
-            form_data['binding__vnic_type'] = port.binding__vnic_type
-        if mac_learning:
-            form_data['mac_state'] = True
-        if port_security:
-            form_data['port_security_enabled'] = False
-        url = reverse('horizon:project:networks:addport',
-                      args=[port.network_id])
-        res = self.client.post(url, form_data)
-
-        self.assertNoFormErrors(res)
-        redir_url = reverse(NETWORKS_DETAIL_URL, args=[port.network_id])
-        self.assertRedirectsNoFollow(res, redir_url)
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'port_create',
-                                      'is_extension_supported',)})
-    def test_port_create_post_exception(self):
-        self._test_port_create_post_exception()
-
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'port_create',
-                                      'is_extension_supported',)})
-    def test_port_create_post_exception_with_mac_learning(self):
-        self._test_port_create_post_exception(mac_learning=True)
-
-    def _test_port_create_post_exception(self, mac_learning=False,
-                                         binding=False, port_security=False):
-        network = self.networks.first()
-        port = self.ports.first()
-        api.neutron.network_get(IsA(http.HttpRequest),
-                                network.id) \
-            .MultipleTimes().AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'port-security') \
-            .AndReturn(port_security)
-
-        extension_kwargs = {}
-        if binding:
-            extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
-        if mac_learning:
-            extension_kwargs['mac_learning_enabled'] = True
-        if port_security:
-            extension_kwargs['port_security_enabled'] = False
-        api.neutron.port_create(IsA(http.HttpRequest),
-                                tenant_id=network.tenant_id,
-                                network_id=network.id,
-                                name=port.name,
-                                admin_state_up=port.admin_state_up,
-                                device_id=port.device_id,
-                                device_owner=port.device_owner,
-                                mac_address=port.mac_address,
-                                **extension_kwargs) \
-            .AndRaise(self.exceptions.neutron)
-        self.mox.ReplayAll()
-
-        form_data = {'network_id': port.network_id,
-                     'network_name': network.name,
-                     'name': port.name,
-                     'admin_state': port.admin_state_up,
-                     'mac_state': True,
-                     'device_id': port.device_id,
-                     'device_owner': port.device_owner,
-                     'specify_ip': 'fixed_ip',
-                     'fixed_ip': port.fixed_ips[0]['ip_address'],
-                     'subnet_id': port.fixed_ips[0]['subnet_id'],
-                     'mac_address': port.mac_address}
-        if binding:
-            form_data['binding__vnic_type'] = port.binding__vnic_type
-        if mac_learning:
-            form_data['mac_learning_enabled'] = True
-        if port_security:
-            form_data['port_security_enabled'] = False
-        url = reverse('horizon:project:networks:addport',
-                      args=[port.network_id])
-        res = self.client.post(url, form_data)
-
-        self.assertNoFormErrors(res)
-        redir_url = reverse(NETWORKS_DETAIL_URL, args=[port.network_id])
-        self.assertRedirectsNoFollow(res, redir_url)
-
-    @test.create_stubs({api.neutron: ('port_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'network_get',
-                                      'list_dhcp_agent_hosting_networks',)})
-    def test_port_delete(self):
-        self._test_port_delete()
-
-    @test.create_stubs({api.neutron: ('port_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'network_get',
-                                      'is_extension_supported',)})
-    def test_port_delete_with_mac_learning(self):
-        self._test_port_delete(mac_learning=True)
-
-    def _test_port_delete(self, mac_learning=False):
-        port = self.ports.first()
-        network_id = port.network_id
-
-        api.neutron.port_delete(IsA(http.HttpRequest), port.id)
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id) \
-            .AndReturn([self.ports.first()])
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-
-        self.mox.ReplayAll()
-
-        form_data = {'action': 'ports__delete__%s' % port.id}
-        url = reverse(NETWORKS_DETAIL_URL, args=[network_id])
-        res = self.client.post(url, form_data)
-
-        self.assertRedirectsNoFollow(res, url)
-
-    @test.create_stubs({api.neutron: ('port_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'network_get',)})
-    def test_port_delete_exception(self):
-        self._test_port_delete_exception()
-
-    @test.create_stubs({api.neutron: ('port_delete',
-                                      'subnet_list',
-                                      'port_list',
-                                      'is_extension_supported',
-                                      'network_get',)})
-    def test_port_delete_exception_with_mac_learning(self):
-        self._test_port_delete_exception(mac_learning=True)
-
-    def _test_port_delete_exception(self, mac_learning=False):
-        port = self.ports.first()
-        network_id = port.network_id
-
-        api.neutron.port_delete(IsA(http.HttpRequest), port.id) \
-            .AndRaise(self.exceptions.neutron)
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id) \
-            .AndReturn([self.ports.first()])
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning') \
-            .AndReturn(mac_learning)
-
-        self.mox.ReplayAll()
-
-        form_data = {'action': 'ports__delete__%s' % port.id}
-        url = reverse(NETWORKS_DETAIL_URL, args=[network_id])
-        res = self.client.post(url, form_data)
-
-        self.assertRedirectsNoFollow(res, url)

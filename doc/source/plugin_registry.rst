@@ -21,13 +21,13 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Cue Dashboard          |https://github.com/openstack/cue-dashboard           |https://launchpad.net/cue-dashboard         |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Designate Dashboard    |https://github.com/openstack/designate-dashboard     |https://launchpad.net/designate-dashboard   |
+|Designate Dashboard    |https://github.com/openstack/designate-dashboard     |https://launchpad.net/designate             |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Group Based Policy UI  |https://github.com/openstack/group-based-policy-ui   |https://launchpad.net/group-based-policy-ui |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Freezer Web UI         |https://github.com/openstack/freezer-web-ui          |https://launchpad.net/freezer               |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Ironic UI              |https://github.com/openstack/ironic-ui               |https://launchpad.net/ironic-ui             |
+|Ironic UI              |https://github.com/openstack/ironic-ui               |https://launchpad.net/ironic                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Magnum UI              |http://github.com/openstack/magnum-ui                |https://launchpad.net/magnum-ui             |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
@@ -39,11 +39,11 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Murano Dashboard       |http://github.com/openstack/murano-dashboard         |http://launchpad.net/murano                 |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Neutron LBaaS Dashboard|https://github.com/openstack/neutron-lbaas-dashboard |http://launchpad.net/octavia                |
+|Neutron LBaaS Dashboard|https://github.com/openstack/neutron-lbaas-dashboard |http://launchpad.net/neutron                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Sahara Dashboard       |https://github.com/openstack/sahara-dashboard        |https://launchpad.net/sahara                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Searchlight UI         |https://github.com/openstack/searchlight-ui          |https://launchpad.net/searchlight           |
+|Searchlight UI         |https://github.com/openstack/searchlight-ui          |https://launchpad.net/searchlight-ui        |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Senlin Dashboard       |https://github.com/openstack/senlin-dashboard        |http://launchpad.net/senlin-dashboard       |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
@@ -53,11 +53,11 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Tacker UI              |https://github.com/openstack/tacker-horizon          |https://launchpad.net/tacker                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Trove Dashboard        |https://github.com/openstack/trove-dashboard         |https://launchpad.net/trove-dashboard       |
+|Trove Dashboard        |https://github.com/openstack/trove-dashboard         |https://launchpad.net/trove                 |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Vitrage Dashboard      |http://github.com/openstack/vitrage-dashboard        |https://launchpad.net/vitrage-dashboard     |
+|Vitrage Dashboard      |http://github.com/openstack/vitrage-dashboard        |https://launchpad.net/vitrage               |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Watcher Dashboard      |http://github.com/openstack/watcher-dashboard        |https://launchpad.net/watcher-dashboard     |
+|Watcher Dashboard      |http://github.com/openstack/watcher-dashboard        |https://launchpad.net/watcher               |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Zaqar UI               |http://github.com/openstack/zaqar-ui                 |https://launchpad.net/zaqar-ui              |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+

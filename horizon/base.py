@@ -30,20 +30,20 @@ import django
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
-from django.utils.functional import SimpleLazyObject
-from django.utils.module_loading import module_has_submodule
+from django.utils.functional import SimpleLazyObject  # noqa
+from django.utils.module_loading import module_has_submodule  # noqa
 from django.utils.translation import ugettext_lazy as _
 from importlib import import_module
 import six
 
 from horizon import conf
-from horizon.decorators import _current_component
-from horizon.decorators import require_auth
-from horizon.decorators import require_perms
+from horizon.decorators import _current_component  # noqa
+from horizon.decorators import require_auth  # noqa
+from horizon.decorators import require_perms  # noqa
 from horizon import loaders
 from horizon.utils import settings as utils_settings
 
@@ -264,7 +264,7 @@ class Panel(HorizonComponent):
     .. attribute:: nav
     .. method:: nav(context)
 
-        The ``nav`` attribute can be either a boolean value or a callable
+        The ``nav`` attribute can be either boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
         to control whether or not this panel should appear in
         automatically-generated navigation. Default: ``True``.
@@ -309,8 +309,7 @@ class Panel(HorizonComponent):
         except Exception as exc:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
-            LOG.info("Error reversing absolute URL for %(self)s: %(exc)s",
-                     {'self': self, 'exc': exc})
+            LOG.info("Error reversing absolute URL for %s: %s" % (self, exc))
             raise
 
     @property
@@ -443,7 +442,7 @@ class Dashboard(Registry, HorizonComponent):
     .. attribute:: nav
     .. method:: nav(context)
 
-        The ``nav`` attribute can be either a boolean value or a callable
+        The ``nav`` attribute can be either boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
         to control whether or not this dashboard should appear in
         automatically-generated navigation. Default: ``True``.
@@ -525,7 +524,7 @@ class Dashboard(Registry, HorizonComponent):
         except Exception:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
-            LOG.exception("Error reversing absolute URL for %s.", self)
+            LOG.exception("Error reversing absolute URL for %s." % self)
             raise
 
     @property

@@ -10,13 +10,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 11.0.1.dev36\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-03-10 11:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-15 08:06+0000\n"
+"PO-Revision-Date: 2017-03-10 07:42+0000\n"
 "Last-Translator: Marcio <marciofoz@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -32,11 +32,11 @@ msgid_plural "%s instances launched."
 msgstr[0] "%s de instância ativada."
 msgstr[1] "%s de instâncias ativadas."
 
+msgid "(None)"
+msgstr "(Nenhum)"
+
 msgid "1"
 msgstr "1"
-
-msgid "10%"
-msgstr "10%"
 
 msgid "2"
 msgstr "2"
@@ -56,14 +56,8 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
-msgid "75%"
-msgstr "75%"
-
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Essa linha do texto deve ser tratada como um detalhe.</small>"
-
-msgid "A Confirmation Dialog"
-msgstr "Um diálogo de confirmação"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -117,9 +111,6 @@ msgstr ""
 "Um par de chaves denominado '{$ctrl.createdKeypair.name$}' foi criado com "
 "sucesso. Esse par de chaves deve ser transferido por download "
 "automaticamente."
-
-msgid "A local file should be selected."
-msgstr "Um arquivo local deve ser selecionado."
 
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
@@ -216,9 +207,6 @@ msgstr ""
 "única partição. Selecionar <b>Manual</b> permite criar múltiplas partições "
 "no disco."
 
-msgid "An external (HTTP) URL is required"
-msgstr "Uma URL (HTTP) externa é necessária"
-
 msgid "An external (HTTP) URL to load the image from"
 msgstr "Uma URL (HTTP) externa de onde carregar a imagem"
 
@@ -244,9 +232,6 @@ msgstr "Arquitetura"
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Tem certeza de que deseja excluir o container %(name)s?"
-
-msgid "Array"
-msgstr "Matriz"
 
 msgid "Automatic"
 msgstr "Automático"
@@ -316,9 +301,6 @@ msgstr ""
 
 msgid "Checkbox"
 msgstr "Checkbox"
-
-msgid "Checking if this name is used..."
-msgstr "Verificando se este nome é usado..."
 
 msgid "Checksum"
 msgstr "Soma de Verificação"
@@ -404,10 +386,10 @@ msgid "Copy Data"
 msgstr "Copiar Dados"
 
 msgid "Could not decrypt the password"
-msgstr "Não foi possível descriptografar a senha"
+msgstr "Não foi possível decriptar a senha"
 
 msgid "Could not read the file"
-msgstr "Não foi possivel ler o arquivo"
+msgstr "Não foi possível ler o arquivo"
 
 msgid "Count"
 msgstr "Contagem"
@@ -524,16 +506,16 @@ msgid "Delete Images"
 msgstr "Excluir Imagens"
 
 msgid "Delete Instance"
-msgstr "Excluir Instância"
+msgstr "Deletar Instância"
 
 msgid "Delete Interface"
-msgstr "Excluir Interface"
+msgstr "Deletar Interface"
 
 msgid "Delete Network"
-msgstr "Excluir Rede"
+msgstr "Deletar Rede"
 
 msgid "Delete Router"
-msgstr "Excluir Roteador"
+msgstr "Deletar Roteador"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
@@ -640,11 +622,8 @@ msgstr "Habilitado"
 msgid "Encrypted"
 msgstr "Encriptado"
 
-msgid "Enter an Image Description"
-msgstr "Entre uma Descrição da Imagem"
-
 msgid "Enter an Image name"
-msgstr "Entre um Nome de Imagem"
+msgstr "Entre um nome de imagem"
 
 msgid "Ephemeral Disk"
 msgstr "Disco Temporário"
@@ -784,9 +763,6 @@ msgstr "ID"
 msgid "IP"
 msgstr "IP"
 
-msgid "IP Addresses"
-msgstr "Endereços IP"
-
 msgid "ISO"
 msgstr "ISO"
 
@@ -866,12 +842,6 @@ msgstr "Detalhes da Imagem"
 msgid "Image Name"
 msgstr "Nome da Imagem"
 
-msgid "Image Requirements"
-msgstr "Requisitos da Imagem"
-
-msgid "Image Source"
-msgstr "Origem da Imagem"
-
 msgid "Images"
 msgstr "Imagens"
 
@@ -925,9 +895,6 @@ msgstr "Instâncias"
 
 msgid "Interfaces"
 msgstr "Interfaces"
-
-msgid "Is Public"
-msgstr "Público"
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -1028,14 +995,8 @@ msgstr "Membros do Conjunto de Balanceadores de Carga"
 msgid "Load Balancer Pools"
 msgstr "Conjuntos de Balanceadores de Carga"
 
-msgid "Load Function:"
-msgstr "Carregar Função:"
-
 msgid "Loading"
 msgstr "Carregando"
-
-msgid "Location"
-msgstr "Localização"
 
 msgid "Look, I'm in a large well!"
 msgstr "Olha, eu estou em um poço!"
@@ -1102,9 +1063,6 @@ msgstr "Botão Mini"
 
 msgid "Minimum Disk (GB)"
 msgstr "Disco Mínimo (GB)"
-
-msgid "Minimum RAM"
-msgstr "Memória RAM mínima (MB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Memóriam RAM mínima (MB)"
@@ -1178,9 +1136,6 @@ msgstr "Não"
 msgid "No available items"
 msgstr "Itens indisponíveis"
 
-msgid "No description available."
-msgstr "Nenhuma descrição disponível."
-
 msgid "None"
 msgstr "Nenhum"
 
@@ -1248,7 +1203,7 @@ msgid "One more separated link"
 msgstr "Mais um link separado"
 
 msgid "Open"
-msgstr "Aberto"
+msgstr "Abrir"
 
 msgid "Open Console"
 msgstr "Abrir Console"
@@ -1259,14 +1214,8 @@ msgstr "Opção um é esta"
 msgid "Option two can be something else"
 msgstr "Opção dois pode ser outra coisa"
 
-msgid "Ordered"
-msgstr "Ordenado"
-
 msgid "Other Input Types"
 msgstr "Outros Tipos de Entrada"
-
-msgid "Other lists"
-msgstr "Outras listas"
 
 msgid "Overview"
 msgstr "Visão Geral"
@@ -1507,9 +1456,6 @@ msgstr "ID de Segmentação"
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
 
-msgid "Select Example"
-msgstr "Selecione Exemplo"
-
 msgid "Select Title"
 msgstr "Selecione Título"
 
@@ -1650,14 +1596,8 @@ msgstr "Tags"
 msgid "Tel"
 msgstr "Tel"
 
-msgid "Text"
-msgstr "Texto"
-
 msgid "Textarea"
 msgstr "Área de texto"
-
-msgid "The architecture of the image."
-msgstr "A arquitetura da imagem."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1804,9 +1744,6 @@ msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "Esse limite é configurado atualmente para {$ model.novaLimits.maxServerMeta "
 "$}."
-
-msgid "This name already exists."
-msgstr "Este name já existe."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Essa etapa permite incluir itens de Metadados na sua instância."
@@ -2036,7 +1973,7 @@ msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar as instâncias."
 
 msgid "Unable to retrieve server groups."
-msgstr "Incapaz de recuperar grupos de servidores."
+msgstr "Incapaz de recuperar grupos de servidores"
 
 msgid "Unable to retrieve settings."
 msgstr "Não é possível recuperar as configurações."
@@ -2179,9 +2116,6 @@ msgstr "Não é possível validar o modelo."
 msgid "Unknown"
 msgstr "Desconhecido"
 
-msgid "Unordered"
-msgstr "Desordenado"
-
 msgid "Up"
 msgstr "Ativo"
 
@@ -2202,9 +2136,6 @@ msgstr "Atualizar Metadados da Instância"
 
 msgid "Update Metadata"
 msgstr "Atualizar Metadados"
-
-msgid "Update Volume Metadata"
-msgstr "Atualizar Metadados do Volume"
 
 msgid "Updated"
 msgstr "Atualizado"
@@ -2262,12 +2193,6 @@ msgstr "Tipo de VNIC"
 
 msgid "View Details"
 msgstr "Ver Detalhes"
-
-msgid "View Instance Details"
-msgstr "Ver Detalhes da Instância"
-
-msgid "View Router Details"
-msgstr "Ver Detalhes do Roteador"
 
 msgid "Virtual Size"
 msgstr "Tamanho Virtual"

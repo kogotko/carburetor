@@ -3,17 +3,16 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 11.0.1.dev17\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-03-07 16:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-24 08:36+0000\n"
+"PO-Revision-Date: 2017-03-07 11:53+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -27,6 +26,9 @@ msgstr "#"
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] "インスタンスを %s 個起動しました。"
+
+msgid "(None)"
+msgstr "(なし)"
 
 msgid "1"
 msgstr "1"
@@ -137,9 +139,6 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>この行の文字は、細字として処理されます。</small>"
-
-msgid "A Confirmation Dialog"
-msgstr "確認ダイアログ"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -265,9 +264,6 @@ msgstr "稼働中"
 msgid "Add Interface"
 msgstr "インターフェースの追加"
 
-msgid "Add Ons, Required and Feedback"
-msgstr "アドオン、必須項目、およびフィードバック"
-
 msgid "Admin State"
 msgstr "管理状態"
 
@@ -378,9 +374,6 @@ msgstr "アーキテクチャー"
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "コンテナー %(name)s を削除してよろしいですか?"
-
-msgid "Array"
-msgstr "配列"
 
 msgid "Automatic"
 msgstr "自動"
@@ -499,17 +492,9 @@ msgstr "コンフィグドライブ"
 msgid "Confirm Delete"
 msgstr "削除の確認"
 
-msgid "Confirm Delete Flavor"
-msgid_plural "Confirm Delete Flavors"
-msgstr[0] "フレーバーの削除の確認"
-
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
-
-msgid "Confirm Delete Role"
-msgid_plural "Confirm Delete Roles"
-msgstr[0] "ロールの削除の確認"
 
 msgid "Connecting"
 msgstr "接続中"
@@ -582,9 +567,6 @@ msgstr "キーペアの作成"
 
 msgid "Create New Volume"
 msgstr "新規ボリュームの作成"
-
-msgid "Create Role"
-msgstr "ロールの作成"
 
 msgid "Create Subnet"
 msgstr "サブネットの作成"
@@ -682,13 +664,6 @@ msgstr "コンテナーの削除"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} 内のファイルの削除"
 
-msgid "Delete Flavor"
-msgid_plural "Delete Flavors"
-msgstr[0] "フレーバーの削除"
-
-msgid "Delete Flavors"
-msgstr "フレーバーの削除"
-
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "イメージの削除"
@@ -705,13 +680,6 @@ msgstr "インタフェースの削除"
 msgid "Delete Network"
 msgstr "ネットワークの削除"
 
-msgid "Delete Role"
-msgid_plural "Delete Roles"
-msgstr[0] "ロールの削除"
-
-msgid "Delete Roles"
-msgstr "ロールの削除"
-
 msgid "Delete Router"
 msgstr "ルーターの削除"
 
@@ -725,19 +693,9 @@ msgid "Deleted"
 msgstr "削除"
 
 #, python-format
-msgid "Deleted Flavor: %s."
-msgid_plural "Deleted Flavors: %s."
-msgstr[0] "フレーバー %s を削除しました。"
-
-#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
-
-#, python-format
-msgid "Deleted Role: %s."
-msgid_plural "Deleted Roles: %s."
-msgstr[0] "ロール %s を削除しました。"
 
 msgid "Deleting"
 msgstr "削除中"
@@ -831,9 +789,6 @@ msgstr "ファイルの編集: {$ ctrl.model.container $} : {$ ctrl.model.path $
 
 msgid "Edit Image"
 msgstr "イメージの編集"
-
-msgid "Edit Role"
-msgstr "ロールの編集"
 
 msgid "Email"
 msgstr "メール"
@@ -935,12 +890,6 @@ msgstr "フォルダー %(name)s が作成されました。"
 
 msgid "Folder Name"
 msgstr "フォルダー名"
-
-msgid "Form"
-msgstr "フォーム"
-
-msgid "Form Output"
-msgstr "フォーム出力"
 
 msgid "Format"
 msgstr "形式"
@@ -1292,9 +1241,6 @@ msgstr "グループ一覧の項目の見出し"
 msgid "List groups"
 msgstr "グループの一覧表示"
 
-msgid "Live Edit Schema Form Examples"
-msgstr "Schema Form の例のライブ編集"
-
 msgid "Load Balancer Pool"
 msgstr "ロードバランサープール"
 
@@ -1411,9 +1357,6 @@ msgstr "最小メモリー (MB)"
 
 msgid "Modals"
 msgstr "モーダル"
-
-msgid "Model"
-msgstr "モデル"
 
 msgid "Month"
 msgstr "月"
@@ -1782,9 +1725,6 @@ msgstr "RX/TX 係数"
 msgid "Radios"
 msgstr "ラジオボタン"
 
-msgid "Radios, Checkboxes and Select"
-msgstr "ラジオボタン、チェックボックス、およびセレクト"
-
 msgid "Ramdisk"
 msgstr "RAM ディスク"
 
@@ -1811,13 +1751,6 @@ msgstr "右端"
 
 msgid "Role"
 msgstr "ロール"
-
-#, python-format
-msgid "Role %s was successfully created."
-msgstr "ロール %s が正常に作成されました。"
-
-msgid "Role updated successfully."
-msgstr "ロールが正常に更新されました。"
 
 msgid "Roles"
 msgstr "ロール"
@@ -1847,14 +1780,8 @@ msgstr ""
 "スケジューラーヒントを使うと、配置に関する追加の情報を compute のスケジュー"
 "ラーに渡すことができます。"
 
-msgid "Schema"
-msgstr "スキーマ"
-
 msgid "Search"
 msgstr "検索"
-
-msgid "Sections and Fieldsets"
-msgstr "セクションとフィールドセット"
 
 msgid "Security"
 msgstr "セキュリティー"
@@ -1875,24 +1802,22 @@ msgid ""
 "Security groups define a set of IP filter rules that determine how network "
 "traffic flows to and from an instance. Users can add additional rules to an "
 "existing security group to further define the access options for an "
-"instance. To create additional rules, go to the <b>Network | Security "
-"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
 msgstr ""
 "セキュリティーグループは、インスタンスに出入りするネットワークトラフィックを"
 "どのように扱うかを決める IP フィルタールールの集合体です。ユーザーは、既存の"
 "セキュリティーグループにルールを追加して、インスタンスへのアクセス設定を行う"
-"ことができます。追加のルールを作成するには、<b>ネットワーク | セキュリティー"
-"グループ</b>画面で追加先のセキュリティーグループを見つけて、<b>ルールの管理</"
-"b>をクリックします。"
+"ことができます。追加のルールを作成するには、<b>コンピュート | アクセスとセ"
+"キュリティー</b>画面で追加先のセキュリティーグループを見つけて、<b>ルールの管"
+"理</b>をクリックします。"
 
 msgid "Segmentation ID"
 msgstr "セグメント ID"
 
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
-
-msgid "Select Example"
-msgstr "例を選択してください"
 
 msgid "Select Title"
 msgstr "タイトルの選択"
@@ -2104,9 +2029,6 @@ msgstr "Swift コンテナー"
 msgid "Swift Containers"
 msgstr "Swift コンテナー"
 
-msgid "Tab Array"
-msgstr "タブの配列"
-
 msgid "Table Columns:"
 msgstr "テーブルのコラム:"
 
@@ -2124,9 +2046,6 @@ msgstr "電話"
 
 msgid "Text"
 msgstr "テキスト"
-
-msgid "Text Inputs"
-msgstr "テキスト入力"
 
 msgid "Textarea"
 msgstr "テキストエリア"
@@ -2298,13 +2217,6 @@ msgstr ""
 "ます。"
 
 msgid ""
-"This JavaScript object contains your new form and can be used with "
-"<code>horizon.framework.widgets.form.ModalFormService</code>"
-msgstr ""
-"この JavaScript オブジェクトには新しいフォームが含まれており、 <code>horizon."
-"framework.widgets.form.ModalFormService</code> で使用できます。"
-
-msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
@@ -2345,18 +2257,6 @@ msgstr ""
 
 msgid "This name already exists."
 msgstr "この名前はすでに存在します。"
-
-msgid ""
-"This page contains examples of the different fields provided by Schema Form "
-"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
-"be edited inline to customise the form output. For further documentation on "
-"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
-msgstr ""
-"このページには、 Horizon での Schema Form による様々な項目の例が含まれていま"
-"す。以下の <code>Schema</code> と <code>Form</code> セクションは、フォーム出"
-"力をカスタマイズするためにインラインで編集できます。 Schema Form の詳細なド"
-"キュメントは、 <a href=\"http://schemaform.io/\">http://schemaform.io/</a> を"
-"参照してください。"
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "このステップで、インスタンスにメタデータ項目を追加することができます。"
@@ -2472,19 +2372,9 @@ msgid "Unable to create the volume."
 msgstr "ボリュームを作成できません。"
 
 #, python-format
-msgid "Unable to delete Flavor: %s."
-msgid_plural "Unable to delete Flavors: %s."
-msgstr[0] "フレーバーを削除できません: %s"
-
-#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "イメージを削除できません: %s"
-
-#, python-format
-msgid "Unable to delete Role: %s."
-msgid_plural "Unable to delete Roles: %s."
-msgstr[0] "ロールを削除できません: %s"
 
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
@@ -2891,26 +2781,6 @@ msgstr "使用状況チャート"
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
 
-msgid ""
-"Use the form to set titles, descriptions and choose specific UI element "
-"types for each schema item. In the form builder, the form must be JSON, but "
-"you can use JavaScript in production code, such as <code>gettext</code> for "
-"translation."
-msgstr ""
-"タイトルや説明、スキーマの項目に UI 独自の要素を設定するには、フォームを使用"
-"してください。フォームビルダーでは、フォームは JSON 形式である必要があります"
-"が、翻訳のための <code>gettext</code> など、プロダクション環境のための "
-"JavaScript は使用できます。"
-
-msgid ""
-"Use the schema to describe the data model and valid input patterns. A schema "
-"is always JSON. NOTE: A schema element is not needed for items that have no "
-"data model, like sections and fieldsets."
-msgstr ""
-"データモデルと有効な入力パターンを記述するには、スキーマを使用してください。"
-"スキーマは JSON 形式です。注意: スキーマの要素は、セクションやフィールドセッ"
-"トなど、データモデルがない項目には必要ありません。"
-
 msgid "User"
 msgstr "ユーザー"
 
@@ -2944,14 +2814,8 @@ msgstr "VMDK - 仮想マシンディスク"
 msgid "VNIC type"
 msgstr "仮想 NIC の種別"
 
-msgid "View As Modal"
-msgstr "モーダルでの表示"
-
 msgid "View Details"
 msgstr "詳細の表示"
-
-msgid "View Form JSON"
-msgstr "フォームの JSON の表示"
 
 msgid "View Instance Details"
 msgstr "インスタンスの詳細の表示"
@@ -3128,22 +2992,9 @@ msgstr ""
 "は、「カスタム」 オプションを使用してください。"
 
 #, python-format
-msgid "You have selected \"%s\". Deleted flavor is not recoverable."
-msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
-msgstr[0] "\"%s\" を選択しました。削除されたフレーバーは元に戻せません。"
-
-#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
-
-#, python-format
-msgid "You have selected \"%s\". Deleted role is not recoverable."
-msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
-msgstr[0] "\"%s\" を選択しました。削除されたロールは元に戻せません。"
-
-msgid "Your Form as JavaScript"
-msgstr "JavaScript でのフォーム"
 
 msgid "error"
 msgid_plural "errors"

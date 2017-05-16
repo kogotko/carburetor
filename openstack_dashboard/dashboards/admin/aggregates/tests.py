@@ -14,8 +14,7 @@ import mock
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils import html
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.aggregates import constants
@@ -79,12 +78,10 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
     @test.create_stubs({api.nova: ('host_list', 'aggregate_details_list',
                                    'aggregate_create'), })
     def _test_generic_create_aggregate(self, workflow_data, aggregate,
-                                       existing_aggregates=(),
                                        error_count=0,
                                        expected_error_message=None):
         api.nova.host_list(IsA(http.HttpRequest)).AndReturn(self.hosts.list())
-        api.nova.aggregate_details_list(IsA(http.HttpRequest)) \
-            .AndReturn(existing_aggregates)
+        api.nova.aggregate_details_list(IsA(http.HttpRequest)).AndReturn([])
         if not expected_error_message:
             api.nova.aggregate_create(
                 IsA(http.HttpRequest),
@@ -114,31 +111,8 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         workflow_data = self._get_create_workflow_data(aggregate)
         workflow_data['name'] = ''
         workflow_data['availability_zone'] = ''
-        self._test_generic_create_aggregate(workflow_data, aggregate, (), 1,
+        self._test_generic_create_aggregate(workflow_data, aggregate, 1,
                                             u'This field is required')
-
-    def test_create_aggregate_fails_missing_fields_existing_aggregates(self):
-        aggregate = self.aggregates.first()
-        existing_aggregates = self.aggregates.list()
-        workflow_data = self._get_create_workflow_data(aggregate)
-        workflow_data['name'] = ''
-        workflow_data['availability_zone'] = ''
-
-        self._test_generic_create_aggregate(workflow_data, aggregate,
-                                            existing_aggregates, 1,
-                                            u'This field is required')
-
-    def test_create_aggregate_fails_duplicated_name(self):
-        aggregate = self.aggregates.first()
-        existing_aggregates = self.aggregates.list()
-        workflow_data = self._get_create_workflow_data(aggregate)
-        expected_error_message = html \
-            .escape(u'The name "%s" is already used by another host aggregate.'
-                    % aggregate.name)
-
-        self._test_generic_create_aggregate(workflow_data, aggregate,
-                                            existing_aggregates, 1,
-                                            expected_error_message)
 
     @test.create_stubs({api.nova: ('host_list',
                                    'aggregate_details_list',

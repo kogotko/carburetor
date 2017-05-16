@@ -17,14 +17,14 @@ import logging
 
 from django.conf import settings
 from django.core import urlresolvers
-from django.http import HttpResponse
+from django.http import HttpResponse  # noqa
 from django import shortcuts
 from django import template
-from django.template.defaultfilters import title
+from django.template.defaultfilters import title  # noqa
 from django.utils.http import urlencode
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
+from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -81,7 +81,7 @@ def is_deleting(instance):
 
 
 class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
-    policy_rules = (("compute", "os_compute_api:servers:delete"),)
+    policy_rules = (("compute", "compute:delete"),)
     help_text = _("Deleted instances are not recoverable.")
 
     @staticmethod
@@ -116,7 +116,7 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
 class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "reboot"
     classes = ('btn-reboot',)
-    policy_rules = (("compute", "os_compute_api:servers:reboot"),)
+    policy_rules = (("compute", "compute:reboot"),)
     help_text = _("Restarted instances will lose any data"
                   " not saved in persistent storage.")
     action_type = "danger"
@@ -171,12 +171,6 @@ class SoftRebootInstance(RebootInstance):
     def action(self, request, obj_id):
         api.nova.server_reboot(request, obj_id, soft_reboot=True)
 
-    def allowed(self, request, instance=None):
-        if instance is not None:
-            return instance.status in ACTIVE_STATES
-        else:
-            return True
-
 
 class TogglePause(tables.BatchAction):
     name = "pause"
@@ -222,11 +216,11 @@ class TogglePause(tables.BatchAction):
         if self.paused:
             self.current_present_action = UNPAUSE
             policy_rules = (
-                ("compute", "os_compute_api:os-pause-server:unpause"),)
+                ("compute", "compute_extension:admin_actions:unpause"),)
         else:
             self.current_present_action = PAUSE
             policy_rules = (
-                ("compute", "os_compute_api:os-pause-server:pause"),)
+                ("compute", "compute_extension:admin_actions:pause"),)
 
         has_permission = policy.check(
             policy_rules, request,
@@ -289,11 +283,11 @@ class ToggleSuspend(tables.BatchAction):
         if self.suspended:
             self.current_present_action = RESUME
             policy_rules = (
-                ("compute", "os_compute_api:os-rescue"),)
+                ("compute", "compute_extension:admin_actions:resume"),)
         else:
             self.current_present_action = SUSPEND
             policy_rules = (
-                ("compute", "os_compute_api:os-suspend-server:suspend"),)
+                ("compute", "compute_extension:admin_actions:suspend"),)
 
         has_permission = policy.check(
             policy_rules, request,
@@ -358,10 +352,10 @@ class ToggleShelve(tables.BatchAction):
         self.shelved = instance.status == "SHELVED_OFFLOADED"
         if self.shelved:
             self.current_present_action = UNSHELVE
-            policy_rules = (("compute", "os_compute_api:os-shelve:unshelve"),)
+            policy_rules = (("compute", "compute_extension:unshelve"),)
         else:
             self.current_present_action = SHELVE
-            policy_rules = (("compute", "os_compute_api:os-shelve:shelve"),)
+            policy_rules = (("compute", "compute_extension:shelve"),)
 
         has_permission = policy.check(
             policy_rules, request,
@@ -386,7 +380,7 @@ class LaunchLink(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
-    policy_rules = (("compute", "os_compute_api:servers:create"),)
+    policy_rules = (("compute", "compute:create"),)
     ajax = True
 
     def __init__(self, attrs=None, **kwargs):
@@ -450,7 +444,7 @@ class EditInstance(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:instances:update"
     classes = ("ajax-modal",)
     icon = "pencil"
-    policy_rules = (("compute", "os_compute_api:servers:update"),)
+    policy_rules = (("compute", "compute:update"),)
 
     def get_link_url(self, project):
         return self._get_link_url(project, 'instance_info')
@@ -486,7 +480,7 @@ class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:images:snapshots:create"
     classes = ("ajax-modal",)
     icon = "camera"
-    policy_rules = (("compute", "os_compute_api:snapshot"),)
+    policy_rules = (("compute", "compute:snapshot"),)
 
     def allowed(self, request, instance=None):
         return instance.status in SNAPSHOT_READY_STATES \
@@ -498,7 +492,7 @@ class ConsoleLink(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Console")
     url = "horizon:project:instances:detail"
     classes = ("btn-console",)
-    policy_rules = (("compute", "os_compute_api:os-consoles:index"),)
+    policy_rules = (("compute", "compute_extension:consoles"),)
 
     def allowed(self, request, instance=None):
         # We check if ConsoleLink is allowed only if settings.CONSOLE_TYPE is
@@ -518,7 +512,7 @@ class LogLink(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("View Log")
     url = "horizon:project:instances:detail"
     classes = ("btn-log",)
-    policy_rules = (("compute", "os_compute_api:os-console-output"),)
+    policy_rules = (("compute", "compute_extension:console_output"),)
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES and not is_deleting(instance)
@@ -535,7 +529,7 @@ class ResizeLink(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Resize Instance")
     url = "horizon:project:instances:resize"
     classes = ("ajax-modal", "btn-resize")
-    policy_rules = (("compute", "os_compute_api:servers:resize"),)
+    policy_rules = (("compute", "compute:resize"),)
 
     def get_link_url(self, project):
         return self._get_link_url(project, 'flavor_choice')
@@ -558,7 +552,7 @@ class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
     name = "confirm"
     verbose_name = _("Confirm Resize/Migrate")
     classes = ("btn-confirm", "btn-action-required")
-    policy_rules = (("compute", "os_compute_api:servers:confirm_resize"),)
+    policy_rules = (("compute", "compute:confirm_resize"),)
 
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
@@ -571,7 +565,7 @@ class RevertResize(policy.PolicyTargetMixin, tables.Action):
     name = "revert"
     verbose_name = _("Revert Resize/Migrate")
     classes = ("btn-revert", "btn-action-required")
-    policy_rules = (("compute", "os_compute_api:servers:revert_resize"),)
+    policy_rules = (("compute", "compute:revert_resize"),)
 
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
@@ -585,7 +579,7 @@ class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Rebuild Instance")
     classes = ("btn-rebuild", "ajax-modal")
     url = "horizon:project:instances:rebuild"
-    policy_rules = (("compute", "os_compute_api:servers:rebuild"),)
+    policy_rules = (("compute", "compute:rebuild"),)
 
     def allowed(self, request, instance):
         return ((instance.status in ACTIVE_STATES
@@ -626,9 +620,7 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:floating_ips:associate"
     classes = ("ajax-modal",)
     icon = "link"
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+    policy_rules = (("compute", "network:associate_floating_ip"),)
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_supported(request):
@@ -657,9 +649,7 @@ class SimpleAssociateIP(policy.PolicyTargetMixin, tables.Action):
     name = "associate-simple"
     verbose_name = _("Associate Floating IP")
     icon = "link"
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+    policy_rules = (("compute", "network:associate_floating_ip"),)
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_simple_associate_supported(request):
@@ -690,9 +680,7 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate Floating IP")
     classes = ("btn-disassociate",)
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+    policy_rules = (("compute", "network:disassociate_floating_ip"),)
     action_type = "danger"
 
     def allowed(self, request, instance):
@@ -739,7 +727,7 @@ class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
     ajax = False
     icon = "pencil"
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
-    policy_rules = (("compute", "os_compute_api:server-metadata:update"),)
+    policy_rules = (("compute", "compute:update_instance_metadata"),)
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
@@ -809,7 +797,7 @@ class UpdateRow(tables.Row):
 class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "start"
     classes = ('btn-confirm',)
-    policy_rules = (("compute", "os_compute_api:servers:start"),)
+    policy_rules = (("compute", "compute:start"),)
 
     @staticmethod
     def action_present(count):
@@ -837,7 +825,7 @@ class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
 class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "stop"
-    policy_rules = (("compute", "os_compute_api:servers:stop"),)
+    policy_rules = (("compute", "compute:stop"),)
     help_text = _("The instance(s) will be shut off.")
     action_type = "danger"
 
@@ -870,7 +858,7 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
 class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "lock"
-    policy_rules = (("compute", "os_compute_api:os-lock-server:lock"),)
+    policy_rules = (("compute", "compute_extension:admin_actions:lock"),)
 
     @staticmethod
     def action_present(count):
@@ -890,11 +878,10 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     # to only allow unlocked instances to be locked
     def allowed(self, request, instance):
+        # if not locked, lock should be available
         if getattr(instance, 'locked', False):
             return False
         if not api.nova.extension_supported('AdminActions', request):
-            return False
-        if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
         return True
 
@@ -904,7 +891,7 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
 class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "unlock"
-    policy_rules = (("compute", "os_compute_api:os-lock-server:unlock"),)
+    policy_rules = (("compute", "compute_extension:admin_actions:unlock"),)
 
     @staticmethod
     def action_present(count):
@@ -928,8 +915,6 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
             return False
         if not api.nova.extension_supported('AdminActions', request):
             return False
-        if not api.nova.is_feature_available(request, "locked_attribute"):
-            return False
         return True
 
     def action(self, request, obj_id):
@@ -941,7 +926,7 @@ class AttachVolume(tables.LinkAction):
     verbose_name = _("Attach Volume")
     url = "horizon:project:instances:attach_volume"
     classes = ("ajax-modal",)
-    policy_rules = (("compute", "os_compute_api:servers:attach_volume"),)
+    policy_rules = (("compute", "compute:attach_volume"),)
 
     # This action should be disabled if the instance
     # is not active, or the instance is being deleted
@@ -954,7 +939,7 @@ class DetachVolume(AttachVolume):
     name = "detach_volume"
     verbose_name = _("Detach Volume")
     url = "horizon:project:instances:detach_volume"
-    policy_rules = (("compute", "os_compute_api:servers:detach_volume"),)
+    policy_rules = (("compute", "compute:detach_volume"),)
 
     # This action should be disabled if the instance
     # is not active, or the instance is being deleted
@@ -968,7 +953,7 @@ class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Attach Interface")
     classes = ("btn-confirm", "ajax-modal")
     url = "horizon:project:instances:attach_interface"
-    policy_rules = (("compute", "os_compute_api:os-attach-interfaces"),)
+    policy_rules = (("compute", "compute_extension:attach_interfaces"),)
 
     def allowed(self, request, instance):
         return ((instance.status in ACTIVE_STATES

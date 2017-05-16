@@ -19,32 +19,24 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
 from django.utils.http import urlunquote
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
-from openstack_dashboard.dashboards.project.volumes \
+from openstack_dashboard.dashboards.project.volumes.snapshots \
+    import tables as snapshot_tables
+from openstack_dashboard.dashboards.project.volumes.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
-
-from openstack_dashboard.dashboards.admin.snapshots import forms
 
 
 INDEX_URL = reverse('horizon:admin:volumes:index')
 
 
 class VolumeTests(test.BaseAdminViewTests):
-    def tearDown(self):
-        for volume in self.cinder_volumes.list():
-            # VolumeTableMixIn._set_volume_attributes mutates data
-            # and cinder_volumes.list() doesn't deep copy
-            for att in volume.attachments:
-                if 'instance' in att:
-                    del att['instance']
-        super(VolumeTests, self).tearDown()
 
-    @test.create_stubs({api.nova: ('server_list', 'server_get'),
+    @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
@@ -53,8 +45,6 @@ class VolumeTests(test.BaseAdminViewTests):
         if instanceless_volumes:
             for volume in volumes:
                 volume.attachments = []
-        else:
-            server = self.servers.first()
 
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir="desc",
                                  marker=None, paginate=True,
@@ -63,8 +53,6 @@ class VolumeTests(test.BaseAdminViewTests):
         cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).AndReturn([])
         if not instanceless_volumes:
-            api.nova.server_get(IsA(http.HttpRequest),
-                                server.id).AndReturn(server)
             api.nova.server_list(IsA(http.HttpRequest), search_opts={
                                  'all_tenants': True}, detailed=False) \
                 .AndReturn([self.servers.list(), False])
@@ -74,7 +62,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
@@ -84,14 +72,13 @@ class VolumeTests(test.BaseAdminViewTests):
     def test_index_with_attachments(self):
         self._test_index(instanceless_volumes=False)
 
-    @test.create_stubs({api.nova: ('server_list', 'server_get'),
+    @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
                               has_more, has_prev):
         vol_snaps = self.cinder_volume_snapshots.list()
-        server = self.servers.first()
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir=sort_dir,
                                  marker=marker, paginate=True,
                                  search_opts={'all_tenants': True}) \
@@ -101,8 +88,6 @@ class VolumeTests(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}, detailed=False) \
             .AndReturn([self.servers.list(), False])
-        api.nova.server_get(IsA(http.HttpRequest),
-                            server.id).AndReturn(server)
         keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
 
@@ -110,18 +95,11 @@ class VolumeTests(test.BaseAdminViewTests):
 
         res = self.client.get(urlunquote(url))
 
-        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
         self.assertEqual(res.status_code, 200)
 
         self.mox.UnsetStubs()
         return res
-
-    @override_settings(FILTER_DATA_FIRST={'admin.volumes': True})
-    def test_volumes_tab_with_admin_filter_first(self):
-        res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, [])
 
     def ensure_attachments_exist(self, volumes):
         volumes = copy.copy(volumes)
@@ -149,7 +127,7 @@ class VolumeTests(test.BaseAdminViewTests):
         expected_volumes = mox_volumes[size:2 * size]
         marker = expected_volumes[0].id
         next = volume_tables.VolumesTable._meta.pagination_param
-        url = INDEX_URL + "?%s=%s" % (next, marker)
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
         res = self._test_index_paginated(marker=marker, sort_dir="desc",
                                          volumes=expected_volumes, url=url,
                                          has_more=True, has_prev=True)
@@ -160,7 +138,7 @@ class VolumeTests(test.BaseAdminViewTests):
         expected_volumes = mox_volumes[-size:]
         marker = expected_volumes[0].id
         next = volume_tables.VolumesTable._meta.pagination_param
-        url = INDEX_URL + "?%s=%s" % (next, marker)
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
         res = self._test_index_paginated(marker=marker, sort_dir="desc",
                                          volumes=expected_volumes, url=url,
                                          has_more=False, has_prev=True)
@@ -176,7 +154,7 @@ class VolumeTests(test.BaseAdminViewTests):
         expected_volumes = mox_volumes[size:2 * size]
         marker = mox_volumes[0].id
         prev = volume_tables.VolumesTable._meta.prev_pagination_param
-        url = INDEX_URL + "?%s=%s" % (prev, marker)
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
         res = self._test_index_paginated(marker=marker, sort_dir="asc",
                                          volumes=expected_volumes, url=url,
                                          has_more=False, has_prev=True)
@@ -187,210 +165,157 @@ class VolumeTests(test.BaseAdminViewTests):
         expected_volumes = mox_volumes[:size]
         marker = mox_volumes[0].id
         prev = volume_tables.VolumesTable._meta.prev_pagination_param
-        url = INDEX_URL + "?%s=%s" % (prev, marker)
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
         res = self._test_index_paginated(marker=marker, sort_dir="asc",
                                          volumes=expected_volumes, url=url,
                                          has_more=True, has_prev=False)
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, expected_volumes)
 
-    @test.create_stubs({cinder: ('volume_reset_state',
-                                 'volume_get')})
-    def test_update_volume_status(self):
-        volume = self.volumes.first()
-        formData = {'status': 'error'}
-
-        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
-        cinder.volume_reset_state(IsA(http.HttpRequest),
-                                  volume.id,
-                                  formData['status'])
-        self.mox.ReplayAll()
-
-        res = self.client.post(
-            reverse('horizon:admin:volumes:update_status',
-                    args=(volume.id,)),
-            formData)
-        self.assertNoFormErrors(res)
-
-    @test.create_stubs({cinder: ('volume_manage',
-                                 'volume_type_list',
-                                 'availability_zone_list',
-                                 'extension_supported')})
-    def test_manage_volume(self):
-        metadata = {'key': u'k1',
-                    'value': u'v1'}
-        formData = {'host': 'host-1',
-                    'identifier': 'vol-1',
-                    'id_type': u'source-name',
-                    'name': 'name-1',
-                    'description': 'manage a volume',
-                    'volume_type': 'vol_type_1',
-                    'availability_zone': 'nova',
-                    'metadata': metadata['key'] + '=' + metadata['value'],
-                    'bootable': False}
-        cinder.volume_type_list(
-            IsA(http.HttpRequest)). \
+    @test.create_stubs({cinder: ('volume_type_list_with_qos_associations',
+                                 'qos_spec_list',
+                                 'extension_supported',
+                                 'volume_encryption_type_list')})
+    def test_volume_types_tab(self):
+        encryption_list = (self.cinder_volume_encryption_types.list()[0],
+                           self.cinder_volume_encryption_types.list()[1])
+        cinder.volume_type_list_with_qos_associations(
+            IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.list())
-        cinder.availability_zone_list(
-            IsA(http.HttpRequest)). \
-            AndReturn(self.availability_zones.list())
-        cinder.extension_supported(
-            IsA(http.HttpRequest),
-            'AvailabilityZones'). \
-            AndReturn(True)
-        cinder.volume_manage(
-            IsA(http.HttpRequest),
-            host=formData['host'],
-            identifier=formData['identifier'],
-            id_type=formData['id_type'],
-            name=formData['name'],
-            description=formData['description'],
-            volume_type=formData['volume_type'],
-            availability_zone=formData['availability_zone'],
-            metadata={metadata['key']: metadata['value']},
-            bootable=formData['bootable'])
-        self.mox.ReplayAll()
-        res = self.client.post(
-            reverse('horizon:admin:volumes:manage'),
-            formData)
-        self.assertNoFormErrors(res)
-
-    @test.create_stubs({cinder: ('volume_unmanage',
-                                 'volume_get')})
-    def test_unmanage_volume(self):
-        # important - need to get the v2 cinder volume which has host data
-        volume_list = [x for x in self.cinder_volumes.list()
-                       if x.name == 'v2_volume']
-        volume = volume_list[0]
-        formData = {'volume_name': volume.name,
-                    'host_name': 'host@backend-name#pool',
-                    'volume_id': volume.id}
-
-        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
-        cinder.volume_unmanage(IsA(http.HttpRequest), volume.id). \
-            AndReturn(volume)
-        self.mox.ReplayAll()
-        res = self.client.post(
-            reverse('horizon:admin:volumes:unmanage',
-                    args=(volume.id,)),
-            formData)
-        self.assertNoFormErrors(res)
-
-    @test.create_stubs({cinder: ('pool_list',
-                                 'volume_get',)})
-    def test_volume_migrate_get(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndReturn(volume)
-        cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_pools.list())
+        cinder.qos_spec_list(IsA(http.HttpRequest)).\
+            AndReturn(self.cinder_qos_specs.list())
+        cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
+            .AndReturn(encryption_list)
+        cinder.extension_supported(IsA(http.HttpRequest),
+                                   'VolumeTypeEncryption').MultipleTimes()\
+            .AndReturn(True)
 
         self.mox.ReplayAll()
+        url = reverse('horizon:admin:volumes:volume_types_tab')
+        res = self.client.get(urlunquote(url))
 
-        url = reverse('horizon:admin:volumes:migrate',
-                      args=[volume.id])
-        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(
+            res, 'admin/volumes/volume_types/volume_types_tables.html')
+        volume_types = res.context['volume_types_table'].data
+        self.assertItemsEqual(volume_types, self.cinder_volume_types.list())
+        qos_specs = res.context['qos_specs_table'].data
+        self.assertItemsEqual(qos_specs, self.cinder_qos_specs.list())
 
-        self.assertTemplateUsed(res,
-                                'admin/volumes/migrate_volume.html')
+    @test.create_stubs({cinder: ('volume_list',
+                                 'volume_snapshot_list_paged',),
+                        keystone: ('tenant_list',)})
+    def test_snapshots_tab(self):
+        cinder.volume_snapshot_list_paged(
+            IsA(http.HttpRequest), paginate=True, marker=None, sort_dir='desc',
+            search_opts={'all_tenants': True},).AndReturn(
+            [self.cinder_volume_snapshots.list(), False, False])
+        cinder.volume_list(IsA(http.HttpRequest), search_opts={
+            'all_tenants': True}).\
+            AndReturn(self.cinder_volumes.list())
+        keystone.tenant_list(IsA(http.HttpRequest)). \
+            AndReturn([self.tenants.list(), False])
 
-    @test.create_stubs({cinder: ('volume_get',)})
-    def test_volume_migrate_get_volume_get_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndRaise(self.exceptions.cinder)
+        self.mox.ReplayAll()
+        url = reverse('horizon:admin:volumes:snapshots_tab')
+        res = self.client.get(urlunquote(url))
+
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, self.cinder_volume_snapshots.list())
+
+    @test.create_stubs({cinder: ('volume_list',
+                                 'volume_snapshot_list_paged',),
+                        keystone: ('tenant_list',)})
+    def _test_snapshots_index_paginated(self, marker, sort_dir, snapshots, url,
+                                        has_more, has_prev):
+        cinder.volume_snapshot_list_paged(
+            IsA(http.HttpRequest), paginate=True, marker=marker,
+            sort_dir=sort_dir, search_opts={'all_tenants': True}) \
+            .AndReturn([snapshots, has_more, has_prev])
+        cinder.volume_list(IsA(http.HttpRequest), search_opts={
+            'all_tenants': True}).\
+            AndReturn(self.cinder_volumes.list())
+        keystone.tenant_list(IsA(http.HttpRequest)) \
+            .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:admin:volumes:migrate',
-                      args=[volume.id])
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
 
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        self.assertEqual(res.status_code, 200)
 
-    @test.create_stubs({cinder: ('pool_list',
-                                 'volume_get',)})
-    def test_volume_migrate_list_pool_get_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndReturn(volume)
-        cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndRaise(self.exceptions.cinder)
+        self.mox.UnsetStubs()
+        return res
 
-        self.mox.ReplayAll()
-        url = reverse('horizon:admin:volumes:migrate',
-                      args=[volume.id])
-        res = self.client.get(url)
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_snapshots_index_paginated(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        mox_snapshots = self.cinder_volume_snapshots.list()
+        base_url = reverse('horizon:admin:volumes:snapshots_tab')
+        next = snapshot_tables.VolumeSnapshotsTable._meta.pagination_param
 
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        # get first page
+        expected_snapshots = mox_snapshots[:size]
+        res = self._test_snapshots_index_paginated(
+            marker=None, sort_dir="desc", snapshots=expected_snapshots,
+            url=base_url, has_more=True, has_prev=False)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
 
-    @test.create_stubs({cinder: ('pool_list',
-                                 'volume_get',
-                                 'volume_migrate',)})
-    def test_volume_migrate_post(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        host = self.cinder_pools.first().name
+        # get second page
+        expected_snapshots = mox_snapshots[size:2 * size]
+        marker = expected_snapshots[0].id
+        url = "&".join([base_url, "=".join([next, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="desc", snapshots=expected_snapshots,
+            url=url, has_more=True, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
 
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndReturn(volume)
-        cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_pools.list())
-        cinder.volume_migrate(IsA(http.HttpRequest),
-                              volume.id,
-                              host,
-                              False) \
-            .AndReturn(None)
+        # get last page
+        expected_snapshots = mox_snapshots[-size:]
+        marker = expected_snapshots[0].id
+        url = "&".join([base_url, "=".join([next, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="desc", snapshots=expected_snapshots,
+            url=url, has_more=False, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
 
-        self.mox.ReplayAll()
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_snapshots_index_paginated_prev(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        max_snapshots = self.cinder_volume_snapshots.list()
+        base_url = reverse('horizon:admin:volumes:snapshots_tab')
+        prev = snapshot_tables.VolumeSnapshotsTable._meta.prev_pagination_param
 
-        url = reverse('horizon:admin:volumes:migrate',
-                      args=[volume.id])
-        res = self.client.post(url, {'host': host, 'volume_id': volume.id})
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        # prev from some page
+        expected_snapshots = max_snapshots[size:2 * size]
+        marker = max_snapshots[0].id
+        url = "&".join([base_url, "=".join([prev, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="asc", snapshots=expected_snapshots,
+            url=url, has_more=False, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
 
-    @test.create_stubs({cinder: ('pool_list',
-                                 'volume_get',
-                                 'volume_migrate',)})
-    def test_volume_migrate_post_api_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        host = self.cinder_pools.first().name
+        # back to first page
+        expected_snapshots = max_snapshots[:size]
+        marker = max_snapshots[0].id
+        url = "&".join([base_url, "=".join([prev, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="asc", snapshots=expected_snapshots,
+            url=url, has_more=True, has_prev=False)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
 
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndReturn(volume)
-        cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.cinder_pools.list())
-        cinder.volume_migrate(IsA(http.HttpRequest),
-                              volume.id,
-                              host,
-                              False) \
-            .AndRaise(self.exceptions.cinder)
+    @override_settings(FILTER_DATA_FIRST={'admin.volumes': True})
+    def test_volumes_tab_with_admin_filter_first(self):
+        res = self.client.get(INDEX_URL)
 
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:admin:volumes:migrate',
-                      args=[volume.id])
-        res = self.client.post(url, {'host': host, 'volume_id': volume.id})
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    def test_get_volume_status_choices_without_current(self):
-        current_status = {'status': 'available'}
-        status_choices = forms.populate_status_choices(current_status,
-                                                       forms.STATUS_CHOICES)
-        self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
-        self.assertNotIn(current_status['status'],
-                         [status[0] for status in status_choices])
-
-    @test.create_stubs({cinder: ('volume_get',)})
-    def test_update_volume_status_get(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
-        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-            .AndReturn(volume)
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:admin:volumes:update_status',
-                      args=[volume.id])
-        res = self.client.get(url)
-        status_option = "<option value=\"%s\"></option>" % volume.status
-        self.assertNotContains(res, status_option)
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, [])

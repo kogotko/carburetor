@@ -65,8 +65,8 @@ class OperationLogMiddleware(object):
             " [%(request_scheme)s] [%(referer_url)s] [%(request_url)s]"
             " [%(message)s] [%(method)s] [%(http_status)s] [%(param)s]")
         self.target_methods = [x for x in _methods if x in _available_methods]
-        self.mask_fields = _log_option.get("mask_fields", ['password'])
-        self.format = _log_option.get("format", _default_format)
+        self.mask_fields = getattr(_log_option, "mask_fields", ['password'])
+        self.format = getattr(_log_option, "format", _default_format)
         self.static_rule = ['/js/', '/static/']
         self._logger = logging.getLogger('horizon.operation_log')
 
@@ -156,9 +156,9 @@ class OperationLogMiddleware(object):
                 params = json.loads(request.body)
         except Exception:
             pass
-        for key in params:
+        for key in params.items():
             # replace a value to a masked characters
-            if key in self.mask_fields:
+            for key in self.mask_fields:
                 params[key] = '*' * 8
 
         # when a file uploaded (E.g create image)

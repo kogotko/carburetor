@@ -3,38 +3,18 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev2\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-16 00:21+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-17 04:40+0000\n"
+"PO-Revision-Date: 2017-02-11 01:03+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s GiB Used\n"
-"      "
-msgstr ""
-"\n"
-"      %(used)s of %(quota)s GiB Used\n"
-"      "
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s Used\n"
-"      "
-msgstr ""
-"\n"
-"      %(used)s of %(quota)s Used\n"
-"      "
 
 msgid " - End"
 msgstr "Akhir"
@@ -51,16 +31,9 @@ msgstr ""
 "digunakan untuk permintaan masuk yang diberikan. Penyedia Identity mungkin "
 "memiliki beberapa protokol yang didukung."
 
-msgid ""
-" You can create a port for the network.\n"
-"     If you specify device ID to be attached, the device specified will\n"
-"     be attached to the port created.\n"
-"     "
-msgstr ""
-"Anda dapat membuat port untuk jaringan.\n"
-"Jika Anda menentukan ID perangkat yang terpasang, perangkat yang ditentukan "
-"akan terpasang ke port yang dibuat.\n"
-"     "
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "Juga gagal untuk menghapus port %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -134,10 +107,6 @@ msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s of %(quota)s GiB Digunakan"
 
 #, python-format
-msgid "%(used)s of %(quota)s MB Used"
-msgstr "%(used)s of %(quota)s MB Used"
-
-#, python-format
 msgid "%(used)s of %(quota)s Used"
 msgstr "%(used)s of %(quota)s Digunakan"
 
@@ -197,6 +166,14 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 
 msgid "A local environment to upload."
 msgstr "Sebuah lingkungan lokal untuk meng-upload."
@@ -667,9 +644,6 @@ msgstr "Semua volume yang tersedia"
 msgid "All fields are optional."
 msgstr "Semua kolom (field) opsional."
 
-msgid "All ports"
-msgstr "Semua port"
-
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -844,9 +818,6 @@ msgstr "Authorization Key"
 msgid "Authorization algorithm"
 msgstr "Algoritma otorisasi"
 
-msgid "Authorization algorithm ="
-msgstr "Authorization algorithm ="
-
 msgid "Authorization mode"
 msgstr "Authorization mode (modus otorisasi)"
 
@@ -922,9 +893,6 @@ msgstr "Backup Size (GiB)"
 
 msgid "Backups"
 msgstr "Backups"
-
-msgid "Bare Metal"
-msgstr "Bare Metal"
 
 msgid "Before"
 msgstr "Before (sebelum)"
@@ -1065,10 +1033,10 @@ msgstr "Change Volume Type"
 
 msgid ""
 "Change the volume type of a volume after its creation. This is equivalent to "
-"the <tt>openstack volume set --type</tt> command."
+"the <tt>cinder retype</tt> command."
 msgstr ""
 "Mengubah jenis volume volume setelah penciptaan. Ini adalah setara dengan "
-"perintah <tt> OpenStack set volume --type </ tt>."
+"perintah <tt>cinder retype</tt>."
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -1639,37 +1607,12 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
 
 #, python-format
-msgid ""
-"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
-"      Valid key names are expected in the QoS specs. The acceptable values "
-"for key are\n"
-"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
-"  <br>\n"
-"  <br>\n"
-"  Example:\n"
-"  <br>\n"
-"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
-"  <br>\n"
-"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  <br>\n"
-"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  "
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
 msgstr ""
-"Buat pasanagan key-value \"spec\" baru untuk QoS Spec \"%(qos_spec_name)s"
-"\".\n"
-"      Nama kunci yang valid diharapkan dalam QoS specs. Nilai yang dapat "
-"diterima untuk kunci adalah \n"
-"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
-"  <br>\n"
-"  <br>\n"
-"  Example:\n"
-"  <br>\n"
-"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
-"  <br>\n"
-"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  <br>\n"
-"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  "
+"Buat pasangan key-value baru \"spec\" untuk QoS Spec \"%(qos_spec_name)s\""
+
+msgid "Create a new network for any project as you need."
+msgstr "Membuat sebuah jaringan baru untuk proyek apapun yang Anda perlukan"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2420,9 +2363,6 @@ msgstr "Direct"
 msgid "Direct Input"
 msgstr "Direct Input (masukan langsung)"
 
-msgid "Direct Physical"
-msgstr "Direct Physical"
-
 msgid "Direction"
 msgstr "Direction (arah)"
 
@@ -2605,9 +2545,6 @@ msgstr "Download OpenStack RC File v2.0"
 
 msgid "Download OpenStack RC File v3"
 msgstr "Download OpenStack RC File v3"
-
-msgid "Download OpenStack clouds.yaml File"
-msgstr "Download OpenStack clouds.yaml File"
 
 msgid "Download transfer credentials"
 msgstr "Lakukan download credential transfer"
@@ -2807,9 +2744,6 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Enable User"
 
-msgid "Enable anti-spoofing rules for the port"
-msgstr "Aktifkan aturan anti-spoofing untuk port"
-
 msgid "Enable rollback on create/update failure."
 msgstr "Aktifkan rollback pada kegagalan create/update."
 
@@ -2853,9 +2787,6 @@ msgstr "Encryption (enkripsi)"
 msgid "Encryption algorithm"
 msgstr "Algoritma Enkripsi"
 
-msgid "Encryption algorithm ="
-msgstr "Encryption algorithm ="
-
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
@@ -2877,9 +2808,6 @@ msgstr "Masukkan nilai untuk kode ICMP dalam kisaran (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Masukkan nilai untuk tipe ICMP dalam kisaran (-1: 255)"
-
-msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
-msgstr "Masukkan nilai integer antara -1 dan 255 (-1 berarti wild card)."
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Masukkan nilai integer antara 0 dan 255."
@@ -3528,9 +3456,6 @@ msgstr "Force Host Copy"
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Memaksa untuk membuat snapshot \"%s\" dari volume yang terpasang."
 
-msgid "Form Builder"
-msgstr "Form Builder"
-
 msgid "Format"
 msgstr "Format"
 
@@ -3761,14 +3686,8 @@ msgstr "IKE Policy"
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE Policy %s telah berhasil diperbarui."
 
-msgid "IKE Policy ="
-msgstr "IKE Policy ="
-
 msgid "IKE Policy Details"
 msgstr "Rincian IKE Policy"
-
-msgid "IKE Policy ID ="
-msgstr "IKE Policy ID ="
 
 msgid "IKE Policy associated with this connection"
 msgstr "IKE Policy  terkait dengan hubungan ini"
@@ -3839,14 +3758,8 @@ msgstr "IPSec Policy"
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPSec Policy %s telah berhasil diperbarui."
 
-msgid "IPSec Policy ="
-msgstr "IPSec Policy ="
-
 msgid "IPSec Policy Details"
 msgstr "Rincian IPSec Policy"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec Policy ID ="
 
 msgid "IPSec Policy associated with this connection"
 msgstr "IPSec Policy terkait dengan hubungan ini"
@@ -4019,6 +3932,13 @@ msgstr "In Policy"
 msgid "In Use"
 msgstr "Sedang digunakan"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"Selain itu, Anda dapat membuat jaringan eksternal atau jaringan bersama "
+"(shared) dengan memeriksa checkbox (kotak centang) yang sesuai."
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "In-use"
@@ -4173,6 +4093,9 @@ msgstr "Internal Interface"
 msgid "Internal:"
 msgstr "Internal:"
 
+msgid "Invalid MAC Address format"
+msgstr "Tidak valid format alamat MAC"
+
 msgid "Invalid date format: Using today as default."
 msgstr "Format tanggal tidak valid: Menggunakan hari ini sebagai default."
 
@@ -4293,6 +4216,9 @@ msgstr "Peluncuran instance dengan jaringan ini"
 
 msgid "Launch instance with these ports"
 msgstr "Peluncuran instance dengan port ini"
+
+msgid "Launch instance with this policy profile"
+msgstr "Peluncuran instance dengan profil kebijakan ini"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4729,6 +4655,10 @@ msgid "Network"
 msgstr "Network (jaringan)"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "Jaringan \"%s\" berhasil dibuat."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "Jaringan %s berhasil dibuat"
 
@@ -4762,6 +4692,12 @@ msgstr "Nama jaringan"
 
 msgid "Network Ports"
 msgstr "Network Ports (port jaringan)"
+
+msgid "Network Profile"
+msgstr "Profil Jaringan"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "Profil jaringan tidak bisa diambil"
 
 msgid "Network Topology"
 msgstr "Network Topology (topologi jaringan)"
@@ -5153,36 +5089,29 @@ msgstr "Iktisar"
 msgid "Owner"
 msgstr "Owner (pemilik proyek)"
 
-msgid "Owner of the device attached to the port"
-msgstr "Pemilik perangkat terpasang ke port"
-
 msgid ""
-"Ownership of a volume can be transferred from one project to another. "
+"Ownership of a volume can be transferred from one project to another.  "
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
-"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
-"request accept</tt> command."
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
 msgstr ""
-"Kepemilikan volume dapat ditransfer dari satu proyek ke yang lain. "
+"Kepemilikan volume dapat ditransfer dari satu proyek ke proyek yang lain. "
 "Penerimaan transfer membutuhkan perolehan Transfer ID dan Authorization Key "
-"dari donor. Ini sama dengan perintah <tt>openstack volume transfer request "
-"accept</tt>."
+"dari donor. Ini setara dengan perintah <tt>cinder transfer-accept</tt>."
 
 msgid ""
 "Ownership of a volume can be transferred from one project to another. Once a "
 "volume transfer is created in a donor project, it then can be \"accepted\" "
-"by a recipient project. This is equivalent to the <tt>openstack volume "
-"transfer create</tt> command."
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
 msgstr ""
-"Kepemilikan volume dapat ditransfer dari satu proyek ke yang lain. Setelah "
-"transfer volume yang dibuat dalam proyek donor, maka dapat \"accepted\" oleh "
-"proyek penerima. Ini adalah setara dengan perintah <tt>openstack volume "
-"transfer create</tt>."
+"Kepemilikan volume dapat ditransfer dari satu proyek ke proyek yang lain. "
+"Setelah transfer volume yang dibuat dalam proyek donor, maka dapat \"diterima"
+"\" oleh proyek penerima. Ini setara dengan perintah  <tt>cinder transfer-"
+"create</tt>."
 
 msgid "PFS"
 msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
 
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
@@ -5321,6 +5250,9 @@ msgstr "Kebijakan %s telah berhasil diperbarui."
 msgid "Policy ID"
 msgstr "Policy ID (ID policy)"
 
+msgid "Policy Profiles"
+msgstr "Policy Profiles (profil kebijakan)"
+
 msgid "Pool"
 msgstr "Pool (kolam)"
 
@@ -5338,11 +5270,12 @@ msgstr "Port %s berhasil diperbarui."
 msgid "Port Range"
 msgstr "Port Range (rentang port)"
 
-msgid "Port Security"
-msgstr "Port Security"
-
 msgid "Port Security Enabled"
 msgstr "Port Security Enabled"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Pembersihan port gagal untuk port-ids ini (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Daftar port tidak bisa diambil."
@@ -5520,6 +5453,15 @@ msgstr "Provider Network (jaringan operator)"
 msgid "Provider Network Type"
 msgstr "Tipe jaringan penyedia"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"Penyedia jaringan tertentu dapat dibuat. Anda dapat menentukan tipe jaringan "
+"fisik (seperti Flat, VLAN, GRE, dan VXLAN) dan segmentation_id atau nama "
+"jaringan fisik untuk jaringan virtual baru."
+
 msgid "Public"
 msgstr "Publik"
 
@@ -5554,25 +5496,28 @@ msgstr "QoS Specs"
 msgid ""
 "QoS Specs can be associated with volume types. It is used to map to a set of "
 "quality of service capabilities requested by the volume owner. This is "
-"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
-"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
-"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
-"value which indicates where the administrator would like the QoS policy to "
-"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
-"\" (Block Storage back-end), or \"both\"."
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
 msgstr ""
-"QoS Specs dapat dikaitkan dengan jenis volume. Hal ini digunakan untuk "
-"memetakan untuk satu set kualitas kemampuan layanan yang diminta oleh "
-"pemilik volume. Ini adalah setara dengan perintah <tt>openstack volume qos "
-"create</tt>. Setelah QoS Spec dibuat, klik tombol \"Manage Specs\" untuk "
-"mengatur spesifikasi key-value untuk QoS Spec. <br> <br> Setiap entitas QoS "
-"Spec memiliki nilai \"Consumer\" yang menunjukkan dimana administrator ingin "
-"kebijakan QoS harus ditegakkan. Nilai ini dapat \"front-end\" (Compute back-"
-"end), \"back-end\" (Block Storage back-end), atau \"both\"."
+"QoS Specs dapat dikaitkan dengan tipe volume. Hal ini digunakan untuk "
+"memetakan untuk satu set kualitas kemampuan layanan yang diminta oleh volume "
+"owner.. Ini adalah setara dengan perintah  <tt>cinder qos-create</tt>. "
+"Setelah QoS Spec akan dibuat, klik tombol \"Manage Specs\" untuk mengelola "
+"specs key-value untuk QoS Spec. <br> <br> Setiap entitas QoS Specs akan "
+"memiliki nilai \"Consumer\" yang menunjukkan dimana administrator ingin "
+"kebijakan QoS harus ditegakkan. Nilai ini dapat \"front-end\" (Nova "
+"Compute), \"back-end\" (Cinder back-end), atau \"both\"."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Queued"
+
+msgid "Quota"
+msgstr "Quota (kuota)"
 
 msgid "Quota Name"
 msgstr "Nama Kuota"
@@ -6031,14 +5976,8 @@ msgstr "Router %s berhasil dibuat."
 msgid "Router %s was successfully updated."
 msgstr "Router %s telah berhasil diperbarui."
 
-msgid "Router ="
-msgstr "Router ="
-
 msgid "Router ID"
 msgstr "ID router"
-
-msgid "Router ID ="
-msgstr "Router ID ="
 
 msgid "Router Name"
 msgstr "Router Name"
@@ -6198,9 +6137,6 @@ msgstr "Script File"
 msgid "Security Group"
 msgstr "Security Group (kelompok keamanan)"
 
-msgid "Security Group ID"
-msgstr "Security Group ID"
-
 msgid "Security Group Rules"
 msgstr "Security Group Rules (aturan kelompok keamanan)"
 
@@ -6322,6 +6258,9 @@ msgstr "Pilih kolam"
 
 msgid "Select a port"
 msgstr "Pilih port"
+
+msgid "Select a profile"
+msgstr "Pilih sebuah profil"
 
 msgid "Select a project"
 msgstr "Pilih sebuah proyek"
@@ -6618,9 +6557,6 @@ msgstr "Snapshot Volumes"
 msgid "Snapshot source must be specified"
 msgstr "Sumber Snapshot harus ditentukan"
 
-msgid "Snapshots"
-msgstr "Snapshots"
-
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -6732,9 +6668,6 @@ msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
 msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr "Tentukan nama, deskripsi, router, dan subnet untuk Layanan VPN."
 
-msgid "Specify a new MAC address for the port"
-msgstr "Tentukan MAC address baru untuk port"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Tentukan atribut tambahan untuk subnet."
 
@@ -6748,9 +6681,6 @@ msgstr "Menentukan alamat IP untuk antarmuka dibuat (misalnya 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Tentukan image yang akan diupload ke service Image"
-
-msgid "Specify the MAC address for the new port"
-msgstr "Tentukan MAC address untuk port baru"
 
 msgid "Specify the details for launching an instance."
 msgstr "Tentukan rincian untuk meluncurkan sebuah instance."
@@ -6779,9 +6709,6 @@ msgstr "Stack ID =  (stack ID=)"
 
 msgid "Stack Name"
 msgstr "Stack Name (nama stack)"
-
-msgid "Stack Name ="
-msgstr "Stack Name ="
 
 msgid "Stack Parameters"
 msgstr "Stack Parameters"
@@ -6879,17 +6806,19 @@ msgstr "Submit (menyampaikan)"
 msgid "Subnet"
 msgstr "Subnet"
 
-msgid "Subnet ="
-msgstr "Subnet ="
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "Subnet \"%s\" berhasil dibuat."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "Subnet \"%s\" telah berhasil diperbarui."
 
 msgid "Subnet Details"
 msgstr "Subnet Details (rincian subnet)"
 
 msgid "Subnet ID"
 msgstr "Subnet ID"
-
-msgid "Subnet ID ="
-msgstr "Subnet ID ="
 
 msgid "Subnet Name"
 msgstr "Nama subnet"
@@ -7116,8 +7045,9 @@ msgstr ""
 "melakukan migrasi volume. Catatan migrasi yang dapat mengambil sejumlah "
 "besar waktu untuk menyelesaikan, dalam beberapa jam kasus."
 
-msgid "The \"Type\" selected must be different from the current volume type."
-msgstr "\"Type\" yang dipilih harus berbeda dari jenis volume saat ini."
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
+msgstr "\"Volume Type\" terpilih harus berbeda dari jenis volume saat ini."
 
 msgid "The \"from\" port number is invalid."
 msgstr "Nomor port \"from\" tidak valid."
@@ -7462,23 +7392,22 @@ msgstr "State untuk memulai jaringan"
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
-"command."
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
 msgstr ""
 "Status volume biasanya dikelola secara otomatis. Dalam beberapa keadaan "
 "administrator mungkin perlu secara eksplisit memperbarui nilai status. Ini "
-"adalah setara dengan perintah <tt>openstack volume set --state</tt>."
+"adalah setara dengan perintah <tt>cinder reset-state</tt>."
 
 msgid ""
-"The status of a volume snapshot is normally managed automatically. In some "
+"The status of a volume snapshot is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
-"tt> command."
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
 msgstr ""
-"Status snapshot volume yang biasanya dikelola secara otomatis. Dalam "
-"beberapa keadaan administrator mungkin perlu secara eksplisit memperbarui "
-"nilai status. Ini adalah setara dengan perintah <tt>openstack volume "
-"snapshot set --state</tt>."
+"Status snapshot volume biasanya dikelola secara otomatis. Dalam beberapa "
+"keadaan administrator mungkin perlu secara eksplisit memperbarui nilai "
+"status. Ini adalah setara dengan perintah <tt>cinder snapshot-reset-state</"
+"tt>."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -7576,11 +7505,11 @@ msgstr ""
 "sini."
 
 msgid ""
-"This is equivalent to the <tt>openstack volume qos associate</tt> and "
-"<tt>openstack volume qos disassociate</tt> commands."
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
 msgstr ""
-"Ini adalah setara dengan perintah <tt>openstack volume qos associate</tt> "
-"dan <tt>openstack volume qos disassociate</tt>."
+"Ini adalah setara dengan perintah <tt>cinder qos-associate</tt> dan "
+"<tt>cinder qos-disassociate</tt>."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7707,9 +7636,6 @@ msgid ""
 msgstr ""
 "Total penggunaan VCPU (Jumlah VCPU dalam instance * Jam Digunakan) untuk  "
 "proyek"
-
-msgid "Total Volume Storage"
-msgstr "Total Volume Storage"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Total penggunaan disk (GB * Jam Digunakan) untuk proyek tersebut"
@@ -7928,6 +7854,10 @@ msgstr "Tidak dapat membuat image baru: Skema URL tidak didukung."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Tidak dapat membuat namespace baru. %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr "Tidak dapat membuat port untuk profil \"%(profile_id)s\": %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -8561,9 +8491,6 @@ msgstr "Tidak dapat mengambil rincian port"
 
 msgid "Unable to retrieve port details."
 msgstr "Tidak dapat mengambil rincian port."
-
-msgid "Unable to retrieve port security state"
-msgstr "Tidak dapat mengambil kondisi keamanan port"
 
 msgid "Unable to retrieve ports information."
 msgstr "Tidak dapat mengambil informasi port."
@@ -9270,9 +9197,6 @@ msgstr "VDI - Virtual Disk Image"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtual Hard Disk"
 
-msgid "VHDX - Large Virtual Hard Disk"
-msgstr "VHDX - Large Virtual Hard Disk"
-
 msgid "VIF Details"
 msgstr "VIF Details"
 
@@ -9301,14 +9225,8 @@ msgstr "Service VPN"
 msgid "VPN Service %s was successfully updated."
 msgstr "VPN Service %s telah berhasil diperbarui."
 
-msgid "VPN Service ="
-msgstr "VPN Service ="
-
 msgid "VPN Service Details"
 msgstr "Rincian VPN Service "
-
-msgid "VPN Service ID ="
-msgstr "VPN Service ID ="
 
 msgid "VPN Service associated with this connection"
 msgstr "Layanan VPN yang terkait dengan hubungan ini"
@@ -9545,17 +9463,16 @@ msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
 "in OpenStack. It usually maps to a set of capabilities of the storage back-"
 "end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
-"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
-"tt> command. Once the volume type gets created, click the \"View Extra Specs"
-"\" button to set up extra specs key-value pair(s) for that volume type."
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
 msgstr ""
-"Jenis volume adalah jenis atau label yang bisa dipilih pada volume waktu "
-"penciptaan dalam OpenStack. Biasanya peta untuk satu set kemampuan driver "
-"penyimpanan back-end yang akan digunakan untuk buku ini. Contoh: "
-"\"Performance\", \"SSD\", \"Backup\", dll Ini adalah setara dengan perintah "
-"<tt>openstack volume type create</tt>. Setelah jenis volume akan dibuat, "
-"klik  tombol \"View Extra Specs\" untuk mengatur spesifikasi ekstra specs "
-"key-value untuk jenis volume."
+"Tipe volume adalah tipe atau label yang bisa dipilih pada waktu pembuatan "
+"volume di OpenStack. Biasanya memetakan satu set kemampuan driver back-end "
+"penyimpanan yang akan digunakan untuk volume ini. Contoh:\"Performance\", "
+"\"SSD\", \"Backup\", etc. Ini adalah setara dengan perintah <tt>cinder type-"
+"create</tt>. Setelah tipe volume akan dibuat, klik tombol \"View Extra Specs"
+"\" untuk mengatur spesifikasi tambahan pasangan key-value untuk tipe volume."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

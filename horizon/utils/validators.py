@@ -16,8 +16,8 @@ import re
 
 from oslo_utils import netutils
 
-from django.core.exceptions import ValidationError
-from django.core import validators
+from django.core.exceptions import ValidationError  # noqa
+from django.core import validators  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
@@ -43,7 +43,7 @@ def validate_icmp_code_range(icmp_code):
 
 
 def validate_ip_protocol(ip_proto):
-    if ip_proto < -1 or ip_proto > 255:
+    if ip_proto not in range(0, 256):
         raise ValidationError(_("Not a valid IP protocol number"))
 
 

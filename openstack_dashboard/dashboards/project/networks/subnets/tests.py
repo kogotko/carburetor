@@ -15,7 +15,7 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from horizon.workflows import views
 
@@ -90,7 +90,7 @@ class NetworkSubnetTests(test.TestCase):
                                       'subnet_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_subnet_create_post(self):
+    def test_subnet_create_post(self, test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -225,7 +225,8 @@ class NetworkSubnetTests(test.TestCase):
                                       'subnet_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_subnet_create_post_subnet_exception(self):
+    def test_subnet_create_post_subnet_exception(self,
+                                                 test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),

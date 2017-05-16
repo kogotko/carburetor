@@ -37,18 +37,18 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.keystone',
     'horizon.dashboard.identity.users.basePath',
     'horizon.dashboard.identity.users.resourceType',
     'horizon.dashboard.identity.users.service'
   ];
 
-  function run(registry, basePath, userResourceType, usersService) {
+  function run(registry, keystone, basePath, userResourceType, usersService) {
     registry.getResourceType(userResourceType)
       .setNames(gettext('User'), gettext('Users'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setProperties(userProperties())
       .setListFunction(usersService.getUsersPromise)
-      .setNeedsFilterFirstFunction(usersService.getFilterFirstSettingPromise)
       .tableColumns
       .append({
         id: 'name',
@@ -76,8 +76,7 @@
       .append({
         label: gettext('Name'),
         name: 'name',
-        singleton: true,
-        isServer: true
+        singleton: true
       })
       .append({
         label: gettext('Email'),
@@ -87,14 +86,12 @@
       .append({
         label: gettext('ID'),
         name: 'id',
-        singleton: true,
-        isServer: true
+        singleton: true
       })
       .append({
         label: gettext('Enabled'),
         name: 'enabled',
         singleton: true,
-        isServer: true,
         options: [
           {label: gettext('Yes'), key: 'true'},
           {label: gettext('No'), key: 'false'}

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -880,6 +880,14 @@ msgstr "रुटार सोरजि"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "भलिउम रोखोमनि थाखाय \"बांद्राय spec\" साबि-बेसेन जराखौ सोरजि।"
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"QoS Spec \"%(qos_spec_name)s\" नि थाखाय गोदान \"spec\" साबि-बेसेनखौ सोरजि"
+
+msgid "Create a new network for any project as you need."
+msgstr "नोंथांनि गोनांथि मथे जायखि जाया प्रजेक्टनि थाखाय गोदान नेटवार्क सोरजि"
 
 msgid "Create a new role."
 msgstr "गोदान बिफाव सोरजि"
@@ -2195,6 +2203,13 @@ msgstr "पलिसिआव"
 msgid "In Use"
 msgstr "बाहायगासिनो दं"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"बेनि बादैबो, एखे आनजाद-बाक्सुखौ आनजाद खालामनानै बाइजोनि नेटवार्क एबा शेयार खालामखानाय "
+"नेटवार्कखौ सोरजिनो हायो।"
+
 msgid "Info"
 msgstr "फोरमायथिहोग्रा"
 
@@ -2372,6 +2387,9 @@ msgstr "बिदिन्थिखौ बेफोर रैखाथि हा
 
 msgid "Launch instance with these networks"
 msgstr "बेफोर नेटवार्कजों बिदिन्थिखौ जागाय"
+
+msgid "Launch instance with this policy profile"
+msgstr "बे पलिसि प्रफाइलजों बिदिन्थिखौ जागाय"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -2600,6 +2618,10 @@ msgid "Network"
 msgstr "नेटवार्क"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "नेटवार्क \"%s\" खौ जाफुंसारै सोरजिबाय।"
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "%s नेटवार्कखौ जाफुंसारै सोरजिबाय।"
 
@@ -2624,6 +2646,12 @@ msgstr "नेटवार्क ID"
 
 msgid "Network Name"
 msgstr "नेटवार्क मुं"
+
+msgid "Network Profile"
+msgstr "नेटवार्क प्रफाइल"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "नेटवार्क प्रफाइलखौ मोनफिननो हायाखै।"
 
 msgid "Network Topology"
 msgstr "नेटवार्क ट'प'लजि"
@@ -2949,6 +2977,9 @@ msgstr "पलिसि %s खौ जाफुंसारै आपडेट �
 msgid "Policy ID"
 msgstr "पलिसि ID"
 
+msgid "Policy Profiles"
+msgstr "पलिसि प्रफाइल"
+
 msgid "Pool"
 msgstr "पुल"
 
@@ -3062,6 +3093,15 @@ msgstr "होग्रा नेटवार्क"
 msgid "Provider Network Type"
 msgstr "होग्रा नेटवार्क रोखोम"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"होग्रा थि नेटवार्कखौ सोरजिनो हायो। नोंथाङा मोनसे देहायारि नेटवार्क रोखोम (जेरै- फ्लेट, "
+"VLAN, GRE, आरो VXLAN) आरो बेनि खोन्दो_id एबा गोदान नुथाव नेटवार्कनि थाखाय देहायारि "
+"नेटवार्कखौ थिक खालामनो हायो।"
+
 msgid "Public"
 msgstr "रायजो-राजा"
 
@@ -3079,6 +3119,9 @@ msgstr "QoS Spec: "
 
 msgid "QoS Specs"
 msgstr "QoS Specs"
+
+msgid "Quota"
+msgstr "क'टा"
 
 msgid "Quota Name"
 msgstr "क'टा मुं"
@@ -3488,6 +3531,9 @@ msgstr "स्टेकखौ फिन-जागायनो गोदान �
 msgid "Select a port"
 msgstr "मोनसे पर्टखौ सायख"
 
+msgid "Select a profile"
+msgstr "प्रफाइल सायख"
+
 msgid "Select a project"
 msgstr "मोनसे प्रजेक्ट सायख"
 
@@ -3796,6 +3842,14 @@ msgstr "थाथाइ जाहोन"
 
 msgid "Subnet"
 msgstr "साबनेट"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "साबनेट \"%s\" खौ जाफुंसारै सोरजिबाय"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "साबनेट \"%s\" खौ जाफुंसारै आपडेट खालामबाय।"
 
 msgid "Subnet Details"
 msgstr "साबनेट गुवारै"

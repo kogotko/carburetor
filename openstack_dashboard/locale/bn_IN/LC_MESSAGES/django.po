@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -839,6 +839,14 @@ msgstr "একটি রাউটার তৈরি করুন"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "ভলিয়্যুম প্রকারের জন্য একটি \"extra spec\" কী-মান তৈরি করুন."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"QoS স্পেক \"%(qos_spec_name)s\" এর জন্য একটি নতুন \"spec\" কী-মান জোড়া তৈরি করুন"
+
+msgid "Create a new network for any project as you need."
+msgstr "আপনার প্রয়োজন অনুসারে যে কোনো প্রোজেক্টের জন্য একটি নতুন নেটওয়ার্ক তৈরি করুন."
 
 msgid "Create a new role."
 msgstr "একটি নতুন ভূমিকা তৈরি করুন."
@@ -2121,6 +2129,13 @@ msgstr "নীতিতে"
 msgid "In Use"
 msgstr "ব্যবহারে"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"এছাড়াও, আপনি উপযুক্ত চেকবাক্সে চেক করে একটি বাহ্যিক নেটওয়ার্ক বা অংশীদারী "
+"নেটওয়ার্ক তৈরি করতে পারেন."
+
 msgid "Info"
 msgstr "তথ্য"
 
@@ -2296,6 +2311,9 @@ msgstr "এই  সুরক্ষা শ্রেণিগুলিতে উ�
 
 msgid "Launch instance with these networks"
 msgstr "এই নেটওয়ার্কগুলি সহ উদাহরণ চালু করুন"
+
+msgid "Launch instance with this policy profile"
+msgstr "এই নীতি প্রোফাইল সহ উদাহরণ শুরু করুন"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -2522,6 +2540,10 @@ msgid "Network"
 msgstr "নেটওয়ার্ক"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "নেটওয়ার্ক \"%s\" সফলভাবে তৈরি হয়েছিল."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "নেটওয়ার্ক %s সফলভাবে তৈরি হয়েছিল."
 
@@ -2546,6 +2568,12 @@ msgstr "নেটওয়ার্ক ID"
 
 msgid "Network Name"
 msgstr "নেটওয়ার্কের নাম"
+
+msgid "Network Profile"
+msgstr "নেটওয়ার্ক প্রোফাইল"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "নেটওয়ার্ক প্রোফাইল পুনরুদ্ধার করা গেল না."
 
 msgid "Network Topology"
 msgstr "নেটওয়ার্ক টোপোলজি"
@@ -2863,6 +2891,9 @@ msgstr "নীতি %s সফলভাবে আপডেট হয়েছিল
 msgid "Policy ID"
 msgstr "নীতি ID"
 
+msgid "Policy Profiles"
+msgstr "নীতি প্রোফাইল"
+
 msgid "Pool"
 msgstr "পুল"
 
@@ -2964,6 +2995,15 @@ msgstr "প্রদানকারী নেটওয়ার্ক"
 msgid "Provider Network Type"
 msgstr "সরবরাহকারী নেটওয়ার্ক প্রকার"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"সরবরাহকারী নির্দিষ্ট নেটওয়ার্ক তৈরি করতে পারে. আপনি এক ভৌত নেটওয়ার্ক প্রকার "
+"নির্দিষ্ট করতে পারে (যেমন Flat, VLAN, GRE, এবং VXLAN) এবং এর segmentation_id "
+"বা ভৌত নেটওয়ার্ক নাম একটি নতুন যথার্থ নেটওয়ার্কের জন্য."
+
 msgid "Public"
 msgstr "পাবলিক"
 
@@ -2981,6 +3021,9 @@ msgstr "QoS স্পেক: "
 
 msgid "QoS Specs"
 msgstr "QoS স্পেক"
+
+msgid "Quota"
+msgstr "কোটা"
 
 msgid "Quota Name"
 msgstr "কোটা নাম"
@@ -3313,6 +3356,9 @@ msgstr "একটি স্টেক পুনরায় শুরু করত�
 msgid "Select a port"
 msgstr "একটি পোর্ট নির্বাচন করুন"
 
+msgid "Select a profile"
+msgstr "একটি প্রোফাইল নির্বাচন করুন"
+
 msgid "Select a project"
 msgstr "একটি প্রোজেক্ট নির্বাচন করুন"
 
@@ -3570,6 +3616,14 @@ msgstr "স্থিতির কারণ"
 
 msgid "Subnet"
 msgstr "সাবনেট"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "সাবনেট \"%s\" সফলভাবে তৈরি হয়েছিল."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "সাবনেট \"%s\" সফলভাবে আপডেট হয়েছিল."
 
 msgid "Subnet Details"
 msgstr "সাবনেট বিশদ"

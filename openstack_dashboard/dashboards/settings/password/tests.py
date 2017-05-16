@@ -15,9 +15,9 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils.six.moves.urllib.parse import urlsplit
+from django.utils.six.moves.urllib.parse import urlsplit  # noqa
 
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -67,10 +67,8 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, settings.LOGOUT_URL)
         self.assertIn('logout_reason', res.cookies)
-        self.assertIn('logout_status', res.cookies)
         self.assertEqual(res.cookies['logout_reason'].value,
                          "Password changed. Please log in again to continue.")
-        self.assertEqual('success', res.cookies['logout_status'].value)
         scheme, netloc, path, query, fragment = urlsplit(res.url)
         redirect_response = res.client.get(path, http.QueryDict(query))
         self.assertRedirectsNoFollow(redirect_response, settings.LOGIN_URL)

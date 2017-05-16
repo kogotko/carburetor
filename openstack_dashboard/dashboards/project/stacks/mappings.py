@@ -15,7 +15,7 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import register
+from django.template.defaultfilters import register  # noqa
 from django.utils import html
 from django.utils import safestring
 import six
@@ -40,17 +40,17 @@ resource_urls = {
     "AWS::EC2::RouteTable": {
         'link': 'horizon:project:routers:detail'},
     "AWS::EC2::SecurityGroup": {
-        'link': 'horizon:project:security_groups:index'},
+        'link': 'horizon:project:access_and_security:index'},
     "AWS::EC2::Subnet": {
         'link': 'horizon:project:networks:subnets:detail'},
     "AWS::EC2::Volume": {
-        'link': 'horizon:project:volumes:detail'},
+        'link': 'horizon:project:volumes:volumes:detail'},
     "AWS::EC2::VPC": {
         'link': 'horizon:project:networks:detail'},
     "AWS::S3::Bucket": {
         'link': 'horizon:project:containers:index'},
     "OS::Cinder::Volume": {
-        'link': 'horizon:project:volumes:detail'},
+        'link': 'horizon:project:volumes:volumes:detail'},
     "OS::Heat::AccessPolicy": {
         'link': 'horizon:project:stacks:detail'},
     "OS::Heat::AutoScalingGroup": {
@@ -100,7 +100,7 @@ resource_urls = {
     "OS::Neutron::VPNService": {
         'link': 'horizon:project:vpn:vpnservicedetails'},
     "OS::Nova::KeyPair": {
-        'link': 'horizon:project:key_pairs:index'},
+        'link': 'horizon:project:access_and_security:index'},
     "OS::Nova::Server": {
         'link': 'horizon:project:instances:detail'},
     "OS::Swift::Container": {
@@ -319,7 +319,7 @@ resource_types = {
 
 
 def get_resource_type(type):
-    for key, value in resource_types.items():
+    for key, value in six.iteritems(resource_types):
         if key in type:
             return value
 

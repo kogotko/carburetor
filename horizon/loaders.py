@@ -21,12 +21,12 @@ import django
 from django.conf import settings
 from django.template.engine import Engine
 from django.template.loaders.base import Loader as tLoaderCls
-from django.utils._os import safe_join
+from django.utils._os import safe_join  # noqa
 
 if django.VERSION >= (1, 9):
     from django.template.exceptions import TemplateDoesNotExist
 else:
-    from django.template.base import TemplateDoesNotExist
+    from django.template.base import TemplateDoesNotExist  # noqa
 
 # Set up a cache of the panel directories to search.
 panel_template_dirs = {}

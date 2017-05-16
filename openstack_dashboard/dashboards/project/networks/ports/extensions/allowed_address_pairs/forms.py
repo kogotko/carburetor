@@ -16,6 +16,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -26,15 +27,20 @@ from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 
+validate_mac = validators.RegexValidator(r'([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}',
+                                         _("Invalid MAC Address format"),
+                                         code="invalid_mac")
+
 
 class AddAllowedAddressPairForm(forms.SelfHandlingForm):
     ip = forms.IPField(label=_("IP Address or CIDR"),
                        help_text=_("A single IP Address or CIDR"),
                        version=forms.IPv4 | forms.IPv6,
                        mask=True)
-    mac = forms.MACAddressField(label=_("MAC Address"),
-                                help_text=_("A valid MAC Address"),
-                                required=False)
+    mac = forms.CharField(label=_("MAC Address"),
+                          help_text=_("A valid MAC Address"),
+                          validators=[validate_mac],
+                          required=False)
     failure_url = 'horizon:project:networks:ports:detail'
 
     def clean(self):

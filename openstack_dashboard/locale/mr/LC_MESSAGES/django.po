@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -877,6 +877,14 @@ msgstr "एक राउटर तयार करा "
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "एक नवीन \"अतिरिक्त निर्देश\" मुख्य- मूल्य जोडी खंड प्रकारासाठी तयार करा."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"नवीन तयार करा \"spec\" कळ-मूल्य जोडी क्यूओएस निर्देशासाठी \"%(qos_spec_name)s\""
+
+msgid "Create a new network for any project as you need."
+msgstr "तुमच्या गरजेप्रमाणे कोणत्याही प्रकल्पासाठी नवीन नेटवर्क तयार करा."
 
 msgid "Create a new role."
 msgstr "नवीन भूमिका तयार करा."
@@ -2194,6 +2202,13 @@ msgstr "प्रवेश धोरण"
 msgid "In Use"
 msgstr "वापरामध्ये"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"त्याशिवाय, तुम्ही योग्य त्या चौकटीवर बरोबरची खूण करुन बाह्य नेटवर्क किंवा विभागलेले "
+"नेटवर्गही तयार करु शकता."
+
 msgid "Info"
 msgstr "माहिती"
 
@@ -2370,6 +2385,9 @@ msgstr "या सुरक्षा गटात घटक सुरु कर�
 
 msgid "Launch instance with these networks"
 msgstr "या नेटवर्कवर घटक सुरु करा"
+
+msgid "Launch instance with this policy profile"
+msgstr "या धोरण स्वरुपाद्वारे घटक सुरु करा"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -2596,6 +2614,10 @@ msgid "Network"
 msgstr "नेटवर्क"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "नेटवर्क \"%s\" यशस्वीपणे तयार करण्यात आले."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "नेटवर्क %s यशस्वीपणे तयार करण्यात आले."
 
@@ -2620,6 +2642,12 @@ msgstr "नेटवर्क ओळख क्रमांक"
 
 msgid "Network Name"
 msgstr "नेटवर्कचे नाव"
+
+msgid "Network Profile"
+msgstr "नेटवर्क स्वरुप"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "नेटवर्कचे स्वरुप मिळू शकले नाही."
 
 msgid "Network Topology"
 msgstr "नेटवर्क रचना अभ्यास"
@@ -2946,6 +2974,9 @@ msgstr "धोरण %s यशस्वीपणे सुधारित कर
 msgid "Policy ID"
 msgstr "पॉलिसी ओळखक्रमांक"
 
+msgid "Policy Profiles"
+msgstr "धोरण स्वरुपे"
+
 msgid "Pool"
 msgstr "गट"
 
@@ -3059,6 +3090,15 @@ msgstr "पुरवठादार नेटवर्क"
 msgid "Provider Network Type"
 msgstr "पुरवठादार नेटवर्क प्रकार"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"पुरवठादार विशिष्ट नेटवर्क तयार करता येते. तुम्ही नव्या व्हर्च्युअल नेटवर्कसाठी एक प्रत्यक्ष "
+"नेटवर्क प्रकार (उदाहरणार्थ फ्लॅट, व्हीलॅन, जीआरई, व व्हीएक्सलॅन) व त्याचा वर्गीकरण_ओळख "
+"क्रमांर किंवा प्रत्यक्ष नेटवर्क नाव निश्चित करु शकता."
+
 msgid "Public"
 msgstr "सार्वजनिक"
 
@@ -3076,6 +3116,9 @@ msgstr "क्यूओएस निर्देश: "
 
 msgid "QoS Specs"
 msgstr "क्यूओएस निर्देश"
+
+msgid "Quota"
+msgstr "वाटा"
 
 msgid "Quota Name"
 msgstr "वाटा नाव"
@@ -3484,6 +3527,9 @@ msgstr "मर्यादित डाटा रचना पुन्हा �
 msgid "Select a port"
 msgstr "एक पोर्ट निवडा"
 
+msgid "Select a profile"
+msgstr "स्वरुप निवडा"
+
 msgid "Select a project"
 msgstr "प्रकल्प निवडा"
 
@@ -3793,6 +3839,14 @@ msgstr "स्थिती कारण"
 
 msgid "Subnet"
 msgstr "उपनेट"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "उपनेट \"%s\" यशस्वीपणे तयार करण्यात आले."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "उपनेट \"%s\" यशस्वीपणे सुधारित करण्यात आले."
 
 msgid "Subnet Details"
 msgstr "उपनेट तपशील"

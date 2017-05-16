@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Copyright 2012 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -45,7 +43,7 @@ if ROOT_PATH not in sys.path:
 
 DEBUG = False
 
-SITE_BRANDING = u'Карбюратор'
+SITE_BRANDING = 'OpenStack Dashboard'
 
 WEBROOT = '/'
 LOGIN_URL = None
@@ -99,7 +97,6 @@ OPENSTACK_IMAGE_BACKEND = {
         ('raw', _('Raw')),
         ('vdi', _('VDI - Virtual Disk Image')),
         ('vhd', _('VHD - Virtual Hard Disk')),
-        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
         ('vmdk', _('VMDK - Virtual Machine Disk')),
     ]
 }
@@ -241,12 +238,6 @@ LOCALE_PATHS = [
     'openstack_dashboard/locale',
 ]
 
-# Set OPENSTACK_CLOUDS_YAML_NAME to provide a nicer name for this cloud for
-# the clouds.yaml file than "openstack".
-OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
-# If this cloud has a vendor profile in os-client-config, put it's name here.
-OPENSTACK_CLOUDS_YAML_PROFILE = ''
-
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
 
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
@@ -368,7 +359,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                         exec(f.read())
                 except Exception as e:
                     logging.exception(
-                        "Can not exec settings snippet %s", filename)
+                        "Can not exec settings snippet %s" % filename)
 
 # The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
 # that does not contain the lazy-loaded translations, so the list can

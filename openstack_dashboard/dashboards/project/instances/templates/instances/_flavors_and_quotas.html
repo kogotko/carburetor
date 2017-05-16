@@ -19,11 +19,9 @@
   <h4>{% trans "Project Limits" %}</h4>
   <div class="quota_title">
     <strong class="pull-left">{% trans "Number of Instances" %}</strong>
-    <span class="pull-right">
-      {% blocktrans trimmed with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}
-      {{ used }} of {{ quota }} Used
-      {% endblocktrans %}
-    </span>
+    {% blocktrans trimmed with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} Used</span>
+    {% endblocktrans %}
   </div>
 
  {{ minifyspace }}
@@ -39,11 +37,9 @@
 
   <div class="quota_title">
     <strong class="pull-left">{% trans "Number of VCPUs" %}</strong>
-    <span class="pull-right">
-      {% blocktrans trimmed with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}
-      {{ used }} of {{ quota }} Used
-      {% endblocktrans %}
-    </span>
+    {% blocktrans trimmed with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} Used</span>
+    {% endblocktrans %}
   </div>
 
   {{ minifyspace }}
@@ -59,11 +55,9 @@
 
   <div class="quota_title">
     <strong class="pull-left">{% trans "Total RAM" %}</strong>
-    <span class="pull-right">
-      {% blocktrans trimmed with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}
-      {{ used }} of {{ quota }} MB Used
-      {% endblocktrans %}
-    </span>
+    {% blocktrans trimmed with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} MB Used</span>
+    {% endblocktrans %}
   </div>
 
   {{ minifyspace }}
@@ -76,42 +70,6 @@
     {% bs_progress_bar vcpu_percent 0 %}
   </div>
   {{ endminifyspace }}
-
-  {% if cinder_enabled %}
-  <div class="quota_title">
-    <strong class="pull-left">{% trans "Number of Volumes" %}</strong>
-    <span class="pull-right">
-      {% blocktrans with used=usages.totalVolumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}
-      {{ used }} of {{ quota }} Used
-      {% endblocktrans %}
-    </span>
-  </div>
-  <div id="quota_volume"
-       class="quota_bar"
-       data-progress-indicator-flavor
-       data-quota-limit="{{ usages.maxTotalVolumes }}"
-       data-quota-used="{{ usages.totalVolumesUsed }}">
-    {% widthratio usages.totalVolumesUsed usages.maxTotalVolumes 100 as volume_percent %}
-    {% bs_progress_bar volume_percent 0 %}
-  </div>
-
-  <div class="quota_title">
-    <strong class="pull-left">{% trans "Total Volume Storage" %}</strong>
-    <span class="pull-right">
-      {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}
-      {{ used }} of {{ quota }} GiB Used
-      {% endblocktrans %}
-    </span>
-  </div>
-  <div id="quota_volume_storage"
-       class="quota_bar"
-       data-progress-indicator-flavor
-       data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
-       data-quota-used="{{ usages.gigabytesUsed }}">
-     {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as volume_storage_percent %}
-     {% bs_progress_bar volume_storage_percent 0 %}
-  </div>
-  {% endif %}
 
 </div>
 

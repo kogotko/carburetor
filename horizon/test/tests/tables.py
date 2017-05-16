@@ -23,7 +23,7 @@ from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.utils.translation import ungettext_lazy
 
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 import six
 
 from horizon import tables
@@ -1378,7 +1378,7 @@ class DataTableTests(test.TestCase):
                                   '<Cell: status, my_table__row__1>',
                                   ])
         # can_be_selected = False
-        self.assertEqual("", row.get_cells()[0].data)
+        self.assertTrue(row.get_cells()[0].data == "")
         # can_be_selected = True
         self.assertIn('checkbox', row1.get_cells()[0].data)
         # status

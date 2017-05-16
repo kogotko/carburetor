@@ -46,9 +46,7 @@ def generate_key(key_length=64):
 
 def read_from_file(key_file='.secret_key'):
     if (os.stat(key_file).st_mode & 0o777) != 0o600:
-        raise FilePermissionError(
-            "Insecure permissions on key file %s, should be 0600." %
-            os.path.abspath(key_file))
+        raise FilePermissionError("Insecure key file permissions!")
     with open(key_file, 'r') as f:
         key = f.readline()
         return key

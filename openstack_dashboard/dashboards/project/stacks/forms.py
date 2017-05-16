@@ -17,7 +17,7 @@ import django
 from django.conf import settings
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from oslo_utils import strutils
 import six
@@ -67,8 +67,7 @@ class TemplateForm(forms.SelfHandlingForm):
     attributes = {'class': 'switchable', 'data-slug': 'templatesource'}
     template_source = forms.ChoiceField(label=_('Template Source'),
                                         choices=base_choices + url_choice,
-                                        widget=forms.ThemableSelectWidget(
-                                            attrs=attributes))
+                                        widget=forms.Select(attrs=attributes))
 
     attributes = create_upload_form_attributes(
         'template',
@@ -104,7 +103,7 @@ class TemplateForm(forms.SelfHandlingForm):
     environment_source = forms.ChoiceField(
         label=_('Environment Source'),
         choices=base_choices,
-        widget=forms.ThemableSelectWidget(attrs=attributes),
+        widget=forms.Select(attrs=attributes),
         required=False)
 
     attributes = create_upload_form_attributes(
@@ -191,7 +190,7 @@ class TemplateForm(forms.SelfHandlingForm):
         # Uploaded file handler
         if has_upload and not url:
             log_template_name = files[upload_str].name
-            LOG.info('got upload %s', log_template_name)
+            LOG.info('got upload %s' % log_template_name)
 
             tpl = files[upload_str].read()
             if tpl.startswith('{'):
@@ -323,14 +322,11 @@ class CreateStackForm(forms.SelfHandlingForm):
         for param_key, param in params_in_order:
             field = None
             field_key = self.param_prefix + param_key
-            initial = param.get('Value',
-                                param.get('DefaultValue',
-                                          param.get('Default')))
             field_args = {
-                'initial': initial,
+                'initial': param.get('Default', None),
                 'label': param.get('Label', param_key),
                 'help_text': html.escape(param.get('Description', '')),
-                'required': initial is None,
+                'required': param.get('Default', None) is None
             }
 
             param_type = param.get('Type', None)

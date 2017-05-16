@@ -20,7 +20,7 @@ import netaddr
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.forms import ValidationError
+from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 import six
@@ -104,7 +104,7 @@ class UpdateGroup(GroupBase):
 class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
     rule_menu = forms.ChoiceField(label=_('Rule'),
-                                  widget=forms.ThemableSelectWidget(attrs={
+                                  widget=forms.Select(attrs={
                                       'class': 'switchable',
                                       'data-slug': 'rule_menu'}))
 
@@ -114,7 +114,7 @@ class AddRule(forms.SelfHandlingForm):
     direction = forms.ChoiceField(
         label=_('Direction'),
         required=False,
-        widget=forms.ThemableSelectWidget(attrs={
+        widget=forms.Select(attrs={
             'class': 'switched',
             'data-switch-on': 'rule_menu',
             'data-rule_menu-tcp': _('Direction'),
@@ -139,7 +139,7 @@ class AddRule(forms.SelfHandlingForm):
         label=_('Open Port'),
         choices=[('port', _('Port')),
                  ('range', _('Port Range'))],
-        widget=forms.ThemableSelectWidget(attrs={
+        widget=forms.Select(attrs={
             'class': 'switchable switched',
             'data-slug': 'range',
             'data-switch-on': 'rule_menu',
@@ -210,7 +210,7 @@ class AddRule(forms.SelfHandlingForm):
                                            'members of another security '
                                            'group select &quot;Security '
                                            'Group&quot;.'),
-                               widget=forms.ThemableSelectWidget(attrs={
+                               widget=forms.Select(attrs={
                                    'class': 'switchable',
                                    'data-slug': 'remote'}))
 
@@ -229,19 +229,18 @@ class AddRule(forms.SelfHandlingForm):
 
     security_group = forms.ChoiceField(label=_('Security Group'),
                                        required=False,
-                                       widget=forms.ThemableSelectWidget(
-                                           attrs={
-                                               'class': 'switched',
-                                               'data-switch-on': 'remote',
-                                               'data-remote-sg': _('Security '
-                                                                   'Group')}))
+                                       widget=forms.Select(attrs={
+                                           'class': 'switched',
+                                           'data-switch-on': 'remote',
+                                           'data-remote-sg': _('Security '
+                                                               'Group')}))
     # When cidr is used ethertype is determined from IP version of cidr.
     # When source group, ethertype needs to be specified explicitly.
     ethertype = forms.ChoiceField(label=_('Ether Type'),
                                   required=False,
                                   choices=[('IPv4', _('IPv4')),
                                            ('IPv6', _('IPv6'))],
-                                  widget=forms.ThemableSelectWidget(attrs={
+                                  widget=forms.Select(attrs={
                                       'class': 'switched',
                                       'data-slug': 'ethertype',
                                       'data-switch-on': 'remote',
@@ -261,11 +260,9 @@ class AddRule(forms.SelfHandlingForm):
         backend = api.network.security_group_backend(self.request)
 
         rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
-        common_rules = [
-            (k, rules_dict[k]['name'])
-            for k in rules_dict
-            if rules_dict[k].get('backend', backend) == backend
-        ]
+        common_rules = [(k, rules_dict[k]['name'])
+                        for k in rules_dict
+                        if rules_dict[k].get('backend', backend) == backend]
         common_rules.sort()
         custom_rules = [('tcp', _('Custom TCP Rule')),
                         ('udp', _('Custom UDP Rule')),
@@ -278,10 +275,6 @@ class AddRule(forms.SelfHandlingForm):
         if backend == 'neutron':
             self.fields['direction'].choices = [('ingress', _('Ingress')),
                                                 ('egress', _('Egress'))]
-            self.fields['ip_protocol'].help_text = _(
-                "Enter an integer value between -1 and 255 "
-                "(-1 means wild card)."
-            )
         else:
             # direction and ethertype are not supported in Nova secgroup.
             self.fields['direction'].widget = forms.HiddenInput()
@@ -289,13 +282,6 @@ class AddRule(forms.SelfHandlingForm):
             # ip_protocol field is to specify arbitrary protocol number
             # and it is available only for neutron security group.
             self.fields['ip_protocol'].widget = forms.HiddenInput()
-
-        if backend == 'neutron':
-            self.fields['port_or_range'].choices = [
-                ('port', _('Port')),
-                ('range', _('Port Range')),
-                ('all', _('All ports')),
-            ]
 
         if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
                        {}).get('enable_ipv6', True):
@@ -336,11 +322,7 @@ class AddRule(forms.SelfHandlingForm):
         self._update_and_pop_error(cleaned_data, 'ip_protocol', rule_menu)
         self._update_and_pop_error(cleaned_data, 'icmp_code', None)
         self._update_and_pop_error(cleaned_data, 'icmp_type', None)
-        if port_or_range == 'all':
-            self._update_and_pop_error(cleaned_data, 'port', None)
-            self._update_and_pop_error(cleaned_data, 'from_port', None)
-            self._update_and_pop_error(cleaned_data, 'to_port', None)
-        elif port_or_range == "port":
+        if port_or_range == "port":
             self._update_and_pop_error(cleaned_data, 'from_port', port)
             self._update_and_pop_error(cleaned_data, 'to_port', port)
             if port is None:

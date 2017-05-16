@@ -293,6 +293,12 @@ OPENSTACK_NEUTRON_NETWORK = {
     # real deployments
     # 'default_dns_nameservers': ["8.8.8.8", "8.8.4.4", "208.67.222.222"],
 
+    # The profile_support option is used to detect if an external router can be
+    # configured via the dashboard. When using specific plugins the
+    # profile_support can be turned on if needed.
+    'profile_support': None,
+    #'profile_support': 'cisco',
+
     # Set which provider network types are supported. Only the network types
     # in this list will be available to choose from when creating a network.
     # Network types include local, flat, vlan, gre, vxlan and geneve.
@@ -317,17 +323,9 @@ OPENSTACK_NEUTRON_NETWORK = {
     # Set which VNIC types are supported for port binding. Only the VNIC
     # types in this list will be available to choose from when creating a
     # port.
-    # VNIC types include 'normal', 'direct', 'direct-physical', 'macvtap' and
-    # 'baremetal'
+    # VNIC types include 'normal', 'macvtap' and 'direct'.
     # Set to empty list or None to disable VNIC type selection.
     'supported_vnic_types': ['*'],
-
-    # Set list of available physical networks to be selected in the physical
-    # network field on the admin create network modal. If it's set to an empty
-    # list, the field will be a regular input field.
-    # e.g. ['default', 'test']
-    'physical_networks': [],
-
 }
 
 # The OPENSTACK_HEAT_STACK settings can be used to disable password
@@ -352,7 +350,6 @@ OPENSTACK_HEAT_STACK = {
 #        ('raw', _('Raw')),
 #        ('vdi', _('VDI - Virtual Disk Image')),
 #        ('vhd', _('VHD - Virtual Hard Disk')),
-#        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
 #        ('vmdk', _('VMDK - Virtual Machine Disk')),
 #    ],
 #}
@@ -826,11 +823,15 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 #}
 ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
 
-# Projects and users can have extra attributes as defined by keystone v3.
-# Horizon has the ability to display these extra attributes via this setting.
-# If you'd like to display extra data in the project or user tables, set the
-# corresponding dict key to the attribute name, followed by the display name.
-# For more information, see horizon's customization (http://docs.openstack.org/developer/horizon/topics/customizing.html#horizon-customization-module-overrides)
+# Project and user can have any attributes by keystone v3 mechanism.
+# This settings can treat these attributes on Horizon.
+# It means, when you show Create/Update modal, attribute below is
+# shown and you can specify any value.
+# If you'd like to display these extra data in project or user index table,
+# Keystone v3 allows you to add extra properties to Project and Users.
+# Horizon's customization (http://docs.openstack.org/developer/horizon/topics/customizing.html#horizon-customization-module-overrides)
+# allows you to display this extra information in the Create/Update modal and
+# the corresponding tables.
 #PROJECT_TABLE_EXTRA_INFO = {
 #   'phone_num': _('Phone Number'),
 #}

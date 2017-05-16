@@ -58,7 +58,7 @@ A simplified example is as follows::
             ('cidr', _('CIDR')),
             ('sg', _('Security Group'))
         ],
-        widget=forms.ThemableSelectWidget(attrs={
+        widget=forms.Select(attrs={
             'class': 'switchable',
             'data-slug': 'source'
         })
@@ -77,7 +77,7 @@ A simplified example is as follows::
     security_group = forms.ChoiceField(
         label=_('Security Group'),
         required=False,
-        widget=forms.ThemableSelectWidget(attrs={
+        widget=forms.Select(attrs={
             'class': 'switched',
             'data-switch-on': 'source',
             'data-source-sg': _('Security Group')

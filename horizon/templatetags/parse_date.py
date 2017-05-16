@@ -20,7 +20,7 @@
 Template tags for parsing date strings.
 """
 
-from datetime import datetime
+from datetime import datetime  # noqa
 
 from django import template
 from django.utils import timezone

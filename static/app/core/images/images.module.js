@@ -76,7 +76,6 @@
       .setItemInTransitionFunction(imagesService.isInTransition)
       .setProperties(imageProperties(imagesService, statuses))
       .setListFunction(imagesService.getImagesPromise)
-      .setNeedsFilterFirstFunction(imagesService.getFilterFirstSettingPromise)
       .tableColumns
       .append({
         id: 'owner',
@@ -278,8 +277,7 @@
   config.$inject = [
     '$provide',
     '$windowProvider',
-    '$routeProvider',
-    'horizon.app.core.detailRoute'
+    '$routeProvider'
   ];
 
   /**
@@ -290,7 +288,7 @@
    * @description Routes used by this module.
    * @returns {undefined} Returns nothing
    */
-  function config($provide, $windowProvider, $routeProvider, detailRoute) {
+  function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
 
@@ -311,7 +309,7 @@
     });
 
     function goToAngularDetails(params) {
-      return detailRoute + 'OS::Glance::Image/' + params.id;
+      return 'project/ngdetails/OS::Glance::Image/' + params.id;
     }
   }
 

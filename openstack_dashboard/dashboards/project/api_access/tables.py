@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.template.defaultfilters import title
+from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_auth import utils
@@ -37,19 +37,11 @@ class DownloadEC2(tables.LinkAction):
     verbose_name = _("Download EC2 Credentials")
     verbose_name_plural = _("Download EC2 Credentials")
     icon = "download"
-    url = "horizon:project:access_and_security:api_access:ec2"
-    policy_rules = (("compute", "os_compute_api:os-certificates:create"),)
+    url = "horizon:project:api_access:ec2"
+    policy_rules = (("compute", "compute_extension:certificates"),)
 
     def allowed(self, request, datum=None):
         return api.base.is_service_enabled(request, 'ec2')
-
-
-class DownloadCloudsYaml(tables.LinkAction):
-    name = "download_clouds_yaml"
-    verbose_name = _("Download OpenStack clouds.yaml File")
-    verbose_name_plural = _("Download OpenStack clouds.yaml File")
-    icon = "download"
-    url = "horizon:project:api_access:clouds.yaml"
 
 
 class DownloadOpenRC(tables.LinkAction):
@@ -85,8 +77,8 @@ class RecreateCredentials(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "refresh"
     url = \
-        "horizon:project:access_and_security:api_access:recreate_credentials"
-    policy_rules = (("compute", "os_compute_api:certificates:create"))
+        "horizon:project:api_access:recreate_credentials"
+    policy_rules = (("compute", "compute_extension:certificates"))
     action_type = "danger"
 
     def allowed(self, request, datum=None):
@@ -114,6 +106,5 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadCloudsYaml, DownloadOpenRCv2, DownloadOpenRC,
-                         DownloadEC2,
+        table_actions = (DownloadOpenRCv2, DownloadOpenRC, DownloadEC2,
                          ViewCredentials, RecreateCredentials)

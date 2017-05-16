@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -883,6 +883,14 @@ msgstr "ৰাউটাৰ এটা তৈয়াৰ কৰক"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "আয়তন প্ৰকাৰ এটাৰ বাবে এটা নতুন \"extra spec\" মুখ্য-মান যোৰা তৈয়াৰ কৰক."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"QoS স্পেক \"%(qos_spec_name)s\" ৰ বাবে এটা নতুন \"spec\" মুখ্য-মান যোৰা তৈয়াৰ কৰক"
+
+msgid "Create a new network for any project as you need."
+msgstr "আপোনাৰ প্ৰয়োজনীয় যিকোনো প্ৰক্ষেপৰ বাবে এটা নতুন নেটৱৰ্ক তৈয়াৰ কৰক."
 
 msgid "Create a new role."
 msgstr "এটা নতুন ৰোল তৈয়াৰ কৰক."
@@ -2207,6 +2215,13 @@ msgstr "নীতিত"
 msgid "In Use"
 msgstr "ব্যৱহাৰ হৈ আছে"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"লগতে আপুনি অনুৰূপ পৰীক্ষাবাকচটো পৰীক্ষা কৰাৰ দ্বৰা এটা বাহ্যিক নেটৱৰ্ক বা এটা বিনিময় "
+"কৰা নেটৱৰ্ক তৈয়াৰ কৰিব পাৰে."
+
 msgid "Info"
 msgstr "তথ্য"
 
@@ -2383,6 +2398,9 @@ msgstr "এইবোৰ সুৰক্ষাৰ গোটত উদাহৰণ
 
 msgid "Launch instance with these networks"
 msgstr "এই নেটৱৰ্কবোৰৰ সৈতে উদাহৰণ আৰম্ভ কৰক"
+
+msgid "Launch instance with this policy profile"
+msgstr "এই নীতি প্ৰফাইলটোৰ সৈতে উদাহৰণ আৰম্ভ কৰক"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -2613,6 +2631,10 @@ msgid "Network"
 msgstr "নেটৱৰ্ক"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "নেটৱৰ্ক \"%s\" সফলতাৰে তৈয়াৰ কৰা হৈছিল."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "নেটৱৰ্ক %s সফলতাৰে তৈয়াৰ কৰা হৈছিল."
 
@@ -2637,6 +2659,12 @@ msgstr "নেটৱৰ্ক ID"
 
 msgid "Network Name"
 msgstr "নেটৱৰ্ক নাম"
+
+msgid "Network Profile"
+msgstr "নেটৱৰ্ক প্ৰফাইল"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "নেটৱৰ্ক প্ৰফাইলবোৰ উদ্ধাৰ কৰিব পৰা নগল."
 
 msgid "Network Topology"
 msgstr "নেটৱৰ্ক টোপোলজি"
@@ -2963,6 +2991,9 @@ msgstr "নীতি %s সফলতাৰে আপডেট কৰা হৈ�
 msgid "Policy ID"
 msgstr "নীতি ID"
 
+msgid "Policy Profiles"
+msgstr "নীতিৰ প্ৰফালইবোৰ"
+
 msgid "Pool"
 msgstr "পুল"
 
@@ -3076,6 +3107,15 @@ msgstr "নেটৱৰ্ক আগবঢ়াওতা"
 msgid "Provider Network Type"
 msgstr "আগবঢ়োৱা নেটৱৰ্ক প্ৰকাৰ"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"আগবঢ়াওতাই নিৰ্ধাৰণ কৰা নেটৱৰ্ক তৈয়াৰ কৰিব পাৰি. এটা নতুন ভিৰচুৱেল নেটৱৰ্কৰ বাবে "
+"আপুনি এটা ফিজিকেল নেটৱৰ্ক প্ৰকাৰ (ফ্লেট, VLAN, GRE, আৰু VXLAN ৰ দৰে) আৰু ইয়াৰ খণ্ড "
+"কৰা id বা ফিজিকেল নেটৱৰ্ক নাম তৈয়াৰ কৰিব পাৰে."
+
 msgid "Public"
 msgstr "ৰাজহুৱা"
 
@@ -3093,6 +3133,9 @@ msgstr "QoS স্পেক: "
 
 msgid "QoS Specs"
 msgstr "QoS স্পেকবোৰ"
+
+msgid "Quota"
+msgstr "কোটা"
 
 msgid "Quota Name"
 msgstr "কোটা নাম"
@@ -3501,6 +3544,9 @@ msgstr "ষ্টেক এটা পুনৰ আৰম্ভ কৰিবল�
 msgid "Select a port"
 msgstr "পোৰ্ট এটা নিৰ্বাচন কৰক"
 
+msgid "Select a profile"
+msgstr "প্ৰফাইল এটা নিৰ্বাচন কৰক"
+
 msgid "Select a project"
 msgstr "প্ৰক্ষেপ এটা নিৰ্বাচন কৰক"
 
@@ -3810,6 +3856,14 @@ msgstr "স্থিতিৰ কাৰণ"
 
 msgid "Subnet"
 msgstr "উপনেট"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "\"%s\" উপনেট সফলতাৰে তৈয়াৰ কৰা হৈছিল."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "উপনেট \"%s\" সফলতাৰে আপডেট কৰা হৈছিল."
 
 msgid "Subnet Details"
 msgstr "উপনেটৰ পূংখানুপূংখ বিৱৰণবোৰ"

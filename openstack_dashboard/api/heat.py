@@ -23,7 +23,7 @@ from heatclient.common import template_utils
 from heatclient.common import utils as heat_utils
 from horizon import exceptions
 from horizon.utils import functions as utils
-from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
@@ -132,7 +132,7 @@ def _get_file_contents(from_data, files):
     if not isinstance(from_data, (dict, list)):
         return
     if isinstance(from_data, dict):
-        recurse_data = from_data.values()
+        recurse_data = six.itervalues(from_data)
         for key, value in from_data.items():
             if _ignore_if(key, value):
                 continue

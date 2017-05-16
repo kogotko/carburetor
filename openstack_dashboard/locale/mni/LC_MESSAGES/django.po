@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -839,6 +839,13 @@ msgstr "রাউতর অমা শেম্মু"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "ভোল্যুম তাইপ অমগীদমক অনৌবা \"এক্সত্রা স্পেক\" কী-ভেল্যু অমা শেম্মু।"
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr "QoS স্পেক \"%(qos_spec_name)s\"গী অনৌবা \"spec\" কী-ভেল্যু জুরা অমা শেম্মু"
+
+msgid "Create a new network for any project as you need."
+msgstr "নহাক্কী মথৌ তাবা মতুংইন্না প্রোজেক্ত অমহেক্তগী অনৌবা নেতৱার্ক অমা শেম্মু।"
 
 msgid "Create a new role."
 msgstr "অনৌবা রোল অমা শেম্মু।"
@@ -2131,6 +2138,13 @@ msgstr "পোলিসিদা"
 msgid "In Use"
 msgstr "শিজিন্নরিবা"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"মসিগী মথক্তা, মরি লৈনবা চেকবোক্স অদু চেক তৌদুনা নহাক্না মপানগী নেতৱার্ক অমা নত্ত্রগা "
+"শেয়র তৌরবা নেতৱার্ক অমা শেম্বা য়াই। "
+
 msgid "Info"
 msgstr "ইনফো"
 
@@ -2308,6 +2322,9 @@ msgstr "সেক্যুরিতি গ্রুপশীং অসিদা 
 
 msgid "Launch instance with these networks"
 msgstr "নেতৱার্কশীং অসিনা ইন্সতেন্স শেমগৎলু"
+
+msgid "Launch instance with this policy profile"
+msgstr "পোলিসি প্রোফাইল অসিনা ইন্সতেন্স শেমগৎলু"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -2540,6 +2557,10 @@ msgid "Network"
 msgstr "নেতৱার্ক"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "নেত‍ৱার্ক \"%s\" মায় পাক্না শেমখ্রে।"
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "নেতৱার্ক %s মায় পাক্না শেমখ্রে।"
 
@@ -2564,6 +2585,12 @@ msgstr "নেতৱার্ক ID"
 
 msgid "Network Name"
 msgstr "নেতৱার্ক মমীং"
+
+msgid "Network Profile"
+msgstr "নেতৱার্ক প্রোফাইল"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "নেতৱার্ক প্রোফাইলশীং রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Network Topology"
 msgstr "নেতৱার্ক তোপোলোজি"
@@ -2882,6 +2909,9 @@ msgstr "পোলিসি %s অদু মায় পাক্না অপদ�
 msgid "Policy ID"
 msgstr "পোলিসি ID"
 
+msgid "Policy Profiles"
+msgstr "পোলিসি প্রোফাইলশীং"
+
 msgid "Pool"
 msgstr "পুল"
 
@@ -2983,6 +3013,15 @@ msgstr "প্রোভাইদর নেতৱার্ক"
 msgid "Provider Network Type"
 msgstr "প্রোভাইদর নেতৱার্ক তাইপ"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"প্রোভাইদরনা তাকপা নেতৱার্ক শেম্বা য়াই। অনৌবা ভর্চুএল নেতৱার্ক অমগীদমক নহাক্না "
+"ফিজিকেল নেতৱার্ক মখল অমা (ফ্লেত, VLAN, GRE, অমসুং VXLANগুম্বা) অমসুং মসিগী "
+"সেগমেন্তেসন_ID নত্ত্রগা ফিজিকেল নেতৱার্ক মমীং অমা পীবা য়াই।"
+
 msgid "Public"
 msgstr "মীয়াম"
 
@@ -3000,6 +3039,9 @@ msgstr "QoS স্পেক: "
 
 msgid "QoS Specs"
 msgstr "QoS স্পেকশীং"
+
+msgid "Quota"
+msgstr "ক্যুওতা"
 
 msgid "Quota Name"
 msgstr "ক্যুওতা মমীং"
@@ -3337,6 +3379,9 @@ msgstr "ষ্টেক অমা অমুক হন্না শেমগৎ�
 msgid "Select a port"
 msgstr "পোর্ত অমা খল্লু"
 
+msgid "Select a profile"
+msgstr "প্রোফাইল অমা খল্লু"
+
 msgid "Select a project"
 msgstr "প্রোজেক্ত অমা খল্লু"
 
@@ -3593,6 +3638,14 @@ msgstr "ষ্টেতস মরম"
 
 msgid "Subnet"
 msgstr "সবনেত"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "সবনেত \"%s\" মায় পাক্না শেমখ্রে।"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "সবনেত \"%s\" মায় পাক্না অপদেত তৌখ্রে।"
 
 msgid "Subnet Details"
 msgstr "সবনেতকী অকুপ্পা মরোলশীং"

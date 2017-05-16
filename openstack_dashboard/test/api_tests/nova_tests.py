@@ -23,7 +23,7 @@ from django.conf import settings
 from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
@@ -555,7 +555,7 @@ class ComputeApiTests(test.APITestCase):
         self.assertEqual(flavor.disk, api_flavor.disk)
         self.assertEqual(0, api_flavor.ephemeral)
         self.assertEqual(0, api_flavor.swap)
-        self.assertTrue(api_flavor.is_public)
+        self.assertEqual(True, api_flavor.is_public)
         self.assertEqual(1, api_flavor.rxtx_factor)
 
     def test_flavor_delete(self):

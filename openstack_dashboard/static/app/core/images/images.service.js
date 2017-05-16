@@ -21,12 +21,9 @@
 
   imageService.$inject = [
     '$filter',
-    '$location',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.userSession',
-    'horizon.app.core.images.transitional-statuses',
-    'horizon.app.core.openstack-service-api.settings',
-    'horizon.app.core.detailRoute'
+    'horizon.app.core.images.transitional-statuses'
   ];
 
   /*
@@ -39,13 +36,7 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function imageService($filter,
-                        $location,
-                        glance,
-                        userSession,
-                        transitionalStatuses,
-                        settings,
-                        detailRoute) {
+  function imageService($filter, glance, userSession, transitionalStatuses) {
     var version;
 
     return {
@@ -53,8 +44,7 @@
       getImagePromise: getImagePromise,
       getImagesPromise: getImagesPromise,
       imageType: imageType,
-      isInTransition: isInTransition,
-      getFilterFirstSettingPromise: getFilterFirstSettingPromise
+      isInTransition: isInTransition
     };
 
     /*
@@ -66,7 +56,7 @@
      * view.
      */
     function getDetailsPath(item) {
-      return detailRoute + 'OS::Glance::Image/' + item.id;
+      return 'project/ngdetails/OS::Glance::Image/' + item.id;
     }
 
     /*
@@ -161,26 +151,6 @@
      */
     function setVersion(response) {
       version = response.data.version;
-    }
-
-    /**
-     * @ngdoc function
-     * @name getFilterFirstSettingPromise
-     * @description Returns a promise for the FILTER_DATA_FIRST setting
-     *
-     */
-    function getFilterFirstSettingPromise() {
-      return settings.getSetting('FILTER_DATA_FIRST', {'admin.images': false})
-        .then(resolve);
-
-      function resolve(result) {
-        // there should a better way to check for admin or project panel??
-        if ($location.url() === '/admin/images') {
-          return result['admin.images'];
-        }
-        return false;
-      }
-
     }
   }
 

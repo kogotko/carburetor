@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.dev298\n"
+"Project-Id-Version: horizon 11.0.1.dev17\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-10 16:55+0000\n"
+"POT-Creation-Date: 2017-03-07 16:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-11 10:52+0000\n"
+"PO-Revision-Date: 2017-03-07 04:00+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -26,6 +26,9 @@ msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] "%s Instanz gestartet."
 msgstr[1] "%s Instanzen gestartet."
+
+msgid "(None)"
+msgstr "(Kein)"
 
 msgid "1"
 msgstr "1"
@@ -138,9 +141,6 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Diese Textzeile soll wie Kleindruck behandelt werden.</small>"
-
-msgid "A Confirmation Dialog"
-msgstr "Ein Bestätigungsdialog"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -272,9 +272,6 @@ msgstr "Aktiv"
 msgid "Add Interface"
 msgstr "Schnittstelle hinzufügen"
 
-msgid "Add Ons, Required and Feedback"
-msgstr "Zusätze, Erfordernisse und Rückmeldung"
-
 msgid "Admin State"
 msgstr "Admin-Status"
 
@@ -391,9 +388,6 @@ msgstr "Architektur"
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Sind Sie sicher, dass Sie Container %(name)s löschen möchten?"
-
-msgid "Array"
-msgstr "Array"
 
 msgid "Automatic"
 msgstr "Automatisch"
@@ -513,20 +507,10 @@ msgstr "Konfigurationslaufwerk"
 msgid "Confirm Delete"
 msgstr "Löschvorgang bestätigen"
 
-msgid "Confirm Delete Flavor"
-msgid_plural "Confirm Delete Flavors"
-msgstr[0] "Variante löschen bestätigen"
-msgstr[1] "Varianten löschen bestätigen"
-
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Löschen von Abbild bestätigen"
 msgstr[1] "Löschen von Abbildern bestätigen"
-
-msgid "Confirm Delete Role"
-msgid_plural "Confirm Delete Roles"
-msgstr[0] "Rolle löschen bestätigen"
-msgstr[1] "Rollen löschen bestätigen"
 
 msgid "Connecting"
 msgstr "Verbindungsaufbau"
@@ -599,9 +583,6 @@ msgstr "Schlüsselpaar erstellen"
 
 msgid "Create New Volume"
 msgstr "Neuen Datenträger erstellen"
-
-msgid "Create Role"
-msgstr "Rolle erstellen"
 
 msgid "Create Subnet"
 msgstr "Subnetz erstellen"
@@ -700,14 +681,6 @@ msgstr "Container löschen"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Lösche Dateien in {$ ctrl.model.container.name $}"
 
-msgid "Delete Flavor"
-msgid_plural "Delete Flavors"
-msgstr[0] "Variante löschen"
-msgstr[1] "Varianten löschen"
-
-msgid "Delete Flavors"
-msgstr "Varianten löschen"
-
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Abbild löschen"
@@ -725,14 +698,6 @@ msgstr "Schnittstelle löschen"
 msgid "Delete Network"
 msgstr "Lösche Netzwerk"
 
-msgid "Delete Role"
-msgid_plural "Delete Roles"
-msgstr[0] "Rolle löschen"
-msgstr[1] "Rollen löschen"
-
-msgid "Delete Roles"
-msgstr "Rollen löschen"
-
 msgid "Delete Router"
 msgstr "Router löschen"
 
@@ -746,22 +711,10 @@ msgid "Deleted"
 msgstr "Gelöscht"
 
 #, python-format
-msgid "Deleted Flavor: %s."
-msgid_plural "Deleted Flavors: %s."
-msgstr[0] "Gelöschte Variante: %s"
-msgstr[1] "Gelöschte Varianten: %s"
-
-#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Gelöschtes Abbild: %s."
 msgstr[1] "Gelöschte Abbilder: %s."
-
-#, python-format
-msgid "Deleted Role: %s."
-msgid_plural "Deleted Roles: %s."
-msgstr[0] "Gelöschte Rolle: %s"
-msgstr[1] "Gelöschte Rollen: %s"
 
 msgid "Deleting"
 msgstr "Wird gelöscht"
@@ -855,9 +808,6 @@ msgstr "Datei bearbeiten: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "Abbild bearbeiten"
-
-msgid "Edit Role"
-msgstr "Rolle bearbeiten"
 
 msgid "Email"
 msgstr "E-Mail"
@@ -959,12 +909,6 @@ msgstr "Ordner %(name)s erstellt."
 
 msgid "Folder Name"
 msgstr "Ordnername"
-
-msgid "Form"
-msgstr "Formular"
-
-msgid "Form Output"
-msgstr "Formularausgabe"
 
 msgid "Format"
 msgstr "Abbildformat"
@@ -1323,9 +1267,6 @@ msgstr "Überschrift für Listengruppeneintrag"
 msgid "List groups"
 msgstr "Gruppen auflisten"
 
-msgid "Live Edit Schema Form Examples"
-msgstr "Live-Bearbeitung Schema Form Beispiele"
-
 msgid "Load Balancer Pool"
 msgstr "Loadbalancer-Pool"
 
@@ -1444,9 +1385,6 @@ msgstr "Minimum RAM (MB)"
 msgid "Modals"
 msgstr "Modaldialoge"
 
-msgid "Model"
-msgstr "Modell"
-
 msgid "Month"
 msgstr "Monat"
 
@@ -1526,9 +1464,6 @@ msgstr "Keine Beschreibung verfügbar."
 
 msgid "No existing scheduler hints"
 msgstr "Keine vorhandenen Schedulerhinweise"
-
-msgid "No items to display."
-msgstr "Keine Einträge zum Anzeigen."
 
 msgid "None"
 msgstr "Keine"
@@ -1721,9 +1656,6 @@ msgstr ""
 "Sie können Ports anstelle von Netzen auswählen oder Ports und Netze "
 "auswählen."
 
-msgid "Prefix"
-msgstr "Präfix"
-
 msgid "Previous"
 msgstr "Zurück"
 
@@ -1824,9 +1756,6 @@ msgstr "RX/TX Faktor"
 msgid "Radios"
 msgstr "Optionsfelder"
 
-msgid "Radios, Checkboxes and Select"
-msgstr "Radios, Checkboxen und Auswahlen"
-
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -1853,13 +1782,6 @@ msgstr "Rechts"
 
 msgid "Role"
 msgstr "Rolle"
-
-#, python-format
-msgid "Role %s was successfully created."
-msgstr "Rolle %s wurde erfolgreich erstellt."
-
-msgid "Role updated successfully."
-msgstr "Rolle erfolgreich aktualisiert."
 
 msgid "Roles"
 msgstr "Rollen"
@@ -1889,14 +1811,8 @@ msgstr ""
 "Schedulerhinweise erlauben es Ihnen, zusätzliche platzierungsbezogene "
 "Informationen an den Compute-Scheduler zu übergeben."
 
-msgid "Schema"
-msgstr "Schema"
-
 msgid "Search"
 msgstr "Suche"
-
-msgid "Sections and Fieldsets"
-msgstr "Sektionen und Fieldsets"
 
 msgid "Security"
 msgstr "Sicherheit"
@@ -1917,25 +1833,23 @@ msgid ""
 "Security groups define a set of IP filter rules that determine how network "
 "traffic flows to and from an instance. Users can add additional rules to an "
 "existing security group to further define the access options for an "
-"instance. To create additional rules, go to the <b>Network | Security "
-"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
 msgstr ""
 "Sicherheitsgruppen definieren einen Satz von IP-Filtern, die bestimmen, wie "
 "Netzwerkverkehr zu und von einer Instanz fließt.  Benutzer können "
 "zusätzliche Regeln zu einer bestehenden Sicherheitsgruppe hinzufügen, um "
 "Zugriffsoptionen für eine Instanz genauer zu definieren. Zum Erstellen "
-"zusätzlicher Regeln gehen Sie zur <b>Netzwerk | Sicherheitsgruppen</b> "
-"Ansicht, lokalisieren Sie die Sicherheitsgruppe und klicken Sie auf "
-"<b>Regeln verwalten</b>."
+"zusätzlicher Regeln gehen Sie zur <b>Compute | Zugriff & Sicherheit</b> "
+"Ansicht, finden Sie die Sicherheitsgruppe und klicken Sie auf <b>Regeln "
+"verwalten</b>."
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
 
 msgid "Select Boot Source"
 msgstr "Bootquelle auswählen"
-
-msgid "Select Example"
-msgstr "Beispiel auswählen"
 
 msgid "Select Title"
 msgstr "Titel auswählen"
@@ -2150,9 +2064,6 @@ msgstr "Swift Container"
 msgid "Swift Containers"
 msgstr "Swift Container"
 
-msgid "Tab Array"
-msgstr "Tab Array"
-
 msgid "Table Columns:"
 msgstr "Tabellenspalten:"
 
@@ -2170,9 +2081,6 @@ msgstr "Tel"
 
 msgid "Text"
 msgstr "Text"
-
-msgid "Text Inputs"
-msgstr "Texteingaben"
 
 msgid "Textarea"
 msgstr "Textbereich"
@@ -2339,14 +2247,6 @@ msgstr ""
 "Verwenden Sie das <samp>ssh-keygen</samp> Kommando auf einem Linux-System:"
 
 msgid ""
-"This JavaScript object contains your new form and can be used with "
-"<code>horizon.framework.widgets.form.ModalFormService</code>"
-msgstr ""
-"Dieses JavaScript Objekt enthält Ihr neues Formular und kann mittels "
-"<code>horizon.framework.widgets.form.ModalFormService</code> verwendet "
-"werden."
-
-msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
@@ -2389,18 +2289,6 @@ msgstr ""
 
 msgid "This name already exists."
 msgstr "Dieser Name existiert bereits."
-
-msgid ""
-"This page contains examples of the different fields provided by Schema Form "
-"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
-"be edited inline to customise the form output. For further documentation on "
-"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
-msgstr ""
-"Diese Seite enthält Beispiele der verschiedenen von Schema Form in Horizon "
-"bereitgestellten Felder. Die <code>Schema</code> und <code>Form</code> "
-"Sektionen unten können zum Anpassen der Formularausgabe inline bearbeitet "
-"werden. Weiterführende Dokumentation zu Schema Form finden Sie unter <a href="
-"\"http://schemaform.io/\">http://schemaform.io/</a>."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr ""
@@ -2516,22 +2404,10 @@ msgid "Unable to create the volume."
 msgstr "Der Datenträger kann nicht erstellt werden."
 
 #, python-format
-msgid "Unable to delete Flavor: %s."
-msgid_plural "Unable to delete Flavors: %s."
-msgstr[0] "Variante kann nicht gelöscht werden: %s"
-msgstr[1] "Varianten können nicht gelöscht werden: %s"
-
-#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Das folgende Abbild kann nicht gelöscht werden: %s."
 msgstr[1] "Die folgenden Abbilder konnten nicht gelöscht werden: %s."
-
-#, python-format
-msgid "Unable to delete Role: %s."
-msgid_plural "Unable to delete Roles: %s."
-msgstr[0] "Rolle kann nicht gelöscht werden: %s."
-msgstr[1] "Rollen können nicht gelöscht werden: %s."
 
 msgid "Unable to delete the container."
 msgstr "Der Container konnte nicht gelöscht werden."
@@ -2943,27 +2819,6 @@ msgstr "Verwendungsdiagramme"
 msgid "Use image as a source"
 msgstr "Abbild als Quelle verwenden"
 
-msgid ""
-"Use the form to set titles, descriptions and choose specific UI element "
-"types for each schema item. In the form builder, the form must be JSON, but "
-"you can use JavaScript in production code, such as <code>gettext</code> for "
-"translation."
-msgstr ""
-"Verwenden Sie die Form zum setzen von Titeln, Beschreibungen und zum "
-"auswählen von bestimmten UI-Elementtypen für jedes Element im Schema. Im "
-"Formularersteller muss JSON als Form verwendet werden, aber im "
-"Produktionscode können Sie JavaScript verwenden, wie z.B. <code>gettext</"
-"code>  für Übersetzungen."
-
-msgid ""
-"Use the schema to describe the data model and valid input patterns. A schema "
-"is always JSON. NOTE: A schema element is not needed for items that have no "
-"data model, like sections and fieldsets."
-msgstr ""
-"Verwenden Sie das Schema zur Beschreibung des Datenmodells und gültiger "
-"Eingabemuster. Ein Schema ist immer JSON. Anmerkung: es wird kein Schema-"
-"Element für Elemente ohne Datenmodell benötigt, wie Sektionen und Fieldsets."
-
 msgid "User"
 msgstr "Benutzer"
 
@@ -2997,14 +2852,8 @@ msgstr "VMDK - Virtual Machine Disk"
 msgid "VNIC type"
 msgstr "VNIC-Typ"
 
-msgid "View As Modal"
-msgstr "Als Modal betrachten"
-
 msgid "View Details"
 msgstr "Details anzeigen"
-
-msgid "View Form JSON"
-msgstr "Formular-JSON betrachten"
 
 msgid "View Instance Details"
 msgstr "Instanzdetails anzeigen"
@@ -3188,16 +3037,6 @@ msgstr ""
 "hinzuzufügen."
 
 #, python-format
-msgid "You have selected \"%s\". Deleted flavor is not recoverable."
-msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
-msgstr[0] ""
-"Sie haben %s gewählt. Eine gelöschte Variante kann nicht wieder hergestellt "
-"werden."
-msgstr[1] ""
-"Sie haben %s gewählt. Gelöschte Varianten können nicht wieder hergestellt "
-"werden."
-
-#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] ""
@@ -3206,19 +3045,6 @@ msgstr[0] ""
 msgstr[1] ""
 "Sie haben \"%s\" ausgewählt. Gelöschte Abbilder können nicht "
 "wiederhergestellt werden."
-
-#, python-format
-msgid "You have selected \"%s\". Deleted role is not recoverable."
-msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
-msgstr[0] ""
-"Sie haben \"%s\" ausgewählt. Die gelöschte Rolle kann nicht "
-"wiederhergestellt werden."
-msgstr[1] ""
-"Sie haben \"%s\" ausgewählt. Die gelöschten Rollen können nicht "
-"wiederhergestellt werden."
-
-msgid "Your Form as JavaScript"
-msgstr "Ihr Formular als JavaScript"
 
 msgid "error"
 msgid_plural "errors"

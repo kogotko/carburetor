@@ -35,7 +35,8 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
-from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import identity as identity
+
 
 LOG = logging.getLogger(__name__)
 
@@ -118,7 +119,7 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
         return cleaned_data
 
     class Meta(object):
-        name = _("Quotas")
+        name = _("Quota")
         slug = 'update_quotas'
         help_text = _("Set maximum quotas for the project.")
         permissions = ('openstack.roles.admin', 'openstack.services.compute')
@@ -126,7 +127,7 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
 
 class CreateProjectQuotaAction(ProjectQuotaAction):
     class Meta(object):
-        name = _("Quotas")
+        name = _("Quota")
         slug = 'create_quotas'
         help_text = _("Set maximum quotas for the project.")
         permissions = ('openstack.roles.admin', 'openstack.services.compute')
@@ -705,7 +706,7 @@ class UpdateProject(CommonQuotaWorkflow):
             self.failure_message = msg
             return
         except Exception as e:
-            LOG.debug('Project update failed: %s', e)
+            LOG.debug('Project update failed: %s' % e)
             exceptions.handle(request, ignore=True)
             return
 

@@ -17,7 +17,7 @@ import copy
 
 from django import http
 from django.test.utils import override_settings
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 import six
 
 from oslo_utils import uuidutils

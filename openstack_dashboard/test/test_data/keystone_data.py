@@ -13,7 +13,7 @@
 #    under the License.
 
 import copy
-from datetime import timedelta
+from datetime import timedelta  # noqa
 
 from django.conf import settings
 from django.utils import datetime_safe

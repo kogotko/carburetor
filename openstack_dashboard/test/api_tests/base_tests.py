@@ -58,51 +58,6 @@ class APIDict(api_base.APIDictWrapper):
         return APIDict(innerDict)
 
 
-class APIVersionTests(test.TestCase):
-    def test_equal(self):
-        version = api_base.Version('1.0')
-        self.assertEqual(1, version)
-        self.assertEqual(1.0, version)
-        self.assertEqual('1', version)
-        self.assertEqual('1.0', version)
-        version = api_base.Version(1)
-        self.assertEqual(1, version)
-        self.assertEqual(1.0, version)
-        self.assertEqual('1', version)
-        self.assertEqual('1.0', version)
-        version = api_base.Version(1.0)
-        self.assertEqual(1, version)
-        self.assertEqual(1.0, version)
-        self.assertEqual('1', version)
-        self.assertEqual('1.0', version)
-        version = api_base.Version('1.0')
-        self.assertEqual(api_base.Version(1), version)
-        self.assertEqual(api_base.Version(1.0), version)
-        self.assertEqual(api_base.Version('1'), version)
-        self.assertEqual(api_base.Version('1.0'), version)
-
-    def test_greater(self):
-        version1 = api_base.Version('1.0')
-        version12 = api_base.Version('1.2')
-        version120 = api_base.Version('1.20')
-        self.assertGreater(version12, version1)
-        self.assertGreater(version120, version12)
-        self.assertEqual(version12, 1)  # sic!
-        self.assertGreater(1.2, version1)
-        self.assertGreater(version120, 1.2)
-        self.assertGreater('1.20', version12)
-
-    def test_dict(self):
-        version1 = api_base.Version('1.0')
-        version1b = api_base.Version('1.0')
-        self.assertIn(version1, {version1b: 1})
-
-    def test_text(self):
-        version1 = api_base.Version('1.0')
-        self.assertEqual("1.0", str(version1))
-        self.assertEqual("Version('1.0')", repr(version1))
-
-
 # Wrapper classes that only define _attrs don't need extra testing.
 class APIResourceWrapperTests(test.TestCase):
     def test_get_attribute(self):
@@ -186,7 +141,7 @@ class APIDictWrapperTests(test.TestCase):
                          msg="Test assumption broken.  "
                              "Find new missing attribute.")
         # We're primarily interested in this test NOT raising a TypeError.
-        self.assertNotIn('missing', resource)
+        self.assertFalse('missing' in resource)
 
     def test_in_not_there_non_str(self):
         resource = APIDict.get_instance()
@@ -194,7 +149,7 @@ class APIDictWrapperTests(test.TestCase):
                          msg="Test assumption broken.  "
                              "Find new missing attribute.")
         # We're primarily interested in this test NOT raising a TypeError.
-        self.assertNotIn(0, resource)
+        self.assertFalse(0 in resource)
 
 
 class ApiVersionTests(test.TestCase):
@@ -220,10 +175,8 @@ class ApiVersionTests(test.TestCase):
         glance.VERSIONS.clear_active_cache()
 
     def test_invalid_versions(self):
-        try:
+        with self.assertRaises(exceptions.ConfigurationError):
             getattr(keystone.VERSIONS, 'active')
-        except exceptions.ConfigurationError:
-            self.fail("ConfigurationError raised inappropriately.")
         with self.assertRaises(exceptions.ConfigurationError):
             getattr(cinder.VERSIONS, 'active')
         try:

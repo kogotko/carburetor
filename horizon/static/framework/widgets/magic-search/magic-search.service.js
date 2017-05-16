@@ -72,8 +72,7 @@
       getName: getName,
       getTextFacet: getTextFacet,
       getUnusedFacetChoices: getUnusedFacetChoices,
-      getQueryPattern: getQueryPattern,
-      getQueryObject: getQueryObject
+      getQueryPattern: getQueryPattern
     };
 
     return service;
@@ -323,17 +322,6 @@
             return option.key !== value;
           };
         }
-      }
-    }
-
-    // Gets a query object from a query string
-    function getQueryObject(data) {
-      return getSearchTermsFromQueryString(data)
-               .map(getSearchTermObject)
-               .reduce(addToObject, {});
-      function addToObject(orig, curr) {
-        orig[curr.type] = curr.value;
-        return orig;
       }
     }
   }

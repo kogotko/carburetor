@@ -8,20 +8,19 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
-# YoungKyun Kim <chancethecoder@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev257\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-29 05:29+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-29 04:28+0000\n"
-"Last-Translator: YoungKyun Kim <chancethecoder@gmail.com>\n"
+"PO-Revision-Date: 2017-02-02 08:20+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "#"
@@ -31,6 +30,9 @@ msgstr "#"
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] "%s 인스턴스 작동되었습니다."
+
+msgid "(None)"
+msgstr "(None)"
 
 msgid "1"
 msgstr "1"
@@ -363,9 +365,6 @@ msgstr "아키텍처"
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "%(name)s 컨테이너를 삭제하시겠습니까?"
 
-msgid "Array"
-msgstr "배열"
-
 msgid "Automatic"
 msgstr "자동"
 
@@ -559,9 +558,6 @@ msgstr "키 페어 생성"
 msgid "Create New Volume"
 msgstr "새로운 볼륨 생성"
 
-msgid "Create Role"
-msgstr "역할 생성"
-
 msgid "Create Subnet"
 msgstr "서브넷 생성"
 
@@ -657,10 +653,6 @@ msgstr "컨테이너 삭제"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $}에서 파일 삭제"
 
-msgid "Delete Flavor"
-msgid_plural "Delete Flavors"
-msgstr[0] "Flavor 삭제"
-
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "이미지 삭제"
@@ -676,10 +668,6 @@ msgstr "인터페이스 삭제"
 
 msgid "Delete Network"
 msgstr "네트워크 삭제"
-
-msgid "Delete Role"
-msgid_plural "Delete Roles"
-msgstr[0] "역할 삭제"
 
 msgid "Delete Router"
 msgstr "라우터 삭제"
@@ -1349,9 +1337,6 @@ msgstr "최소 RAM (MB)"
 msgid "Modals"
 msgstr "Modals"
 
-msgid "Model"
-msgstr "모델"
-
 msgid "Month"
 msgstr "Month"
 
@@ -1768,9 +1753,6 @@ msgid ""
 msgstr ""
 "스케줄러 힌트를 사용하여 배치 관련 추가 정보를 compute 스케줄러에 추가합니다."
 
-msgid "Schema"
-msgstr "스키마"
-
 msgid "Search"
 msgstr "Search"
 
@@ -1786,6 +1768,20 @@ msgstr "보안 그룹"
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr "보안 그룹은 프로젝트에 지정되며 프로젝트에 걸쳐 공유될 수 없습니다."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"보안 그룹에 정의되는 IP 필터 규칙 set은 네트워크 트래픽이 어떻게 인스턴스에"
+"서 흐르는지 결정합니다. 사용자가 기존 보안 그룹에 규칙을 추가해서 인스턴스에 "
+"액세스할 수 있는 옵션을 더 자세히 정의할 수 있습니다. 규칙을 추가하려면 "
+"<b>Compute | 접근 &amp; 보안</b> 뷰에서 <b>규칙 관리</b>를 선택해서 보안 그룹"
+"을 찾습니다."
 
 msgid "Segmentation ID"
 msgstr "구분 ID"
@@ -2014,9 +2010,6 @@ msgstr "Tel"
 
 msgid "Text"
 msgstr "텍스트"
-
-msgid "Text Inputs"
-msgstr "텍스트 입력"
 
 msgid "Textarea"
 msgstr "Textarea"

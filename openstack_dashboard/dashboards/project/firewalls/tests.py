@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from mox3.mox import IsA
+from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
 from django import http

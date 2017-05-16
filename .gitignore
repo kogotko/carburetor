@@ -1,49 +1,47 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.idea*
-.tox*
+*.egg*
+*.mo
+*.pot
 *.pyc
+*.sw?
+*.sqlite3
+*.lock
+.environment_version
+.selenium_log
+.coverage*
+.noseids
+.DS_STORE
+.DS_Store
+/cover
+coverage.xml
+coverage-karma
+nosetests.xml
+pep8.txt
+pylint.txt
+# Files created by releasenotes build
+releasenotes/build
+reports
+openstack_dashboard/local/*
+!openstack_dashboard/local/local_settings.py.example
+!openstack_dashboard/local/enabled/_50__settings.py.example
+!openstack_dashboard/local/local_settings.d
+openstack_dashboard/local/local_settings.d/*
+!openstack_dashboard/local/local_settings.d/*.example
+openstack_dashboard/test/.secret_key_store
+openstack_dashboard/test/integration_tests/local-horizon.conf
+openstack_dashboard/test/integration_tests/test_reports/
+openstack_dashboard/wsgi/horizon.wsgi
+doc/build/
+/static/
+integration_tests_screenshots/
+.venv
+.tox
+node_modules
+npm-debug.log
+build
+dist
+AUTHORS
+ChangeLog
+tags
+ghostdriver.log
+.testrepository
+.idea

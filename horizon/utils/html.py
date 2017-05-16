@@ -12,7 +12,7 @@
 
 import copy
 
-from django.forms.utils import flatatt
+from django.forms.utils import flatatt  # noqa
 
 
 class HTMLElement(object):

@@ -50,7 +50,6 @@
     function open(config) {
       var modalConfig = {
         backdrop: 'static',
-        size: 'lg',
         resolve: {
           context: function() {
             return {

@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,6 +22,10 @@ msgstr " - Koniec"
 
 msgid " : Next hop"
 msgstr ": następny przeskok"
+
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "Nie można również usunąc portu %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -1190,6 +1194,16 @@ msgstr "Utwórz zaporę ogniową z wybranymi routerami."
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Tworzenie nowej pary klucz-wartość dodatkowej specyfikacji dla typu wolumenu."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"Utwórz nową parę klucz-wartość specyfikacji dla specyfikacji QoS "
+"„%(qos_spec_name)s”"
+
+msgid "Create a new network for any project as you need."
+msgstr ""
+"Można tworzyć nową sieć dla dowolnego projektu, w ramach zapotrzebowania."
 
 msgid "Create a new role."
 msgstr "Tworzy nową rolę."
@@ -3258,6 +3272,13 @@ msgstr "W zasadzie"
 msgid "In Use"
 msgstr "W użyciu"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"Dodatkowo można utworzyć zewnętrzna lub współdzieloną sieć poprzez "
+"zaznaczenie odpowiedniego pola wyboru."
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "W użyciu"
@@ -3477,6 +3498,9 @@ msgstr "Uruchom instancję w podanych grupach zabezpieczeń."
 
 msgid "Launch instance with these networks"
 msgstr "Uruchom instancję z tymi sieciami"
+
+msgid "Launch instance with this policy profile"
+msgstr "Uruchom instancję z tym profilem zasad"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -3851,6 +3875,10 @@ msgid "Network"
 msgstr "Sieć"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "Sieć „%s” została utworzona"
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "Sieć %s została utworzona."
 
@@ -3881,6 +3909,12 @@ msgstr "Maska sieciowa"
 
 msgid "Network Name"
 msgstr "Nazwa sieci"
+
+msgid "Network Profile"
+msgstr "Profil sieci"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "Nie można pobrać profili sieci"
 
 msgid "Network Topology"
 msgstr "Topologia sieci"
@@ -4199,6 +4233,28 @@ msgstr "Przegląd"
 msgid "Owner"
 msgstr "Właściciel"
 
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
+msgstr ""
+"Właścicielstwo wolumenu może zostać przeniesione z jednego projektu do "
+"drugiego. Zaakceptowanie przeniesienia wymaga uzyskania ID transferu oraz "
+"klucza autoryzacyjnego od dawcy. Odpowiednikiem tego jest polecenie "
+"<tt>cinder transfer-accept</tt> ."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+"Właścicielstwo wolumenu może zostać przeniesione z jednego projektu do "
+"drugiego. Po utworzeniu przeniesienia wolumenu w projekcie dawcy, może ono "
+"zostać „zaakceptowane” przed odbierający projekt. Odpowiednikiem tego jest "
+"polecenie <tt>cinder transfer-create</tt>."
+
 msgid "PFS"
 msgstr "PFS"
 
@@ -4324,6 +4380,9 @@ msgstr "Zaktualizowano zasadę %s."
 msgid "Policy ID"
 msgstr "ID zasady"
 
+msgid "Policy Profiles"
+msgstr "Profile zasad"
+
 msgid "Pool"
 msgstr "Pula"
 
@@ -4340,6 +4399,10 @@ msgstr "Port %s został uaktualniony."
 
 msgid "Port Range"
 msgstr "Zakres portu"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Nie można posprzątać portów dla tych identyfikatorów portu (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Nie można pobrać listy portów."
@@ -4480,6 +4543,15 @@ msgstr "Sieć dostawcy"
 msgid "Provider Network Type"
 msgstr "Typ sieci"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"Można utworzyć sieć podaną przez dostawcę. Można podać typ sieci fizycznej "
+"(jak, Płaska, VLAN, GRE i VXLAN) oraz jej segmentation_id lub nazwę sieci "
+"fizycznej dla nowej sieci wirtualnej."
+
 msgid "Public"
 msgstr "Publiczny"
 
@@ -4507,6 +4579,9 @@ msgstr "Specyfikacje QoS"
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "W kolejce"
+
+msgid "Quota"
+msgstr "Limit"
 
 msgid "Quota Name"
 msgstr "Nazwa limitu"
@@ -5162,6 +5237,9 @@ msgstr "Wybór puli"
 msgid "Select a port"
 msgstr "Wybierz port"
 
+msgid "Select a profile"
+msgstr "Wybierz profil"
+
 msgid "Select a project"
 msgstr "Wybierz projekt"
 
@@ -5620,6 +5698,14 @@ msgstr "Stop"
 
 msgid "Subnet"
 msgstr "Podsieć"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "Podsieć „%s” została utworzona."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "Zaktualizowano podsieć „%s”."
 
 msgid "Subnet Details"
 msgstr "Szczegóły podsieci"
@@ -6128,6 +6214,13 @@ msgstr ""
 "Należy wkleić zawartość klucza publicznego w to miejsce."
 
 msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
+msgstr ""
+"Jest to równoznaczne z wykonaniem poleceń  <tt>cinder qos-associate</tt> i "
+"<tt>cinder qos-disassociate</tt>."
+
+msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr ""
@@ -6420,6 +6513,10 @@ msgstr "Nie można utworzyć nowego obrazu: schemat URL jest niewspierany."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Nie można utworzyć nowej przestrzeni nazw. %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr "Nie można utworzyć portu dla profilu „%(profile_id)s”: %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

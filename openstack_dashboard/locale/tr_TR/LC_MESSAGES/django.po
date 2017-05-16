@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,6 +22,10 @@ msgstr " - Bitiş"
 
 msgid " : Next hop"
 msgstr " : Sonraki nokta"
+
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr " Bağlantı noktası %s silinemedi de"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -1154,6 +1158,16 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Bir mantıksal sürücü türü için yeni bir \"ek özellik\" anahtar-değer çifti "
 "oluştur."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"QoS Özelliği \"%(qos_spec_name)s\" için yeni bir \"özellik\" anahtar-değer "
+"çifti oluştur"
+
+msgid "Create a new network for any project as you need."
+msgstr ""
+"İhtiyacınız doğrultusunda herhangi bir proje için yeni bir ağ oluşturun."
 
 msgid "Create a new role."
 msgstr "Yeni bir rol oluştur."
@@ -3107,6 +3121,13 @@ msgstr "İlkede"
 msgid "In Use"
 msgstr "Kullanımda"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"Ek olarak, ilgili kontrol kutusunu işaretleyerek bir harici ağ ya da "
+"paylaşılan ağ oluşturabilirsiniz."
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Kullanımda"
@@ -3326,6 +3347,9 @@ msgstr "Sunucuyu bu güvenlik gruplarında başlat."
 
 msgid "Launch instance with these networks"
 msgstr "Bu ağlarla sunucu başlat"
+
+msgid "Launch instance with this policy profile"
+msgstr "Bu ilke profilinde sunucu başlat"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -3683,6 +3707,10 @@ msgid "Network"
 msgstr "Ağ"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "Ağ \"%s\" başarıyla oluşturuldu."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "Ağ %s başarıyla oluşturuldu."
 
@@ -3707,6 +3735,12 @@ msgstr "Ağ ID'si"
 
 msgid "Network Name"
 msgstr "Ağ Adı"
+
+msgid "Network Profile"
+msgstr "Ağ Profili"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "Ağ profilleri alınamadı."
 
 msgid "Network Topology"
 msgstr "Ağ Topolojisi"
@@ -4011,6 +4045,27 @@ msgstr "Önizleme"
 msgid "Owner"
 msgstr "Sahip"
 
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
+msgstr ""
+"Mantıksal sürücünün sahipliği bir projeden diğerine aktarılabilir.  Aktarımı "
+"kabul etmek, aktarımı sunandan Aktarım ID'si ve Yetkilendirme Anahtarının "
+"alınmasını gerektirir.  Bu, <tt>cinder transfer-accept</tt> komutuna denktir."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+"Mantıksal sürücünün sahipliği bir projeden diğerine aktarılabilir. Veren "
+"taraftaki projede mantıksal sürücü aktarımı oluşturulduğunda, artık alıcı "
+"projede \"kabul edilebilir\". Bu, <tt>cinder transfer-create</tt> komutuna "
+"denktir."
+
 msgid "PFS"
 msgstr "PFS"
 
@@ -4131,6 +4186,9 @@ msgstr "%s ilkesi başarıyla güncellendi."
 msgid "Policy ID"
 msgstr "İlke ID'si"
 
+msgid "Policy Profiles"
+msgstr "İlke Profilleri"
+
 msgid "Pool"
 msgstr "Havuz"
 
@@ -4147,6 +4205,12 @@ msgstr "%s portu başarıyla güncellendi."
 
 msgid "Port Range"
 msgstr "Bağlantı Noktası Aralığı"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr ""
+"Şu bağlantı noktası kimlikleri için bağlantı noktası temizliği başarısız "
+"(%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Port listesi alınamadı."
@@ -4287,6 +4351,15 @@ msgstr "Sağlayıcı Ağı"
 msgid "Provider Network Type"
 msgstr "Sağlayıcı Ağ Türü"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"Sağlayıcı tarafından belirtilmiş ağ oluşturulabilir. Yeni bir sanal ağ için "
+"bir fiziksel ağ türü (Flat, VLAN, GRE, ve VXLAN gibi) ve bölünme_id'sini "
+"veya fiziksel ağ adını belirtebilirsiniz."
+
 msgid "Public"
 msgstr "Ortak"
 
@@ -4311,6 +4384,9 @@ msgstr "QoS Özellikleri"
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Kuyrukta"
+
+msgid "Quota"
+msgstr "Kota"
 
 msgid "Quota Name"
 msgstr "Kota Adı"
@@ -4940,6 +5016,9 @@ msgstr "Yeni bir mantıksal sürücü türü seçin"
 msgid "Select a port"
 msgstr "Bir port seçin"
 
+msgid "Select a profile"
+msgstr "Bir profil seçin"
+
 msgid "Select a project"
 msgstr "Bir proje seçin"
 
@@ -5372,6 +5451,14 @@ msgstr "Durdur"
 
 msgid "Subnet"
 msgstr "Subnet"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "Alt ağ \"%s\" başarıyla oluşturuldu."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "Alt ağ \"%s\" başarıyla güncellendi."
 
 msgid "Subnet Details"
 msgstr "Alt Ağ Ayrıntıları"
@@ -5859,6 +5946,13 @@ msgstr ""
 "yapıştırın."
 
 msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
+msgstr ""
+"Bu <tt>cinder qos-associate</tt> ve <tt>cinder qos-disassociate</tt> "
+"komutlarına denk gelir."
+
+msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "Yığının ömrü sürecinde yürütülecek işlemler için gereklidir"
@@ -6116,6 +6210,11 @@ msgstr "Yeni imaj oluşturulamadı: İmaj için geçersiz disk biçimi %s."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Yeni isim uzayı oluşturulamadı. %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr ""
+"\"%(profile_id)s\" profili için bağlantı noktası oluşturulamadı: %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

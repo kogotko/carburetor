@@ -23,10 +23,10 @@ from django.conf import settings
 from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
-from django.http import HttpResponse
+from django.http import HttpResponse  # noqa
 from django import template
-from django.template.defaultfilters import slugify
-from django.template.defaultfilters import truncatechars
+from django.template.defaultfilters import slugify  # noqa
+from django.template.defaultfilters import truncatechars  # noqa
 from django.template.loader import render_to_string
 from django.utils.html import escape
 from django.utils import http
@@ -40,8 +40,8 @@ from horizon import conf
 from horizon import exceptions
 from horizon.forms import ThemableCheckboxInput
 from horizon import messages
-from horizon.tables.actions import FilterAction
-from horizon.tables.actions import LinkAction
+from horizon.tables.actions import FilterAction  # noqa
+from horizon.tables.actions import LinkAction  # noqa
 from horizon.utils import html
 
 
@@ -390,7 +390,7 @@ class Column(html.HTMLElement):
         else:
             # Basic object lookups
             data = getattr(datum, self.transform, None)
-            if not hasattr(datum, self.transform):
+            if data is None:
                 msg = _("The attribute %(attr)s doesn't exist on "
                         "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
@@ -1673,8 +1673,8 @@ class DataTable(object):
             # If not allowed, neither edit mod or updating is allowed.
             if not cell.update_allowed:
                 datum_display = (self.get_object_display(datum) or "N/A")
-                LOG.info('Permission denied to Update Action: "%s"',
-                         datum_display)
+                LOG.info('Permission denied to %s: "%s"' %
+                         ("Update Action", datum_display))
                 return HttpResponse(status=401)
             # If it is post request, we are updating the cell.
             if request.method == "POST":

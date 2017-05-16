@@ -19,7 +19,7 @@ from django.core.urlresolvers import reverse
 from django import shortcuts
 from django.utils.http import urlencode
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
+from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -61,7 +61,8 @@ class AllocateIP(tables.LinkAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "create_floatingip"),)
         else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+            policy_rules = (("compute", "compute_extension:floating_ips"),
+                            ("compute", "network:allocate_floating_ip"),)
 
         return policy.check(policy_rules, request)
 
@@ -93,7 +94,8 @@ class ReleaseIPs(tables.BatchAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "delete_floatingip"),)
         else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+            policy_rules = (("compute", "compute_extension:floating_ips"),
+                            ("compute", "network:release_floating_ip"),)
 
         return policy.check(policy_rules, request)
 
@@ -112,7 +114,8 @@ class AssociateIP(tables.LinkAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "update_floatingip"),)
         else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+            policy_rules = (("compute", "compute_extension:floating_ips"),
+                            ("compute", "network:associate_floating_ip"),)
 
         return not fip.port_id and policy.check(policy_rules, request)
 
@@ -133,7 +136,8 @@ class DisassociateIP(tables.Action):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "update_floatingip"),)
         else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+            policy_rules = (("compute", "compute_extension:floating_ips"),
+                            ("compute", "network:disassociate_floating_ip"),)
 
         return fip.port_id and policy.check(policy_rules, request)
 
@@ -141,7 +145,7 @@ class DisassociateIP(tables.Action):
         try:
             fip = table.get_object_by_id(filters.get_int_or_uuid(obj_id))
             api.network.floating_ip_disassociate(request, fip.id)
-            LOG.info('Disassociating Floating IP "%s".', obj_id)
+            LOG.info('Disassociating Floating IP "%s".' % obj_id)
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')
                              % fip.ip)

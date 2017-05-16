@@ -17,5 +17,4 @@ PANEL = 'resource_browser'
 PANEL_GROUP = 'default'
 PANEL_DASHBOARD = 'developer'
 
-ADD_PANEL = ('openstack_dashboard.contrib.developer.resource_browser.panel.'
-             'ResourceBrowser')
+ADD_PANEL = 'openstack_dashboard.contrib.developer.resource_browser.panel.ResourceBrowser'  # noqa

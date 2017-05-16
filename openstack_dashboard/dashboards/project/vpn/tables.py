@@ -300,21 +300,6 @@ class UpdateIPSecSiteConnectionRow(tables.Row):
         return conn
 
 
-class IPSSCFilterAction(tables.FilterAction):
-    name = 'IPSSC_project_IKEPolicies'
-    filter_type = 'server'
-    filter_choices = (
-        ('name', _("Name ="), True),
-        ('vpnservice', _("VPN Service ="), True),
-        ('vpnservice_id', _("VPN Service ID ="), True),
-        ('ikepolicy', _("IKE Policy ="), True),
-        ('ikepolicy_id', _("IKE Policy ID ="), True),
-        ('ipsecpolicy', _("IPSec Policy ="), True),
-        ('ipsecpolicy_id', _("IPSec Policy ID ="), True),
-        ('status', _("Status ="), True)
-    )
-
-
 class IPSecSiteConnectionsTable(tables.DataTable):
     id = tables.Column('id', hidden=True)
     name = tables.Column('name_or_id', verbose_name=_('Name'),
@@ -339,7 +324,7 @@ class IPSecSiteConnectionsTable(tables.DataTable):
         row_class = UpdateIPSecSiteConnectionRow
         table_actions = (AddIPSecSiteConnectionLink,
                          DeleteIPSecSiteConnectionLink,
-                         IPSSCFilterAction)
+                         tables.NameFilterAction)
         row_actions = (UpdateIPSecSiteConnectionLink,
                        DeleteIPSecSiteConnectionLink)
 
@@ -359,18 +344,6 @@ class UpdateVPNServiceRow(tables.Row):
         vpn.router_name = vpn['router'].get('name', vpn['router_id'])
         vpn.subnet_name = vpn['subnet'].get('cidr', vpn['subnet_id'])
         return vpn
-
-
-class VPNServicesFilterAction(tables.FilterAction):
-    name = 'vpnservices_project_IKEPolicies'
-    filter_type = 'server'
-    filter_choices = (
-        ('name', _("Name ="), True),
-        ('subnet_id', _("Subnet ID ="), True),
-        ('subnet_name', _("Subnet ="), True),
-        ('router_id', _("Router ID ="), True),
-        ('router_name', _("Router ="), True),
-    )
 
 
 class VPNServicesTable(tables.DataTable):
@@ -395,19 +368,8 @@ class VPNServicesTable(tables.DataTable):
         row_class = UpdateVPNServiceRow
         table_actions = (AddVPNServiceLink,
                          DeleteVPNServiceLink,
-                         VPNServicesFilterAction)
+                         tables.NameFilterAction)
         row_actions = (UpdateVPNServiceLink, DeleteVPNServiceLink)
-
-
-class PoliciesFilterAction(tables.FilterAction):
-    name = 'filter_project_IKEPolicies'
-    filter_type = 'server'
-    filter_choices = (
-        ('name', _("Name ="), True),
-        ('auth_algorithm', _("Authorization algorithm ="), True),
-        ('encryption_algorithm', _("Encryption algorithm ="), True),
-        ('pfs', _("PFS ="), True),
-    )
 
 
 class IKEPoliciesTable(tables.DataTable):
@@ -427,7 +389,7 @@ class IKEPoliciesTable(tables.DataTable):
         verbose_name = _("IKE Policies")
         table_actions = (AddIKEPolicyLink,
                          DeleteIKEPolicyLink,
-                         PoliciesFilterAction)
+                         tables.NameFilterAction)
         row_actions = (UpdateIKEPolicyLink, DeleteIKEPolicyLink)
 
 
@@ -448,5 +410,5 @@ class IPSecPoliciesTable(tables.DataTable):
         verbose_name = _("IPSec Policies")
         table_actions = (AddIPSecPolicyLink,
                          DeleteIPSecPolicyLink,
-                         PoliciesFilterAction)
+                         tables.NameFilterAction)
         row_actions = (UpdateIPSecPolicyLink, DeleteIPSecPolicyLink)

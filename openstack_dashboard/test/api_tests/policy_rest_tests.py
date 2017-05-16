@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.test.utils import override_settings
+from django.test.utils import override_settings  # noqa
 
 from openstack_dashboard.api.rest import policy
 from openstack_dashboard.test import helpers as test
@@ -26,27 +26,26 @@ class PolicyRestTestCase(test.TestCase):
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_alone(self):
-        body = '{"rules": [["compute", \
-                            "os_compute_api:index:get_all_tenants"]]}'
+        body = '{"rules": [["compute", "compute:get_all" ]]}'
         self.test_policy(body)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_multiple_rule(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]]}'
+        body = '{"rules": [["compute", "compute:get_all"],' \
+               '           ["compute", "compute:start"]]}'
         self.test_policy(body)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_empty_target(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]],' \
+        body = '{"rules": [["compute", "compute:get_all"],' \
+               '           ["compute", "compute:start"]],' \
                ' "target": {}}'
         self.test_policy(body)
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
-        body = '{"rules": [["compute", "os_compute_api:stop"],' \
-               '           ["compute", "os_compute_api:start"]],' \
+        body = '{"rules": [["compute", "compute:get_all"],' \
+               '           ["compute", "compute:start"]],' \
                ' "target": {"project_id": "1"}}'
         self.test_policy(body)
 
@@ -54,9 +53,7 @@ class PolicyRestTestCase(test.TestCase):
     def test_policy_fail(self):
         # admin only rule, default test case user should fail
         request = self.mock_rest_request(
-            body=('{"rules": ['
-                  '["compute",'
-                  '"os_compute_api:servers:index:get_all_tenants"]]}'))
+            body='''{"rules": [["compute", "compute:unlock_override"]]}''')
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)
         self.assertEqual({"allowed": False}, response.json)
@@ -73,8 +70,7 @@ class PolicyRestTestCase(test.TestCase):
 class AdminPolicyRestTestCase(test.BaseAdminViewTests):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
-        body = '{"rules": [["compute", \
-                            "os_compute_api:index:get_all_tenants"]]}'
+        body = '{"rules": [["compute", "compute:unlock_override"]]}'
         request = self.mock_rest_request(body=body)
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)

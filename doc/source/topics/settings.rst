@@ -796,29 +796,6 @@ When set, enables the instance action "Retrieve password" allowing password retr
 from metadata service.
 
 
-``OPENSTACK_CLOUDS_YAML_NAME``
-------------------------------
-
-.. versionadded:: 12.0.0(Pike)
-
-Default: ``openstack``
-
-The name of the entry to put into the user's clouds.yaml file.
-
-
-``OPENSTACK_CLOUDS_YAML_PROFILE``
----------------------------------
-
-.. versionadded:: 12.0.0(Pike)
-
-Default: None
-
-If set, the name of the `vendor profile`_ from `os-client-config`_.
-
-.. _vendor profile: https://docs.openstack.org/developer/os-client-config/vendor-support.html
-.. _os-client-config: https://docs.openstack.org/developer/os-client-config
-
-
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
 
@@ -1243,7 +1220,6 @@ Default::
             'enable_ipv6': True,
             'enable_lb', True,
             'default_dns_nameservers': [],
-            'physical_networks': [],
         }
 
 A dictionary of settings which can be used to enable optional services provided
@@ -1335,6 +1311,15 @@ when VPNaaS feature is available in Neutron and this option is no
 longer needed. We suggest not to use this option to disable the
 VPN panel from now on.
 
+``profile_support``
+~~~~~~~~~~~~~~~~~~~
+
+Default: ``None``
+
+This option specifies a type of network port profile support. Currently the
+available value is either ``None`` or ``"cisco"``. ``None`` means to disable
+port profile support. ``cisco`` can be used with Neutron Cisco plugins.
+
 ``supported_provider_types``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1365,8 +1350,8 @@ Default ``['*']``
 
 For use with the port binding extension. Use this to explicitly set which VNIC
 types are supported; only those listed will be shown when creating or editing
-a port. VNIC types include normal, direct, direct-physical, macvtap and
-baremetal. By default all VNIC types will be available to choose from.
+a port. VNIC types include normal, direct and macvtap. By default all VNIC
+types will be available to choose from.
 
 Example ``['normal', 'direct']``
 
@@ -1432,8 +1417,6 @@ Example::
 ``enable_fip_topology_check``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 8.0.0(Liberty)
-
 Default: ``True``
 
 The Default Neutron implementation needs a router with a gateway to associate a
@@ -1446,6 +1429,8 @@ Some Neutron vendors do not require it. Some can even attach a FIP to any port
 Set to False if you want to be able to associate a FIP to an instance on a
 subnet with no router if your Neutron backend allows it.
 
+.. versionadded:: 8.0.0(Liberty)
+
 ``default_dns_nameservers``:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1457,23 +1442,6 @@ Default DNS servers you would like to use when a subnet is created. This is
 only a default. Users can still choose a different list of dns servers.
 
 Example: ``["8.8.8.8", "8.8.4.4", "208.67.222.222"]``
-
-``physical_networks``:
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 12.0.0(Pike)
-
-Default: ``[]``
-
-Default to an empty list and the physical network field on the admin create
-network modal will be a regular input field where users can type in the name
-of the physical network to be used.
-If it is set to a list of available physical networks, the physical network
-field will be shown as a dropdown menu where users can select a physical
-network to be used.
-
-Example: ``['default', 'test']``
-
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------
@@ -1842,9 +1810,10 @@ This setting controls the behavior of the operation log.
 
 Default: ``{}``
 
-Adds additional information for projects as extra attributes. Projects and
-users can have extra attributes as defined by keystone v3. This setting allows
-those attributes to be shown in horizon.
+Add additional information for project as an extra attribute.
+Project and user can have any attributes by keystone mechanism.
+This setting can treat these attributes on Horizon when only
+using Keystone v3.
 For example::
 
     PROJECT_TABLE_EXTRA_INFO = {

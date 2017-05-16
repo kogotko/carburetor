@@ -23,9 +23,9 @@
 # liujunpeng <liujunpeng@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,6 +49,10 @@ msgid ""
 msgstr ""
 "协议入点包含信息，这些信息表明对于给定入口请求那个映射规则来使用。一个身份提"
 "供者可以包含多个支持协议。"
+
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "删除端口%s 同样失败"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -180,6 +184,14 @@ msgstr ""
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 "<a href=\"%(volume_url)s\">%(volume_label)s</a> 位于 %(volume_device)s 上"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">使用了 %(used)s / %(quota)s MB</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">使用了%(used)s / %(quota)s</span>"
 
 msgid "A local environment to upload."
 msgstr "上传一个本地环境文件"
@@ -999,6 +1011,11 @@ msgstr "更改模板"
 msgid "Change Volume Type"
 msgstr "修改卷类型"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>cinder retype</tt> command."
+msgstr "在创建完成后改变卷的类型。这相当于<tt>cinder retype</tt>命令"
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "修改您的密码。强烈建议您选择一个复杂密码。"
 
@@ -1529,6 +1546,13 @@ msgstr "创建映射"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr "为QoS规格\"%(qos_spec_name)s\"创建新\"spec\"（规格）的键-值对"
+
+msgid "Create a new network for any project as you need."
+msgstr "根据需要创建新网络"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -3780,6 +3804,11 @@ msgstr "在策略"
 msgid "In Use"
 msgstr "正在使用"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr "此外，您可以勾选相应复选框来创建外部网络或者共享网络。"
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "正在使用"
@@ -3931,6 +3960,9 @@ msgstr "内部接口"
 msgid "Internal:"
 msgstr "内部域"
 
+msgid "Invalid MAC Address format"
+msgstr "非法的MAC地址格式"
+
 msgid "Invalid date format: Using today as default."
 msgstr "无效的日期格式：默认为今天。"
 
@@ -4042,6 +4074,9 @@ msgstr "使用这些网络创建实例"
 
 msgid "Launch instance with these ports"
 msgstr "使用这些网络端口创建实例"
+
+msgid "Launch instance with this policy profile"
+msgstr "使用这个策略概要来创建实例"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4464,6 +4499,10 @@ msgid "Network"
 msgstr "网络"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "成功创建网络\"%s\"."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "成功创建 %s 网络。"
 
@@ -4497,6 +4536,12 @@ msgstr "网络名称"
 
 msgid "Network Ports"
 msgstr "网络端口"
+
+msgid "Network Profile"
+msgstr "网络配置概要"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "无法获取网络配置概要"
 
 msgid "Network Topology"
 msgstr "网络拓扑"
@@ -4880,6 +4925,24 @@ msgstr "概况"
 msgid "Owner"
 msgstr "所属者"
 
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
+msgstr ""
+"卷的所有权能够从一个项目转让到另一个项目。接受转让的卷需要先从出让方处获取转"
+"让ID和认证密钥。这等价于 <tt>cinder transfer-accept</tt> 命令。"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+"卷的所有权能够从一个项目转让到另一个项目。一旦卷转让在出让方项目中创建，它就"
+"能在接收方项目中被“接受”。这个等价于 <tt>cinder transfer-create</tt> 命令。"
+
 msgid "PFS"
 msgstr "PFS"
 
@@ -5017,6 +5080,9 @@ msgstr "策略 %s 被成功更新。"
 msgid "Policy ID"
 msgstr "策略ID"
 
+msgid "Policy Profiles"
+msgstr "策略概要"
+
 msgid "Pool"
 msgstr "资源池"
 
@@ -5036,6 +5102,10 @@ msgstr "端口范围"
 
 msgid "Port Security Enabled"
 msgstr "端口安全性已开启"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "无法为这些端口(%s)进行端口清除"
 
 msgid "Port list can not be retrieved."
 msgstr "无法获取端口列表"
@@ -5209,6 +5279,14 @@ msgstr "供应商网络"
 msgid "Provider Network Type"
 msgstr "供应商网络类型"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"可以创建供应商规定网络。您可以为新的虚拟网络指定物理网络类型(如Flat, VLAN, "
+"GRE, 和 VXLAN)及其段ID（segmentation_id），或者物理网络名称。"
+
 msgid "Public"
 msgstr "公有"
 
@@ -5240,9 +5318,28 @@ msgstr "QoS规格: {{ qos_spec_name }}"
 msgid "QoS Specs"
 msgstr "QoS规格"
 
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
+msgstr ""
+"QoS 规则可以和卷类型进行绑定。它对应与卷所有者发出的一组服务能力质量请求。它"
+"等价于<tt>cinder qos-create</tt> 命令。当 QoS 规则创建成功之后，单击 “管理规"
+"则”可对 QoS 规范中的规范键/值对进行修改。<br><br>每一个QoS 规则都有一个 "
+"“Consumer”值，表示管理员希望实施 QoS 策略的位置。该属性可以设置为“front-"
+"end”(Nova 计算)、“back-end”(Cinder 后端)或 “both” 。"
+
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "已排队"
+
+msgid "Quota"
+msgstr "配额"
 
 msgid "Quota Name"
 msgstr "配额名称"
@@ -5969,6 +6066,9 @@ msgstr "选择一个资源池"
 msgid "Select a port"
 msgstr "选择端口"
 
+msgid "Select a profile"
+msgstr "选择一个配置概要"
+
 msgid "Select a project"
 msgstr "选择一个项目"
 
@@ -6492,6 +6592,14 @@ msgstr "提交"
 msgid "Subnet"
 msgstr "子网"
 
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "成功创建子网\"%s\""
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "子网\"%s\"更新成功"
+
 msgid "Subnet Details"
 msgstr "子网详情"
 
@@ -6714,6 +6822,10 @@ msgid ""
 msgstr ""
 "\"迁移策略\"只在卷更改类型无法完成时使用。如果\"迁移策略\"是\"按需\"，后端会"
 "执行卷迁移。注意，迁移可能会占用大量的时间来完成，有时可达数小时。"
+
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
+msgstr "选定的\"卷类型\"必须与当前的卷类型不同。"
 
 msgid "The \"from\" port number is invalid."
 msgstr "起始端口号不合法。"
@@ -7009,6 +7121,23 @@ msgstr "VPN服务开始使用的状态。如果为 DOWN (假)，VPN服务不转�
 msgid "The state to start the network in."
 msgstr "状态是启动网络"
 
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+msgstr ""
+"正常情况下，卷的状态是被自动管理的。某些情况下，管理员可能需要手动更新卷的状"
+"态值。可以通过命令<tt>cinder snapshot-reset-state</tt>执行该操作。"
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
+msgstr ""
+"正常情况下，卷快照的状态是被自动管理的。某些情况下，管理员可能需要手动更新卷"
+"快照的状态值。可以通过命令<tt>cinder snapshot-reset-state</tt>执行该操作。"
+
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "子网地址太小 (/%s)."
@@ -7094,6 +7223,13 @@ msgid ""
 msgstr ""
 "这将生成一对密钥对：一个私钥 (cloud.key)和一个公钥(cloud.key.pub)。请妥善保存"
 "好您的私钥，并把公钥文件内容粘贴在这里。"
+
+msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
+msgstr ""
+"这等价于 <tt>cinder qos-associate</tt> 和 <tt>cinder qos-disassociate</tt> 命"
+"令。"
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7429,6 +7565,10 @@ msgstr "无法创建新镜像：URL scheme 不支持。"
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "无法创建新命名空间 %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr "无法为配置概要 \"%(profile_id)s\" 创建端口：%(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -8995,6 +9135,19 @@ msgstr "卷的源必须被指定"
 
 msgid "Volume transfer name cannot be empty."
 msgstr "卷转让名不能为空。"
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"卷类型是在创建卷的时候可以指定的标签。它通常用来映射到这些卷所使用的存储后端"
+"驱动器的性能指标集合。例如，“Performance”、“SSD”、“Backup”等。这等价于"
+"<tt>cinder type-create</tt>命令。一旦卷类型被创建，单击\"查看 extra spec\"按"
+"钮以设置卷类型的 extra spec 键值对。"
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

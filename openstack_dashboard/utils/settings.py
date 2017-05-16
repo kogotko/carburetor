@@ -29,7 +29,7 @@ def import_submodules(module):
             submodule = import_module(name)
         except ImportError as e:
             # FIXME: Make the errors non-fatal (do we want that?).
-            logging.warning("Error importing %s", name)
+            logging.warning("Error importing %s" % name)
             logging.exception(e)
         else:
             parent, child = name.rsplit('.', 1)
@@ -41,7 +41,7 @@ def import_dashboard_config(modules):
     """Imports configuration from all the modules and merges it."""
     config = collections.defaultdict(dict)
     for module in modules:
-        for submodule in import_submodules(module).values():
+        for key, submodule in import_submodules(module).items():
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
@@ -188,7 +188,7 @@ BASE_XSTATIC_MODULES = [
         'angular-route.js'
     ]),
     ('xstatic.pkg.angular_bootstrap', ['angular-bootstrap.js']),
-    ('xstatic.pkg.angular_gettext', None),
+    ('xstatic.pkg.angular_gettext', ['angular-gettext.js']),
     ('xstatic.pkg.angular_lrdragndrop', None),
     ('xstatic.pkg.angular_smart_table', None),
     ('xstatic.pkg.angular_fileupload', ['ng-file-upload-all.js']),
@@ -201,7 +201,7 @@ BASE_XSTATIC_MODULES = [
     ('xstatic.pkg.bootstrap_datepicker', ['bootstrap-datepicker.js']),
     ('xstatic.pkg.hogan', ['hogan.js']),
     ('xstatic.pkg.rickshaw', ['rickshaw.js']),
-    ('xstatic.pkg.jsencrypt', None),
+    ('xstatic.pkg.jsencrypt', ['jsencrypt.js']),
     ('xstatic.pkg.objectpath', ['ObjectPath.js']),
     ('xstatic.pkg.tv4', ['tv4.js']),
     ('xstatic.pkg.angular_schema_form', ['schema-form.js']),

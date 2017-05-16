@@ -97,9 +97,8 @@
      * @returns {Object} An object with 'items' and 'has_more' flag.
      *
      */
-    function getContainers(params) {
-      var config = params ? {'params': params} : {};
-      return apiService.get('/api/swift/containers/', config)
+    function getContainers() {
+      return apiService.get('/api/swift/containers/')
         .error(function() {
           toastService.add('error', gettext('Unable to get the Swift container listing.'));
         });

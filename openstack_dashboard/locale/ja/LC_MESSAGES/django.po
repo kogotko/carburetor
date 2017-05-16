@@ -4,42 +4,21 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.2.dev17\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-17 04:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-28 08:14+0000\n"
+"PO-Revision-Date: 2017-03-28 08:17+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s GiB Used\n"
-"      "
-msgstr ""
-"\n"
-"\n"
-"%(used)s / %(quota)s GiB 使用中"
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s Used\n"
-"      "
-msgstr ""
-"\n"
-"\n"
-"%(used)s / %(quota)s 使用中"
 
 msgid " - End"
 msgstr " - 末尾"
@@ -56,16 +35,9 @@ msgstr ""
 "する情報が含まれます。1 つの認証プロバイダーが複数のプロトコルをサポートする"
 "ように設定することができます。"
 
-msgid ""
-" You can create a port for the network.\n"
-"     If you specify device ID to be attached, the device specified will\n"
-"     be attached to the port created.\n"
-"     "
-msgstr ""
-" ネットワークのポートを作成できます。\n"
-"    接続するデバイス ID を指定すると、\n"
-"    指定したデバイスが作成されたポートに接続されます。\n"
-"    "
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "ポート %s の削除にも失敗しました。"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -138,10 +110,6 @@ msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s / %(quota)s GiB 使用中"
 
 #, python-format
-msgid "%(used)s of %(quota)s MB Used"
-msgstr "%(used)s MB / %(quota)s MB 使用中"
-
-#, python-format
 msgid "%(used)s of %(quota)s Used"
 msgstr "%(used)s / %(quota)s 使用中"
 
@@ -201,6 +169,14 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "%(volume_device)s (<a href=\"%(volume_url)s\">%(volume_label)s</a>)"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s MB / %(quota)s MB 使用中</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s / %(quota)s 使用中</span>"
 
 msgid "A local environment to upload."
 msgstr "アップロードする必要のあるローカルの環境設定データ"
@@ -845,9 +821,6 @@ msgstr "認証キー"
 msgid "Authorization algorithm"
 msgstr "認可アルゴリズム"
 
-msgid "Authorization algorithm ="
-msgstr "認可アルゴリズム ="
-
 msgid "Authorization mode"
 msgstr "認可モード"
 
@@ -1062,10 +1035,10 @@ msgstr "ボリューム種別の変更"
 
 msgid ""
 "Change the volume type of a volume after its creation. This is equivalent to "
-"the <tt>openstack volume set --type</tt> command."
+"the <tt>cinder retype</tt> command."
 msgstr ""
-"ボリューム作成後にボリュームの種別を変更します。これは、<tt>openstack volume "
-"set --type</tt> コマンドに相当します。"
+"ボリューム作成後にボリュームの種別を変更します。これは、<tt>cinder retype</"
+"tt> コマンドに相当します。"
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -1125,7 +1098,7 @@ msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
 msgstr ""
-"サーバーの退避先のホストを選択します。選択されていない場合、スケジューラーは"
+"サーバーの避難先のホストを選択します。選択されていない場合、スケジューラーは"
 "ターゲットホストを自動的に選択します。"
 
 msgid "Choose a Host to migrate to."
@@ -1628,35 +1601,12 @@ msgstr ""
 "ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
 
 #, python-format
-msgid ""
-"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
-"      Valid key names are expected in the QoS specs. The acceptable values "
-"for key are\n"
-"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
-"  <br>\n"
-"  <br>\n"
-"  Example:\n"
-"  <br>\n"
-"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
-"  <br>\n"
-"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  <br>\n"
-"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
-"  "
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
 msgstr ""
-"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。\n"
-"      QoS スペックでは、有効なキー名が必要です。キー名に許容される値は、\n"
-"  <tt>\"minIOPS\" 、 \"maxIOPS\" 、 \"burstIOPS\"</tt>です。\n"
-"  <br>\n"
-"  <br>\n"
-"  例:\n"
-"  <br>\n"
-"  キー: minIOPS と 値: 20 (maxIOPS 未満の数値)\n"
-"  <br>\n"
-"  キー: maxIOPS と 値: 5000 (minIOPS より大きい数値)\n"
-"  <br>\n"
-"  キー: burstIOPS と 値: 5000 (minIOPS より大きい数値)\n"
-"  "
+"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。"
+
+msgid "Create a new network for any project as you need."
+msgstr "任意のプロジェクトに新しいネットワークを作成できます。"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2787,9 +2737,6 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "ユーザーの有効化"
 
-msgid "Enable anti-spoofing rules for the port"
-msgstr "このポートの詐称防止ルールを有効にします"
-
 msgid "Enable rollback on create/update failure."
 msgstr "作成/更新失敗時のロールバックを有効にします。"
 
@@ -2832,9 +2779,6 @@ msgstr "暗号化"
 
 msgid "Encryption algorithm"
 msgstr "暗号化アルゴリズム"
-
-msgid "Encryption algorithm ="
-msgstr "暗号化アルゴリズム ="
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -3000,12 +2944,12 @@ msgid "Ether Type"
 msgstr "Ethernet タイプ"
 
 msgid "Evacuate Host"
-msgstr "ホストからの退避"
+msgstr "ホストからの避難"
 
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
-"サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
+"サーバーを選択したダウン中のホストから稼働中の移動先ホストに避難します。"
 
 msgid "Events"
 msgstr "イベント"
@@ -3179,11 +3123,11 @@ msgstr "ホスト %s のコンピュートサービスの無効化に失敗し�
 
 #, python-format
 msgid "Failed to evacuate host: %s."
-msgstr "ホスト %s からの退避に失敗しました。"
+msgstr "ホスト %s からの避難に失敗しました。"
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "インスタンスの退避に失敗しました: %s"
+msgstr "インスタンスの避難に失敗しました: %s"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3517,9 +3461,6 @@ msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr ""
 "接続中のボリュームからスナップショット \"%s\" を強制的に作成しています。"
 
-msgid "Form Builder"
-msgstr "フォームビルダー"
-
 msgid "Format"
 msgstr "形式"
 
@@ -3749,14 +3690,8 @@ msgstr "IKE ポリシー"
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE ポリシー %s が正常に更新されました。"
 
-msgid "IKE Policy ="
-msgstr "IKE ポリシー"
-
 msgid "IKE Policy Details"
 msgstr "IKE ポリシーの詳細"
-
-msgid "IKE Policy ID ="
-msgstr "IKE ポリシー ID ="
 
 msgid "IKE Policy associated with this connection"
 msgstr "この接続に関連付ける IKE ポリシー"
@@ -3824,14 +3759,8 @@ msgstr "IPsec ポリシー"
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPsec ポリシー %s が正常に更新されました。"
 
-msgid "IPSec Policy ="
-msgstr "IPSec ポリシー ="
-
 msgid "IPSec Policy Details"
 msgstr "IPsec ポリシーの詳細"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec ポリシー ID ="
 
 msgid "IPSec Policy associated with this connection"
 msgstr "この接続に関連付ける IPsec ポリシー"
@@ -4007,6 +3936,13 @@ msgstr "利用中のポリシー"
 msgid "In Use"
 msgstr "使用中"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"外部ネットワークや共有ネットワークを作成することもできます。対応するチェック"
+"ボックスをチェックしてください。"
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "使用中"
@@ -4160,6 +4096,9 @@ msgstr "内部インタフェース"
 msgid "Internal:"
 msgstr "内部:"
 
+msgid "Invalid MAC Address format"
+msgstr "無効な MAC アドレスの形式"
+
 msgid "Invalid date format: Using today as default."
 msgstr "無効な日付の形式です。デフォルト値として今日の日付を使用します。"
 
@@ -4275,6 +4214,9 @@ msgstr "これらのネットワークでインスタンスを起動します。
 
 msgid "Launch instance with these ports"
 msgstr "これらのポートでインスタンスを起動します。"
+
+msgid "Launch instance with this policy profile"
+msgstr "このポリシープロファイルでインスタンスを起動します。"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4713,6 +4655,10 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "ネットワーク \"%s\" が正常に作成されました。"
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "ネットワーク %s が正常に作成されました。"
 
@@ -4746,6 +4692,12 @@ msgstr "ネットワーク名"
 
 msgid "Network Ports"
 msgstr "ネットワークポート"
+
+msgid "Network Profile"
+msgstr "ネットワークプロファイル"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "ネットワークプロファイルを取得できません。"
 
 msgid "Network Topology"
 msgstr "ネットワークトポロジー"
@@ -5137,36 +5089,29 @@ msgstr "概要"
 msgid "Owner"
 msgstr "オーナー"
 
-msgid "Owner of the device attached to the port"
-msgstr "ポートに接続されたデバイスの所有者"
-
 msgid ""
-"Ownership of a volume can be transferred from one project to another. "
+"Ownership of a volume can be transferred from one project to another.  "
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
-"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
-"request accept</tt> command."
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
 msgstr ""
 "ボリュームの所有権をあるプロジェクトから別のプロジェクトに譲渡することができ"
 "ます。譲渡を受理するには、譲渡元から譲渡 ID と認証キーを得る必要があります。"
-"これは <tt>openstack volume transfer request accept</tt> コマンドに相当しま"
-"す。"
+"これは <tt>cinder transfer-accept</tt> コマンドに相当します。"
 
 msgid ""
 "Ownership of a volume can be transferred from one project to another. Once a "
 "volume transfer is created in a donor project, it then can be \"accepted\" "
-"by a recipient project. This is equivalent to the <tt>openstack volume "
-"transfer create</tt> command."
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
 msgstr ""
 "ボリュームの所有権をあるプロジェクトから別のプロジェクトに譲渡することができ"
 "ます。いったんボリュームの譲渡が譲渡元のプロジェクトで作成されると、譲渡先の"
-"プロジェクトで「受理」できるようになります。これは <tt>openstack volume "
-"transfer create</tt> コマンドに相当します。"
+"プロジェクトで「受理」できるようになります。これは <tt>cinder transfer-"
+"create</tt> コマンドに相当します。"
 
 msgid "PFS"
 msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
 
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
@@ -5306,6 +5251,9 @@ msgstr "ポリシー %s が正常に更新されました。"
 msgid "Policy ID"
 msgstr "ポリシー ID"
 
+msgid "Policy Profiles"
+msgstr "ポリシープロファイル"
+
 msgid "Pool"
 msgstr "プール"
 
@@ -5323,11 +5271,12 @@ msgstr "ポート %s が正常に更新されました。"
 msgid "Port Range"
 msgstr "ポート範囲"
 
-msgid "Port Security"
-msgstr "ポートセキュリティー"
-
 msgid "Port Security Enabled"
 msgstr "ポートセキュリティー有効"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "削除できなかったポートがあります (ポート ID: %s)"
 
 msgid "Port list can not be retrieved."
 msgstr "ポート一覧を取得できません。"
@@ -5503,6 +5452,15 @@ msgstr "プロバイダーネットワーク"
 msgid "Provider Network Type"
 msgstr "プロバイダーネットワーク種別"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"プロバイダーが指定するネットワークを作成することができます。新規の仮想ネット"
+"ワークに対して、物理ネットワーク種別 (フラット、VLAN、GRE、VXLAN など) やセグ"
+"メント ID、物理ネットワーク名を指定できます。"
+
 msgid "Public"
 msgstr "パブリック"
 
@@ -5537,25 +5495,27 @@ msgstr "QoS スペック"
 msgid ""
 "QoS Specs can be associated with volume types. It is used to map to a set of "
 "quality of service capabilities requested by the volume owner. This is "
-"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
-"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
-"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
-"value which indicates where the administrator would like the QoS policy to "
-"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
-"\" (Block Storage back-end), or \"both\"."
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
 msgstr ""
 "QoS スペックは、ボリューム種別と関連付けることができます。これは、ボリューム"
-"の所有者が要求する QoS 機能セットにマップするために使用され、<tt>openstack "
-"volume qos create</tt> コマンドに相当します。QoS スペックが作成されたら、「ス"
-"ペックの管理」ボタンをクリックして、その QoS スペックのキーと値のスペックを管"
-"理します。<br><br>各 QoS スペックのエンティティーには「使用者」の値が含まれま"
-"す。これは、管理者による QoS ポリシーの適用先を示します。この値は、「フロント"
-"エンド」(Compute バックエンド)、「バックエンド」(Block Storage バックエン"
-"ド)、または「両方」です。 "
+"の所有者が要求する QoS 機能セットにマップするために使用され、<tt>cinder qos-"
+"create</tt> コマンドに相当します。QoS スペックが作成されたら、「スペックの管"
+"理」ボタンをクリックして、その QoS スペックのキーと値のスペックを管理します。"
+"<br><br>各 QoS スペックのエンティティーには「使用者」の値が含まれます。これ"
+"は、管理者による QoS ポリシーの適用先を示します。この値は、「フロントエンド」"
+"(Nova Compute)、「バックエンド」(Cinder back-end)、または「両方」です。 "
 
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "処理待ち"
+
+msgid "Quota"
+msgstr "クォータ"
 
 msgid "Quota Name"
 msgstr "クォータ名"
@@ -6014,13 +5974,7 @@ msgstr "ルーター %s が正常に作成されました。"
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
 
-msgid "Router ="
-msgstr "ルーター ="
-
 msgid "Router ID"
-msgstr "ルーター ID"
-
-msgid "Router ID ="
 msgstr "ルーター ID"
 
 msgid "Router Name"
@@ -6180,9 +6134,6 @@ msgstr "スクリプトファイル"
 msgid "Security Group"
 msgstr "セキュリティーグループ"
 
-msgid "Security Group ID"
-msgstr "セキュリティーグループ ID"
-
 msgid "Security Group Rules"
 msgstr "セキュリティーグループルール"
 
@@ -6304,6 +6255,9 @@ msgstr "プールを選択してください"
 
 msgid "Select a port"
 msgstr "ポートを選択してください"
+
+msgid "Select a profile"
+msgstr "プロファイルを選択してください"
 
 msgid "Select a project"
 msgstr "プロジェクトを選択してください"
@@ -6600,9 +6554,6 @@ msgstr "スナップショットのボリューム"
 msgid "Snapshot source must be specified"
 msgstr "スナップショットを指定しなければいけません。"
 
-msgid "Snapshots"
-msgstr "スナップショット"
-
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -6757,9 +6708,6 @@ msgstr "スタック ID ="
 msgid "Stack Name"
 msgstr "スタック名"
 
-msgid "Stack Name ="
-msgstr "スタック名 ="
-
 msgid "Stack Parameters"
 msgstr "スタックのパラメーター"
 
@@ -6818,7 +6766,7 @@ msgstr[0] "インスタンスを開始しました"
 
 #, python-format
 msgid "Starting to evacuate host: %s."
-msgstr "ホスト %s からの退避を開始しました。"
+msgstr "ホスト %s からの避難を開始しました。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -6856,17 +6804,19 @@ msgstr "送信"
 msgid "Subnet"
 msgstr "サブネット"
 
-msgid "Subnet ="
-msgstr "サブネット ="
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "サブネット \"%s\" が正常に作成されました。"
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "サブネット \"%s\" が正常に更新できました。"
 
 msgid "Subnet Details"
 msgstr "サブネットの詳細"
 
 msgid "Subnet ID"
 msgstr "サブネット ID"
-
-msgid "Subnet ID ="
-msgstr "サブネット ID ="
 
 msgid "Subnet Name"
 msgstr "サブネット名"
@@ -7091,9 +7041,11 @@ msgstr ""
 "リュームの移行を実行します。移行には長時間 (場合によっては数時間) かかる場合"
 "がある点に注意してください。"
 
-msgid "The \"Type\" selected must be different from the current volume type."
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
 msgstr ""
-"選択する「種別」は現在のボリューム種別とは違うものでなければいけません。"
+"選択する「ボリューム種別」は現在のボリューム種別とは違うものでなければいけま"
+"せん。"
 
 msgid "The \"from\" port number is invalid."
 msgstr "「下限」ポート番号が無効です。"
@@ -7431,22 +7383,21 @@ msgstr "ネットワークの開始時の状態"
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
-"command."
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
 msgstr ""
 "通常、ボリュームのステータスは自動的に管理されます。状況によっては、管理者が"
-"ステータス値を明示的に変更する必要があることがあります。これは <tt>openstack "
-"volume set --state</tt> コマンドに相当します。   "
+"ステータス値を明示的に変更する必要があることがあります。これは <tt>cinder "
+"reset-state</tt> コマンドに相当します。   "
 
 msgid ""
-"The status of a volume snapshot is normally managed automatically. In some "
+"The status of a volume snapshot is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
-"tt> command."
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
 msgstr ""
 "通常、ボリュームスナップショットのステータスは自動的に管理されます。状況に"
 "よっては、管理者がステータス値を明示的に変更する必要がある場合があります。こ"
-"れは <tt>openstack volume snapshot set --state</tt> コマンドに相当します。"
+"れは <tt>cinder snapshot-reset-state</tt> コマンドに相当します。"
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -7549,11 +7500,11 @@ msgstr ""
 "ださい。"
 
 msgid ""
-"This is equivalent to the <tt>openstack volume qos associate</tt> and "
-"<tt>openstack volume qos disassociate</tt> commands."
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
 msgstr ""
-"これは <tt>openstack volume qos associate</tt> および <tt>openstack volume "
-"qos disassociate</tt> のコマンドに相当します。"
+"これは <tt>cinder qos-associate</tt> および <tt>cinder qos-disassociate</tt> "
+"のコマンドに相当します。"
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7903,6 +7854,10 @@ msgstr ""
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "新しい名前空間を作成できません。 %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr "プロファイル \"%(profile_id)s\" のポートを作成できません: %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -8541,9 +8496,6 @@ msgstr "ポートの詳細を取得できません"
 
 msgid "Unable to retrieve port details."
 msgstr "ポートの詳細を取得できません。"
-
-msgid "Unable to retrieve port security state"
-msgstr "ポートセキュリティーの状態を取得できません"
 
 msgid "Unable to retrieve ports information."
 msgstr "ポート情報を取得できません。"
@@ -9253,9 +9205,6 @@ msgstr "VDI - 仮想ディスクイメージ"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - 仮想ハードディスク"
 
-msgid "VHDX - Large Virtual Hard Disk"
-msgstr "VHDX - 大きい仮想ハードディスク"
-
 msgid "VIF Details"
 msgstr "VIF の詳細"
 
@@ -9284,14 +9233,8 @@ msgstr "VPN サービス"
 msgid "VPN Service %s was successfully updated."
 msgstr "VPN サービス %s が正常に更新されました。"
 
-msgid "VPN Service ="
-msgstr "VPN サービス ="
-
 msgid "VPN Service Details"
 msgstr "VPN サービスの詳細"
-
-msgid "VPN Service ID ="
-msgstr "VPN サービス ID ="
 
 msgid "VPN Service associated with this connection"
 msgstr "この接続に関連付ける VPN サービス"
@@ -9529,16 +9472,16 @@ msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
 "in OpenStack. It usually maps to a set of capabilities of the storage back-"
 "end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
-"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
-"tt> command. Once the volume type gets created, click the \"View Extra Specs"
-"\" button to set up extra specs key-value pair(s) for that volume type."
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
 msgstr ""
 "ボリューム種別は OpenStack でボリュームを作成する際に選択する種別を示すラベル"
 "です。通常、ボリューム種別は、作成するボリュームが使用する、バックエンドのス"
 "トレージドライバーが持つ機能セットにマッピングされます。例えば「性能」「SSD」"
-"「バックアップ」などです。これは <tt>openstack volume type create</tt> に相当"
-"します。ボリューム種別を作成した後は、「追加スペックの表示」ボタンをクリック"
-"して、このボリューム種別の追加スペックのキーと値のペアを設定します。"
+"「バックアップ」などです。これは <tt>cinder type-create</tt> に相当します。ボ"
+"リューム種別を作成した後は、「追加スペックの表示」ボタンをクリックして、この"
+"ボリューム種別の追加スペックのキーと値のペアを設定します。"
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

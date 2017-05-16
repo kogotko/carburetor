@@ -16,7 +16,7 @@ from __future__ import absolute_import
 
 from collections import OrderedDict
 
-from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import neutron
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -341,18 +341,18 @@ def _ipsecsiteconnection_list(request, expand_ikepolicies=False,
     ipsecsiteconnections = neutronclient(request).list_ipsec_site_connections(
         **kwargs).get('ipsec_site_connections')
     if expand_ikepolicies:
-        ikepolicies = _ikepolicy_list(request)
+        ikepolicies = _ikepolicy_list(request, **kwargs)
         policy_dict = OrderedDict((p.id, p) for p in ikepolicies)
         for c in ipsecsiteconnections:
             c['ikepolicy_name'] = policy_dict.get(c['ikepolicy_id']).name_or_id
     if expand_ipsecpolicies:
-        ipsecpolicies = _ipsecpolicy_list(request)
+        ipsecpolicies = _ipsecpolicy_list(request, **kwargs)
         policy_dict = OrderedDict((p.id, p) for p in ipsecpolicies)
         for c in ipsecsiteconnections:
             c['ipsecpolicy_name'] = policy_dict.get(c['ipsecpolicy_id']
                                                     ).name_or_id
     if expand_vpnservices:
-        vpnservices = _vpnservice_list(request)
+        vpnservices = _vpnservice_list(request, **kwargs)
         service_dict = OrderedDict((s.id, s) for s in vpnservices)
         for c in ipsecsiteconnections:
             c['vpnservice_name'] = service_dict.get(c['vpnservice_id']

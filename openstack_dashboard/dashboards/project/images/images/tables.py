@@ -23,7 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import tables
-from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
 
@@ -36,7 +36,7 @@ class LaunchImage(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
-    policy_rules = (("compute", "os_compute_api:servers:create"),)
+    policy_rules = (("compute", "compute:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
@@ -146,7 +146,7 @@ class EditImage(tables.LinkAction):
 class CreateVolumeFromImage(tables.LinkAction):
     name = "create_volume_from_image"
     verbose_name = _("Create Volume")
-    url = "horizon:project:volumes:create"
+    url = "horizon:project:volumes:volumes:create"
     classes = ("ajax-modal",)
     icon = "camera"
     policy_rules = (("volume", "volume:create"),)

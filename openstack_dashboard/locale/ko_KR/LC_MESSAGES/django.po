@@ -14,13 +14,13 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-11 08:07+0000\n"
+"PO-Revision-Date: 2017-02-04 03:05+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -41,6 +41,10 @@ msgstr ""
 "각 프로토콜 항목은 주어진 유입 요청에 대한 사용을 위한 규칙을 맵핑하도록 지시"
 "하는 정보를 포함합니다. Identity 공급자는 지원 프로토콜이 여러 개 있을 수 있"
 "습니다."
+
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "포트 %s 제거 또한 실패하였습니다"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -171,6 +175,14 @@ msgstr "%(device)s에 <a href=\"%(instance_url)s\">%(instance_name)s</a>"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> %(volume_device)s 에서"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\"> %(quota)s MB 에서 %(used)s 사용함</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(quota)s 에서 %(used)s 사용함</span>"
 
 msgid "A local environment to upload."
 msgstr "로컬에서 environment 업로드."
@@ -1016,6 +1028,13 @@ msgstr "템플릿 변경"
 msgid "Change Volume Type"
 msgstr "볼륨 타입 수정"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>cinder retype</tt> command."
+msgstr ""
+"볼륨을 생성한 후 볼륨 유형을 변경합니다. 이것은 <tt>cinder retype</tt> 명령어"
+"와 동일합니다."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "​사용자 암호를 변경합니다. 강력한 사용자 암호를 만드는 것이 중요합니다."
 
@@ -1567,6 +1586,14 @@ msgstr "맵핑을 생성합니다."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"새로운 \"spec\" 키-값 페어를 QoS 스펙 \"%(qos_spec_name)s\"에 생성합니다"
+
+msgid "Create a new network for any project as you need."
+msgstr "원하는 프로젝트에 새로운 네트워크를 생성합니다."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -3869,6 +3896,13 @@ msgstr "정책에서"
 msgid "In Use"
 msgstr "사용중"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"또한, 외부 네트워크나 공유 네트워크를 해당 확인란을 선택하여 생성할 수 있습니"
+"다."
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "사용 중"
@@ -4021,6 +4055,9 @@ msgstr "내부 인터페이스"
 msgid "Internal:"
 msgstr "내부:"
 
+msgid "Invalid MAC Address format"
+msgstr "올바르지 않는 MAC 주소 포맷"
+
 msgid "Invalid date format: Using today as default."
 msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
 
@@ -4137,6 +4174,9 @@ msgstr "정한 네트워크로 인스턴스 시작"
 
 msgid "Launch instance with these ports"
 msgstr "이 포트로 인스턴스 시작"
+
+msgid "Launch instance with this policy profile"
+msgstr "이 정책 프로필을 사용하여 인스턴스 시작"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4568,6 +4608,10 @@ msgid "Network"
 msgstr "네트워크"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "네트워크 \"%s\"를 성공적으로 생성하였습니다."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "네트워크 %s(을)를 성공적으로 생성하였습니다."
 
@@ -4601,6 +4645,12 @@ msgstr "네트워크 이름"
 
 msgid "Network Ports"
 msgstr "네트워크 포트"
+
+msgid "Network Profile"
+msgstr "네트워크 프로파일"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "네트워크 프로필을 찾을 수 없습니다."
 
 msgid "Network Topology"
 msgstr "네트워크 토폴로지"
@@ -4987,6 +5037,26 @@ msgstr "개요"
 msgid "Owner"
 msgstr "소유자"
 
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
+msgstr ""
+"볼륨의 소유권은 한 프로젝트에서 다른 프로젝트로 이전 가능합니다. 볼륨을 이전 "
+"받기 위해서는 볼륨을 이전하려는 사람에게 이전 ID와 인증 키를 받으세요. 이는 "
+"<tt>cinder transfer-accept</tt> 명령어와 동일합니다."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+"볼륨의 소유권은 한 프로젝트에서 다른 프로젝트로 이전 가능합니다. 볼륨 이전이 "
+"볼륨을 보내는 프로젝트에서 생성되면, 이전 받는 프로젝트에서 \"볼륨 이전 받기"
+"\" 가능합니다. 이는 <tt>cinder transfer-create</tt> 명령어와 동일합니다."
+
 msgid "PFS"
 msgstr "PFS"
 
@@ -5126,6 +5196,9 @@ msgstr "정책 %s를 성공적으로 업데이트 하였습니다."
 msgid "Policy ID"
 msgstr "정책 ID"
 
+msgid "Policy Profiles"
+msgstr "정책 프로필"
+
 msgid "Pool"
 msgstr "Pool"
 
@@ -5145,6 +5218,10 @@ msgstr "포트 범위"
 
 msgid "Port Security Enabled"
 msgstr "포트 보안 활성화됨"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "해당 port-id (%s)에 대한 포트 클린업이 실패했습니다."
 
 msgid "Port list can not be retrieved."
 msgstr "포트 목록을 찾을 수 없습니다."
@@ -5320,6 +5397,15 @@ msgstr "공급자 네트워크"
 msgid "Provider Network Type"
 msgstr "공급자 네트워크 유형"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"공급자 지정 네트워크를 생성할 수 있습니다. 새로운 가상 네트워크에 대한 물리"
+"적 네트워크 타입(Flat, VLAN, GRE, VXLAN과 같은)과 segmentation_id 또는 물리"
+"적 네트워크 이름을 지정할 수 있습니다."
+
 msgid "Public"
 msgstr "공용"
 
@@ -5351,9 +5437,30 @@ msgstr "QoS 스펙: {{ qos_spec_name }}"
 msgid "QoS Specs"
 msgstr "QOS 스펙"
 
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
+msgstr ""
+"QoS 스펙은 볼륨 타입과 연결이 가능합니다. 이는 볼륨 소유자에 의해 요청된 서비"
+"스 품질 기능 집합과 연결되는데 사용됩니다. 이는 <tt>cinder qos-create</tt> 명"
+"령어와 동일합니다. QoS 스펙이 생성되면, \"Manage Specs\" 버튼을 클릭하여 QoS "
+"스펙에 대해 키-값 스펙을 관리하십시오. <br><br> 각 QoS 스펙 개체는 QoS 정책"
+"을 적용하고자 하는 관리자를 가리키는 \"Consumer\" 값을 가질 것입니다. 이 값"
+"은 \"front-end\"(Nova Compute), \"back-end\"(Cinder back-end), \"both\"가 있"
+"습니다."
+
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Queued"
+
+msgid "Quota"
+msgstr "Quota"
 
 msgid "Quota Name"
 msgstr "할당량 이름"
@@ -6088,6 +6195,9 @@ msgstr "풀 선택"
 msgid "Select a port"
 msgstr "포트 선택"
 
+msgid "Select a profile"
+msgstr "프로필 선택"
+
 msgid "Select a project"
 msgstr "프로젝트 선택"
 
@@ -6623,6 +6733,14 @@ msgstr "제출"
 msgid "Subnet"
 msgstr "서브넷"
 
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "서브넷 \"%s\"를 성공적으로 생성하였습니다."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "서브넷 \"%s\"를 성공적으로 업데이트 하였습니다."
+
 msgid "Subnet Details"
 msgstr "서브넷 세부 정보"
 
@@ -6852,6 +6970,10 @@ msgstr ""
 "레이션 정책\"이 \"On Demand\"인 경우 백엔드는 볼륨 마이그레이션을 수행합니"
 "다. 마이그레이션을 완료하는 데 상당히 오랜 시간이 소요되며, 몇 시간 걸릴 수"
 "도 있습니다."
+
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
+msgstr "선택된 \"볼륨 유형\"은 현재 볼륨 유형과 달라야 합니다."
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"보내는\" 포트 번호가 올바르지 않습니다."
@@ -7179,6 +7301,25 @@ msgstr ""
 msgid "The state to start the network in."
 msgstr "네트워크 시작 상태입니다."
 
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+msgstr ""
+"볼륨 상태는 기본적으론 자동으로 관리됩니다. 어떤 경우에는 관리자가 직접 상태"
+"값을 업데이트할 필요가 있을 수 있습니다. 이것은 <tt>cinder reset-state</tt> "
+"명령과 같습니다."
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
+msgstr ""
+"볼륨 스냅샷 상태는 기본적으론 자동으로 관리됩니다. 어떤 경우에는 관리자가 직"
+"접 상태값을 업데이트할 필요가 있을 수 있습니다. 이것은 <tt>cinder snapshot-"
+"reset-state</tt> 명령과 같습니다."
+
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "네트워크 주소의 서브넷이 너무 적습니다 (/%s)."
@@ -7268,6 +7409,13 @@ msgid ""
 msgstr ""
 "키 쌍을 만듭니다: 개인키(cloud.key)와 공개키(cloud.key.pub)로 유지할 키입니"
 "다. 공개 키 파일의 내용을 여기에 붙여넣으십시오."
+
+msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
+msgstr ""
+"<tt>cinder qos-associate</tt> 및 <tt>cinder qos-disassociate</tt> 명령어와 동"
+"일합니다."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7607,6 +7755,10 @@ msgstr "새로운 이미지를 생성할 수 없음: URL 스키마를 지원하�
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "%s의 새 네임스페이스를 생성할 수 없습니다."
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr "프로필 \"%(profile_id)s\"에 포트를 추가할 수 없습니다: %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -8944,9 +9096,6 @@ msgstr "VDI - Virtual Disk Image"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtual Hard Disk"
 
-msgid "VHDX - Large Virtual Hard Disk"
-msgstr "VHDX - Large Virtual Hard Disk"
-
 msgid "VIF Details"
 msgstr "VIF 세부 사항"
 
@@ -9201,6 +9350,21 @@ msgstr "볼륨 소스를 선택해야 합니다."
 
 msgid "Volume transfer name cannot be empty."
 msgstr "전송 이름은 빈 상태로 둘 수 없습니다."
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"볼륨 타입은 OpenStack에서 볼륨 생성시 선택하는 타입 또는 라벨입니다. 일반적으"
+"로 볼륨이 사용될 스토리지 백엔드 드라이버 기능 설정과 매핑됩니다. 예시로는 "
+"\"성능\", \"SSD\", \"백업\" 등이 있습니다. <tt>cinder type-create</tt>와 명령"
+"이 같습니다. 생성시 하나의 볼륨 타입을 얻게 됩니다만, \"추가 사양 보기\" 버튼"
+"을 클릭하여 해당 볼륨 타입에 대한 추가적인 확장 스펙 키-값 페어(들)을 설정할 "
+"수 있습니다."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

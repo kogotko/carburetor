@@ -20,10 +20,10 @@ import collections
 import logging
 
 from django.conf import settings
-from django.forms import ValidationError
+from django.forms import ValidationError  # noqa
 from django import http
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -90,7 +90,7 @@ class BaseUserForm(forms.SelfHandlingForm):
             self.fields['project'].choices = project_choices
 
         except Exception:
-            LOG.debug("User: %s has no projects", user_id)
+            LOG.debug("User: %s has no projects" % user_id)
 
 
 class AddExtraColumnMixIn(object):
@@ -162,7 +162,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
     def handle(self, request, data):
         domain = api.keystone.get_default_domain(self.request, False)
         try:
-            LOG.info('Creating user with name "%s"', data['name'])
+            LOG.info('Creating user with name "%s"' % data['name'])
             desc = data["description"]
             if "email" in data:
                 data['email'] = data['email'] or None

@@ -21,7 +21,7 @@ import sys
 import time
 import warnings
 
-from django.core.management.templates import BaseCommand
+from django.core.management.templates import BaseCommand  # noqa
 
 # Suppress DeprecationWarnings which clutter the output to the point of
 # rendering it unreadable.

@@ -22,16 +22,16 @@ import socket
 import time
 import unittest
 
-from django.contrib.auth.middleware import AuthenticationMiddleware
-from django.contrib.auth.models import Permission
-from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.messages.storage import default_storage
-from django.contrib.sessions.backends.base import SessionBase
+from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
+from django.contrib.auth.models import Permission  # noqa
+from django.contrib.auth.models import User  # noqa
+from django.contrib.contenttypes.models import ContentType  # noqa
+from django.contrib.messages.storage import default_storage  # noqa
+from django.contrib.sessions.backends.base import SessionBase  # noqa
 from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
-from django.test.client import RequestFactory
+from django.test.client import RequestFactory  # noqa
 from django.utils.encoding import force_text
 import six
 
@@ -50,9 +50,9 @@ try:
     from selenium.webdriver.support import ui as selenium_ui
     import xvfbwrapper  # Only needed when running the Selenium tests headless
 
-    from horizon.test.webdriver import WebDriver
+    from horizon.test.webdriver import WebDriver  # noqa
 except ImportError as e:
-    LOG.warning("%s, force WITH_SELENIUM=False", e)
+    LOG.warning("{0}, force WITH_SELENIUM=False".format(str(e)))
     os.environ['WITH_SELENIUM'] = ''
 
 
@@ -258,7 +258,7 @@ class JasmineTests(SeleniumTestCase):
     """Helper class which allows you to create a simple Jasmine test running
     through Selenium
 
-    To run a jasmine test suite, create a class which extends JasmineTests in
+    To run a jasmine test suite create a class which extends JasmineTests in
     the :file:`horizon/test/jasmine/jasmine_tests.py` and define two class
     attributes
 
@@ -277,8 +277,8 @@ class JasmineTests(SeleniumTestCase):
         A template which will contain the html needed by the test,
         this attribute is optional, if it is not specified the default template
         will be used. The template, if specified, must extends
-        :file:`horizon/jasmine/jasmine.html` and inserts the html in a block
-        whose name must be content
+        :file:`horizon/jasmine/jasmine.html` and insert the html in a block
+        which name must be content
     """
     sources = []
     specs = []

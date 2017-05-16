@@ -137,6 +137,7 @@
       allowedBootSources: [],
       images: [],
       allowCreateVolumeFromImage: false,
+      arePortProfilesSupported: false,
       imageSnapshots: [],
       keypairs: [],
       metadataDefs: {
@@ -150,6 +151,7 @@
       ports: [],
       neutronEnabled: false,
       novaLimits: {},
+      profiles: [],
       securityGroups: [],
       serverGroups: [],
       volumeBootable: false,
@@ -157,14 +159,6 @@
       volumeSnapshots: [],
       metadataTree: null,
       hintsTree: null,
-
-      /**
-       * This is to inform users current situation is under loading or not
-       */
-      loaded: {
-        // Availability Zones on Details tab
-        availabilityZones: false
-      },
 
       /**
        * api methods for UI controllers
@@ -193,6 +187,7 @@
         name: null,
         networks: [],
         ports: [],
+        profile: {},
         scheduler_hints: {},
         // REQUIRED Server Key. May be empty.
         security_groups: [],
@@ -207,12 +202,6 @@
         vol_delete_on_instance_delete: false,
         vol_size: 1
       };
-    }
-
-    function initializeLoadStatus() {
-      angular.forEach(model.loaded, function(val, key) {
-        model.loaded[key] = false;
-      });
     }
 
     /**
@@ -230,7 +219,6 @@
       // Each time opening launch instance wizard, we need to do this, or
       // we can call the whole methods `reset` instead of `initialize`.
       initializeNewInstanceSpec();
-      initializeLoadStatus();
 
       if (model.initializing) {
         promise = initPromise;
@@ -248,8 +236,7 @@
         var launchInstanceDefaults = settings.getSetting('LAUNCH_INSTANCE_DEFAULTS');
 
         promise = $q.all([
-          novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
-            .finally(onGetAvailabilityZonesComplete),
+          novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
           novaAPI.getFlavors(true, true).then(onGetFlavors, noop),
           novaAPI.getKeypairs().then(onGetKeypairs, noop),
           novaAPI.getLimits(true).then(onGetNovaLimits, noop),
@@ -360,10 +347,6 @@
         model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
       }
 
-    }
-
-    function onGetAvailabilityZonesComplete() {
-      model.loaded.availabilityZones = true;
     }
 
     // Flavors
@@ -562,13 +545,8 @@
       var volumeDeferred = $q.defer();
       var volumeSnapshotDeferred = $q.defer();
       serviceCatalog
-        .ifTypeEnabled('volumev2')
-        .then(onVolumeServiceEnabled, onCheckVolumeV3);
-      function onCheckVolumeV3() {
-        serviceCatalog
-          .ifTypeEnabled('volumev3')
-          .then(onVolumeServiceEnabled, resolvePromises);
-      }
+        .ifTypeEnabled('volume')
+        .then(onVolumeServiceEnabled, resolvePromises);
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
         novaExtensions

@@ -23,12 +23,12 @@ import json
 import logging
 
 from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.contrib.auth.views import redirect_to_login
+from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
+from django.contrib.auth.views import redirect_to_login  # noqa
 from django.contrib import messages as django_messages
 from django import http
 from django import shortcuts
-from django.utils.encoding import iri_to_uri
+from django.utils.encoding import iri_to_uri  # noqa
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
@@ -46,12 +46,12 @@ class HorizonMiddleware(object):
 
     logout_reason = None
 
-    def _logout(self, request, login_url=None, message=None, status='success'):
+    def _logout(self, request, login_url=None, message=None):
         """Logout a user and display a logout message."""
         response = auth_views.logout(request, login_url)
         if message is not None:
             self.logout_reason = message
-            utils.add_logout_reason(request, response, message, status)
+            utils.add_logout_reason(request, response, message)
         return response
 
     def process_request(self, request):
@@ -97,8 +97,8 @@ class HorizonMiddleware(object):
                         'You need to configure file-based or database-backed '
                         'sessions instead of cookie-based sessions: '
                         'http://docs.openstack.org/developer/horizon/topics/'
-                        'deployment.html#session-storage',
-                        {
+                        'deployment.html#session-storage'
+                        % {
                             'user_id': request.session.get(
                                 'user_id', 'Unknown'),
                             'cookie_size': cookie_size,
@@ -127,8 +127,7 @@ class HorizonMiddleware(object):
                                          redirect_field_name=field_name)
             if isinstance(exception, exceptions.NotAuthorized):
                 logout_reason = _("Unauthorized. Please try logging in again.")
-                utils.add_logout_reason(request, response, logout_reason,
-                                        'error')
+                utils.add_logout_reason(request, response, logout_reason)
                 # delete messages, created in get_data() method
                 # since we are going to redirect user to the login page
                 response.delete_cookie('messages')
@@ -172,14 +171,13 @@ class HorizonMiddleware(object):
                     redirect_response['logout'] = True
                     if self.logout_reason is not None:
                         utils.add_logout_reason(
-                            request, redirect_response, self.logout_reason,
-                            'error')
+                            request, redirect_response, self.logout_reason)
                 else:
                     redirect_response = http.HttpResponse()
                 # Use a set while checking if we want a cookie's attributes
                 # copied
-                cookie_keys = {'max_age', 'expires', 'path', 'domain',
-                               'secure', 'httponly', 'logout_reason'}
+                cookie_keys = set(('max_age', 'expires', 'path', 'domain',
+                                   'secure', 'httponly', 'logout_reason'))
                 # Copy cookies from HttpResponseRedirect towards HttpResponse
                 for cookie_name, cookie in response.cookies.items():
                     cookie_kwargs = dict((

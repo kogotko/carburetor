@@ -15,16 +15,15 @@
   "use strict";
 
   describe('domain service', function() {
-    var service, $scope, detailRoute;
+    var service, $scope;
     beforeEach(module('horizon.dashboard.identity.domains'));
     beforeEach(inject(function($injector) {
       service = $injector.get('horizon.dashboard.identity.domains.service');
-      detailRoute = $injector.get('horizon.app.core.detailRoute');
     }));
 
     it("getDetailsPath creates urls using the item's ID", function() {
       var myItem = {id: "1234"};
-      expect(service.getDetailsPath(myItem)).toBe(detailRoute + 'OS::Keystone::Domain/1234');
+      expect(service.getDetailsPath(myItem)).toBe('project/ngdetails/OS::Keystone::Domain/1234');
     });
 
     describe('listDomains', function() {

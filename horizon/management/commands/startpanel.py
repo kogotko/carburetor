@@ -11,10 +11,11 @@
 # under the License.
 
 import glob
+from optparse import make_option  # noqa
 import os
 
-from django.core.management.base import CommandError
-from django.core.management.templates import TemplateCommand
+from django.core.management.base import CommandError  # noqa
+from django.core.management.templates import TemplateCommand  # noqa
 from importlib import import_module
 
 import horizon

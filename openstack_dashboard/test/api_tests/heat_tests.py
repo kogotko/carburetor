@@ -12,7 +12,7 @@
 import six
 
 from django.conf import settings
-from django.test.utils import override_settings
+from django.test.utils import override_settings  # noqa
 
 from horizon import exceptions
 from openstack_dashboard import api

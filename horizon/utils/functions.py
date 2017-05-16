@@ -19,10 +19,10 @@ from oslo_utils import units
 import six
 
 from django.conf import settings
-from django.contrib.auth import logout
+from django.contrib.auth import logout  # noqa
 from django import http
 from django.utils.encoding import force_text
-from django.utils.functional import lazy
+from django.utils.functional import lazy  # noqa
 from django.utils import translation
 
 
@@ -39,7 +39,7 @@ def bytes_to_gigabytes(bytes):
     return int(math.ceil(float(bytes) / units.Gi))
 
 
-def add_logout_reason(request, response, reason, status='success'):
+def add_logout_reason(request, response, reason):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
@@ -47,10 +47,9 @@ def add_logout_reason(request, response, reason, status='success'):
         if six.PY2:
             reason = reason.encode('utf-8')
         response.set_cookie('logout_reason', reason, max_age=10)
-        response.set_cookie('logout_status', status, max_age=10)
 
 
-def logout_with_message(request, msg, redirect=True, status='success'):
+def logout_with_message(request, msg, redirect=True):
     """Send HttpResponseRedirect to LOGOUT_URL.
 
     `msg` is a message displayed on the login page after the logout, to explain
@@ -62,7 +61,7 @@ def logout_with_message(request, msg, redirect=True, status='success'):
             '%s?next=%s' % (settings.LOGOUT_URL, request.path))
     else:
         response = http.HttpResponseRedirect(settings.LOGOUT_URL)
-    add_logout_reason(request, response, msg, status)
+    add_logout_reason(request, response, msg)
     return response
 
 
@@ -109,8 +108,8 @@ def get_log_length(request):
 
 def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
-    # In case there is no timezone neither in session nor in cookie,
-    # use default value from settings file where it's called TIME_ZONE.
+    # In case there is no timezone neither in session nor cookie
+    # use default value from settings file where it's called TIME_ZONE
     return get_config_value(request, 'django_timezone',
                             getattr(settings, 'TIME_ZONE', 'UTC'))
 
@@ -134,7 +133,7 @@ def get_keys(tuple_of_tuples):
 
 def value_for_key(tuple_of_tuples, key):
     """Processes a tuple of 2-element tuples and returns the value
-    corresponding to the given key. If no value is found, the key is returned.
+    corresponding to the given key. If not value is found, the key is returned.
     """
     for t in tuple_of_tuples:
         if t[0] == key:

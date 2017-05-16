@@ -26,9 +26,9 @@
    * @element
    * @description
    * The `magicSearchBar` directive provides a template for a
-   * client side and server side faceted search that utilizes
-   * Smart-Table's filtering capabilities as well.
-   * It needs to be placed within an hz-magic-search-context to be effective.
+   * client side faceted search that utilizes Smart-Table's
+   * filtering capabilities as well.  It needs to be placed within
+   * an hz-magic-search-context to be effective.
    *
    * @restrict E
    * @scope
@@ -40,8 +40,7 @@
    *  {
    *    label: gettext('Name'),
    *    name: 'name',
-   *    singleton: true,
-   *    isServer: true
+   *    singleton: true
    *  },
    *  {
    *    label: gettext('VCPUs'),
@@ -57,7 +56,6 @@
    *    label: gettext('Public'),
    *    name: 'isPublic',
    *    singleton: true,
-   *    isServer: true
    *    options: [
    *      { label: gettext('No'), key: false },
    *      { label: gettext('Yes'), key: true }

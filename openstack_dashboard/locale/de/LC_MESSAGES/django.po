@@ -9,38 +9,18 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.dev298\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-10 16:55+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-11 10:57+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2017-02-03 01:39+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s GiB Used\n"
-"      "
-msgstr ""
-"\n"
-"      %(used)s von %(quota)s GiB verwendet\n"
-"      "
-
-#, python-format
-msgid ""
-"\n"
-"      %(used)s of %(quota)s Used\n"
-"      "
-msgstr ""
-"\n"
-"      %(used)s von %(quota)s verwendet\n"
-"      "
 
 msgid " - End"
 msgstr "- Ende"
@@ -57,14 +37,9 @@ msgstr ""
 "Zuordnungsregeln für eine bestimmte eingehenden Anforderung verwendet werden "
 "müssen. Ein Identitätsanbieter kann mehrere unterstützte Protokolle haben."
 
-msgid ""
-" You can create a port for the network.\n"
-"     If you specify device ID to be attached, the device specified will\n"
-"     be attached to the port created.\n"
-"     "
-msgstr ""
-"Sie können einen Port für Ihr Netzwerk erstellen. Wenn Sie Ihre Geräte-ID "
-"angeben wird das Gerät mit dem neu erstellten Port verbunden."
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr "Fehler beim Löschen von Port %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -138,10 +113,6 @@ msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s von %(quota)s GiB verwendet"
 
 #, python-format
-msgid "%(used)s of %(quota)s MB Used"
-msgstr "%(used)s von %(quota)s MB verwendet"
-
-#, python-format
 msgid "%(used)s of %(quota)s Used"
 msgstr "%(used)s von %(quota)s verwendet"
 
@@ -201,6 +172,14 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> auf %(volume_device)s"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s von %(quota)s MB verwendet</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s von %(quota)s verwendet</span>"
 
 msgid "A local environment to upload."
 msgstr "Eine lokale Umgebung zum Hochladen."
@@ -677,9 +656,6 @@ msgstr "Alle verfügbaren Datenträger"
 msgid "All fields are optional."
 msgstr "Alle Felder sind optional."
 
-msgid "All ports"
-msgstr "Alle Ports"
-
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -858,9 +834,6 @@ msgstr "Authorisierungsschlüssel"
 
 msgid "Authorization algorithm"
 msgstr "Authorisierungsalgorithmus"
-
-msgid "Authorization algorithm ="
-msgstr "Authorisierungsalgorithmus ="
 
 msgid "Authorization mode"
 msgstr "Authorisierungsmodus"
@@ -1076,10 +1049,10 @@ msgstr "Datenträgertyp ändern"
 
 msgid ""
 "Change the volume type of a volume after its creation. This is equivalent to "
-"the <tt>openstack volume set --type</tt> command."
+"the <tt>cinder retype</tt> command."
 msgstr ""
 "Ändern des Datenträgertyps eines Datenträgers nach der Erstellung. Dies ist "
-"gleichbedeutend mit dem <tt>openstack volume set --type</tt> Kommando."
+"gleichbedeutend mit dem <tt>cinder retype</tt> Kommando."
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -1652,6 +1625,16 @@ msgstr "Zuordnung erstellen."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Neues \"extra spec\" Schlüssel-Wert-Paar für Datenträgertyp erzeugen."
+
+#, python-format
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
+"Neues Schlüssel-Wert-Paar \"Spezifikation\" für QoS Spezifikation "
+"\"%(qos_spec_name)s\" erzeugen"
+
+msgid "Create a new network for any project as you need."
+msgstr ""
+"Erzeugen Sie nach Bedarf ein neues Netzwerk für jedes beliebige Projekt."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2664,9 +2647,6 @@ msgstr "OpenStack RC Datei v2.0 herunterladen"
 msgid "Download OpenStack RC File v3"
 msgstr "OpenStack RC Datei v3 herunterladen"
 
-msgid "Download OpenStack clouds.yaml File"
-msgstr "OpenStack clouds.yaml Datei herunterladen"
-
 msgid "Download transfer credentials"
 msgstr "Transfer-Zugangsdaten herunterladen"
 
@@ -2869,9 +2849,6 @@ msgid_plural "Enable Users"
 msgstr[0] "Benutzer aktivieren"
 msgstr[1] "Benutzer aktivieren"
 
-msgid "Enable anti-spoofing rules for the port"
-msgstr "Anti-Spoofing-Regeln für den Port aktivieren"
-
 msgid "Enable rollback on create/update failure."
 msgstr ""
 "Ermögliche ein Zurückrollen nach einem Erzeugungs/Aktualisierungs-Fehler."
@@ -2919,9 +2896,6 @@ msgstr "Verschlüsselung"
 msgid "Encryption algorithm"
 msgstr "Verschlüsselungsalgorithmus"
 
-msgid "Encryption algorithm ="
-msgstr "Verschlüsselungsalgorithmus ="
-
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
@@ -2944,10 +2918,6 @@ msgstr "Geben Sie einen Wert für den ICMP-Code im Bereich -1 bis 255 ein"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Geben Sie einen Wert für die ICMP Type im Bereich -1 bis 255 ein"
-
-msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
-msgstr ""
-"Ein ganzzahliger Wert zwischen -1 und 255 (-1 bedeutet Platzhalter/Wildcard)"
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Geben Sie eine ganze Zahl zwischen 0 und 255 ein."
@@ -3619,9 +3589,6 @@ msgstr "Hostkopie erzwingen"
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Erzwinge die Schattenkopie \"%s\" vom zugewiesenem Datenträger."
 
-msgid "Form Builder"
-msgstr "Formularersteller"
-
 msgid "Format"
 msgstr "Abbildformat"
 
@@ -3854,14 +3821,8 @@ msgstr "IKE Richtlinie"
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE-Richtlinie %s wurde erfolgreich aktualisiert."
 
-msgid "IKE Policy ="
-msgstr "IKE Richtlinie ="
-
 msgid "IKE Policy Details"
 msgstr "IKE Richtlinien Details"
-
-msgid "IKE Policy ID ="
-msgstr "IKE Richtlinie ID ="
 
 msgid "IKE Policy associated with this connection"
 msgstr "IKE Richtlinie für diese Verbindung"
@@ -3931,14 +3892,8 @@ msgstr "IPSec Richtlinie"
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPSec Richtlinie %s wurde erfolgreich aktualisiert."
 
-msgid "IPSec Policy ="
-msgstr "IPSec Richtlinie ="
-
 msgid "IPSec Policy Details"
 msgstr "IPSec Richtlinien Details"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec Richtlinie ID ="
 
 msgid "IPSec Policy associated with this connection"
 msgstr "IPSec Richtline für diese Verbindung"
@@ -4113,6 +4068,13 @@ msgstr "In Richtlinie"
 msgid "In Use"
 msgstr "In Verwendung"
 
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"Sie können zusätzlich ein externes Netzwerk oder ein geteiltes Netzwerk "
+"erstellen, in dem Sie das entsprechende Kontrollkästchen markieren."
+
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "In Verwendung"
@@ -4274,6 +4236,9 @@ msgstr "Interne Schnittstelle"
 msgid "Internal:"
 msgstr "Intern:"
 
+msgid "Invalid MAC Address format"
+msgstr "Ungültiges MAC-Adressenformat"
+
 msgid "Invalid date format: Using today as default."
 msgstr "Ungültiges Datumsformat: verwende Heute als Voreinstellung."
 
@@ -4394,6 +4359,9 @@ msgstr "Instanz mit diesen Netzwerken starten"
 
 msgid "Launch instance with these ports"
 msgstr "Starte Instanzen mit diesen Ports"
+
+msgid "Launch instance with this policy profile"
+msgstr "Instanz mit diesen Datenschutz Profilen starten"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4839,6 +4807,10 @@ msgid "Network"
 msgstr "Netzwerk"
 
 #, python-format
+msgid "Network \"%s\" was successfully created."
+msgstr "Das Netzwerk \"%s\" wurde erfolgreich erstellt."
+
+#, python-format
 msgid "Network %s was successfully created."
 msgstr "Das Netzwerk %s wurde erfolgreich erstellt."
 
@@ -4872,6 +4844,12 @@ msgstr "Netzwerkname"
 
 msgid "Network Ports"
 msgstr "Netzwerk-Ports"
+
+msgid "Network Profile"
+msgstr "Netzwerkprofile"
+
+msgid "Network Profiles could not be retrieved."
+msgstr "Netzwerk-Profile konnten nicht abgerufen werden."
 
 msgid "Network Topology"
 msgstr "Netzwerktopologie"
@@ -5262,36 +5240,30 @@ msgstr "Übersicht"
 msgid "Owner"
 msgstr "Eigentümer"
 
-msgid "Owner of the device attached to the port"
-msgstr "Besitzer des dem Port zugewiesenen Gerätes."
-
 msgid ""
-"Ownership of a volume can be transferred from one project to another. "
+"Ownership of a volume can be transferred from one project to another.  "
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
-"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
-"request accept</tt> command."
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
 msgstr ""
 "Das Eigentumsrecht eines Datenträgers kann von einem Projekt zum anderen "
 "übertragen werden. Einen Transfer zu akzeptieren erfordert die Transfer ID "
-"vom Geber erhalten zu haben. Dies ist gleichbedeutend mit dem <tt>openstack "
-"volume transfer request accept</tt> Kommando."
+"vom Geber erhalten zu haben. Dies ist gleichbedeutend mit dem <tt>cinder "
+"transfer-accept</tt> Kommando."
 
 msgid ""
 "Ownership of a volume can be transferred from one project to another. Once a "
 "volume transfer is created in a donor project, it then can be \"accepted\" "
-"by a recipient project. This is equivalent to the <tt>openstack volume "
-"transfer create</tt> command."
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
 msgstr ""
 "Das Eigentumsrecht eines Datenträgers kann von einem Projekt zum anderen "
 "übertragen werden. Wenn ein Datenträgertransfer im Geber-Projekt erstellt "
 "wurde, kann er vom Empfängerprojekt akzeptiert werden. Dies ist "
-"gleichbedeutend mit dem <tt>openstack volume transfer create</tt> Kommando."
+"gleichbedeutend mit dem <tt>cinder transfer-create</tt> Kommando."
 
 msgid "PFS"
 msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
 
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
@@ -5436,6 +5408,9 @@ msgstr "Richtlinie %s wurde wurde erfolgreich aktualisiert."
 msgid "Policy ID"
 msgstr "Richtlinien-ID"
 
+msgid "Policy Profiles"
+msgstr "Datenschutz Profile"
+
 msgid "Pool"
 msgstr "Pool"
 
@@ -5453,11 +5428,12 @@ msgstr "Port %s wurde erfolgreich aktualisiert."
 msgid "Port Range"
 msgstr "Port-Bereich"
 
-msgid "Port Security"
-msgstr "Portsicherheit"
-
 msgid "Port Security Enabled"
 msgstr "Portsicherheit aktiviert "
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Portbereinigung für diese Port-ID fehlgeschlagen (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Portliste kann nicht abgerufen werden."
@@ -5636,6 +5612,16 @@ msgstr "Anbieternetzwerk"
 msgid "Provider Network Type"
 msgstr "Anbieter Netzwerktyp"
 
+msgid ""
+"Provider specified network can be created. You can specify a physical "
+"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
+"physical network name for a new virtual network."
+msgstr ""
+"Das Anbieter spezifizierte Netzwerk kann erzeugt werden. Sie können den "
+"physischen Netzwerktyp (wie Flat, VLAN, GRE, and VXLAN) und seine "
+"segmentation_id oder einen physischen Netzwerknamen für eine neues "
+"virtuelles Netzwerk spezifizieren."
+
 msgid "Public"
 msgstr "Öffentlich"
 
@@ -5670,27 +5656,29 @@ msgstr "QoS Spezifikationen"
 msgid ""
 "QoS Specs can be associated with volume types. It is used to map to a set of "
 "quality of service capabilities requested by the volume owner. This is "
-"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
-"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
-"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
-"value which indicates where the administrator would like the QoS policy to "
-"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
-"\" (Block Storage back-end), or \"both\"."
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
 msgstr ""
 "QoS Spezifikation können mit Datenträgertypen verbunden werden. Das dient "
 "zum Abbilden eines vom Eigentümer des Datenträgers gewünschten Satzes von "
-"Dienst-Qualitätsmerkmalen und ist gleichbedeutend mit dem <tt>openstack "
-"volume qos create</tt> Kommando. Nachdem die QoS Spezifikationen erzeugt "
-"wurden, können durch Klick auf den \"Spezifikationen verwalten\" Knopf die "
-"Schlüssel-Wert Spezifikationen verwaltet werden.<br><br>Jedes Objekt der QoS "
-"Spezifikation enthält einen \"Verbraucher\" Wert, der anzeigt, wo der "
-"Administrator die QoS Richtlinie erzwingen möchte. Dieser Wert kann \"front-"
-"end\" (Compute back-end), \"back-end\" (Block-Storage back-end) oder \"both"
-"\" sein."
+"Dienst-Qualitätsmerkmalen und ist gleichbedeutend mit dem <tt>cinder qos-"
+"create</tt> Kommando. Nachdem die QoS Spezifikationen erzeugt wurden, können "
+"durch Klick auf den \"Spezifikationen verwalten\" Knopf die Schlüssel-Wert "
+"Spezifikationen verwaltet werden.<br><br>Jedes Objekt der QoS Spezifikation "
+"enthält einen \"Verbraucher\" Wert, der anzeigt, wo der Administrator die "
+"QoS Richtlinie erzwingen möchte. Dieser Wert kann \"front-end\" (Nova "
+"Compute), \"back-end\" (Cinder Back-End) oder beides sein."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "In Warteschlange"
+
+msgid "Quota"
+msgstr "Kontingent"
 
 msgid "Quota Name"
 msgstr "Kontingentname"
@@ -6160,14 +6148,8 @@ msgstr "Router %s wurde erfolgreich angelegt."
 msgid "Router %s was successfully updated."
 msgstr "Router %s wurde erfolgreich aktualisiert."
 
-msgid "Router ="
-msgstr "Router ="
-
 msgid "Router ID"
 msgstr "Router-ID"
-
-msgid "Router ID ="
-msgstr "Router-ID ="
 
 msgid "Router Name"
 msgstr "Routername"
@@ -6340,9 +6322,6 @@ msgstr "Skript-Datei"
 msgid "Security Group"
 msgstr "Sicherheitsgruppe"
 
-msgid "Security Group ID"
-msgstr "Sicherheitsgruppen ID"
-
 msgid "Security Group Rules"
 msgstr "Sicherheitsgruppenregeln"
 
@@ -6464,6 +6443,9 @@ msgstr "Wähle einen Pool."
 
 msgid "Select a port"
 msgstr "Einen Port auswählen"
+
+msgid "Select a profile"
+msgstr "Profil auswählen"
 
 msgid "Select a project"
 msgstr "Projekt auswählen"
@@ -6766,9 +6748,6 @@ msgstr "Schattenkopie Datenträger"
 msgid "Snapshot source must be specified"
 msgstr "Schattenkopiequelle muss angegeben werden"
 
-msgid "Snapshots"
-msgstr "Schattenkopien"
-
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -6886,9 +6865,6 @@ msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr ""
 "Geben Sie Name, Beschreibung, Router und Subnetz für den VPN-Dienst an."
 
-msgid "Specify a new MAC address for the port"
-msgstr "Geben Sie eine neue MAC-Adresse für den Port an"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Zusätzliche Eigenschaften des Subnetzes angeben."
 
@@ -6901,9 +6877,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen aus."
-
-msgid "Specify the MAC address for the new port"
-msgstr "Geben Sie die MAC-Adresse für den neuen Port an"
 
 msgid "Specify the details for launching an instance."
 msgstr "Geben Sie die Details zum Start einer Instanz an."
@@ -6932,9 +6905,6 @@ msgstr "Stack ID ="
 
 msgid "Stack Name"
 msgstr "Stack Name"
-
-msgid "Stack Name ="
-msgstr "Stack Name ="
 
 msgid "Stack Parameters"
 msgstr "Stack Parameter"
@@ -7034,17 +7004,19 @@ msgstr "Übertragen"
 msgid "Subnet"
 msgstr "Subnetz"
 
-msgid "Subnet ="
-msgstr "Subnetz ="
+#, python-format
+msgid "Subnet \"%s\" was successfully created."
+msgstr "Subnetzwerk \"%s\" wurde erfolgreich erstellt."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "Subnetz \"%s\" wurde erfolgreich aktualisiert."
 
 msgid "Subnet Details"
 msgstr "Subnetzdetails"
 
 msgid "Subnet ID"
 msgstr "Subnetz-ID"
-
-msgid "Subnet ID ="
-msgstr "Subnetz ID ="
 
 msgid "Subnet Name"
 msgstr "Subnetzname"
@@ -7277,9 +7249,11 @@ msgstr ""
 "Datenträgermigration durch. Beachten Sie, dass die Migration erhebliche Zeit "
 "zur Durchführung benötigt, in einigen Fällen sind dies Stunden."
 
-msgid "The \"Type\" selected must be different from the current volume type."
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
 msgstr ""
-"Der ausgewählte Typ muss sich vom aktuellen Datenträgertyp unterscheiden."
+"Der ausgewählte \"Datenträgertyp\" muss sich vom aktuellen Datenträgertyp "
+"unterscheiden."
 
 msgid "The \"from\" port number is invalid."
 msgstr "Die Portnummer \"von\" ist ungültig."
@@ -7635,23 +7609,23 @@ msgstr "Status, in dem das Netzwerk gestartet werden soll."
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
-"command."
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
 msgstr ""
-"Der Status eines Datenträgers wird normalerweise automatisch verwaltet.  In "
-"manchen Fällen muss ein Administrator den Statuswert explizit anpassen. Dies "
-"ist gleichbedeutend mit dem <tt>openstack volume set --state</tt> Kommando."
+"Der Status eines Datenträgers wird normalerweise automatisch verwaltet. "
+"Unter gewissen Umständen kann es notwendig sein, dass ein Administrator "
+"explizit den Statuswert aktualisieren muss. Das ist gleichbedeutend mit dem "
+"Kommando <tt>cinder reset-xtate</tt>."
 
 msgid ""
-"The status of a volume snapshot is normally managed automatically. In some "
+"The status of a volume snapshot is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
-"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
-"tt> command."
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
 msgstr ""
-"Der Status eines Datenträgerschattenkopie wird normalerweise automatisch "
-"verwaltet.  In manchen Fällen muss ein Administrator den Statuswert explizit "
-"anpassen. Dies ist gleichbedeutend mit dem <tt>openstack volume snapshot set "
-"--state</tt> Kommando."
+"Der Status einer Datenträger-Schattenkopie wird üblicherweise automatisch "
+"gehandhabt. In manchen Fällen kann es notwendig sein, dass ein Administrator "
+"den Status explizit aktualisiert. Dies ist gleichbedeutend mit dem "
+"<tt>cinder snapshot-reset-state</tt> Kommando."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -7759,11 +7733,11 @@ msgstr ""
 "öffentlichen Schlüsseldatei hier ein."
 
 msgid ""
-"This is equivalent to the <tt>openstack volume qos associate</tt> and "
-"<tt>openstack volume qos disassociate</tt> commands."
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
 msgstr ""
-"Dies ist gleichbedeutend mit den <tt>openstack volume qos associate</tt> und "
-"<tt>openstack volume qos disassociate</tt> Kommandos."
+"Dies ist gleichbedeutend mit den <tt>cinder qos-associate</tt> und "
+"<tt>cinder qos-disassociate</tt> Kommandos."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7895,9 +7869,6 @@ msgid ""
 msgstr ""
 "Gesamte VCPU-Auslastung (Anzahl der VCPUs pro Instanz * verwendete Stunden) "
 "für das Projekt"
-
-msgid "Total Volume Storage"
-msgstr "Gesamter Datenträger-Speicher"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr ""
@@ -8126,6 +8097,12 @@ msgstr ""
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Neuer Namensraum kann nicht erstellt werden. %s"
+
+#, python-format
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr ""
+"Es konnte kein Port für das Profil \"%(profile_id)s\" erstellt werden: "
+"%(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -8785,9 +8762,6 @@ msgstr "Port-Details können nicht abgerufen werden."
 
 msgid "Unable to retrieve port details."
 msgstr "Port-Details können nicht abgerufen werden."
-
-msgid "Unable to retrieve port security state"
-msgstr "Sicherheitszustand für den Port kann nicht abgerufen werden"
 
 msgid "Unable to retrieve ports information."
 msgstr "Portinformationen können nicht abgerufen werden."
@@ -9516,9 +9490,6 @@ msgstr "VDI - Virtuelles Festplattenabbild"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtuelle Festplatte"
 
-msgid "VHDX - Large Virtual Hard Disk"
-msgstr "VHDX - Large Virtual Hard Disk"
-
 msgid "VIF Details"
 msgstr "VIF Details"
 
@@ -9547,14 +9518,8 @@ msgstr "VPN Dienst"
 msgid "VPN Service %s was successfully updated."
 msgstr "VPN Service %s erfolgreich aktualisiert."
 
-msgid "VPN Service ="
-msgstr "VPN Dienst ="
-
 msgid "VPN Service Details"
 msgstr "VPN Dienstdetails"
-
-msgid "VPN Service ID ="
-msgstr "VPN Dienst ID ="
 
 msgid "VPN Service associated with this connection"
 msgstr "VPN Dienst für diese Verbindung"
@@ -9795,18 +9760,18 @@ msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
 "in OpenStack. It usually maps to a set of capabilities of the storage back-"
 "end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
-"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
-"tt> command. Once the volume type gets created, click the \"View Extra Specs"
-"\" button to set up extra specs key-value pair(s) for that volume type."
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
 msgstr ""
 "Der Datenträgertyp ist ein Typ oder eine Bezeichnung, die bei der Erstellung "
 "des Datenträgers in OpenStack ausgewählt werden kann. Sie bezieht sich "
 "üblicherweise auf eine Reihe von Fähigkeiten des Storage Backend Treibers, "
 "der für den Datenträger verwendet wird. Beispiele: \"Performance\", \"SSD\", "
-"\"Backup\", etc. Dies ist gleichbedeutend mit dem Kommando <tt>openstack "
-"volume type create</tt>. Klicken Sie nach der Erzeugung des Datenträgertyps "
-"auf \"Zusätzliche Spezifikationen anzeigen\", um auf die zusätzlichen "
-"Schlüssel-Wert-Paare für den Datenträgertyp zuzugreifen."
+"\"Backup\", etc. Dies ist gleichbedeutend mit dem Kommando <tt>cinder type-"
+"create</tt>. Klicken Sie nach der Erzeugung des Datenträgertyps auf "
+"\"Zusätzliche Spezifikationen anzeigen\", um auf die zusätzlichen Schlüssel-"
+"Wert-Paare für den Datenträgertyp zuzugreifen."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

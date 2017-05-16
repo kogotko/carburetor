@@ -13,6 +13,9 @@
 
     <div class="panel-heading">
     {% block login_header %}
+      <h3 class="login-title">
+        {% trans 'Log in' %}
+      </h3>
     {% endblock %}
     </div>
 
@@ -48,13 +51,9 @@
           </div>
         {% endif  %}
         {% if request.COOKIES.logout_reason %}
-          {% if request.COOKIES.logout_status == "success" %}
-            <div class="form-group clearfix error help-block alert alert-success" id="logout_reason">
-          {% else %}
-            <div class="form-group clearfix error help-block alert alert-danger" id="logout_reason">
-          {% endif %}
-              <p>{{ request.COOKIES.logout_reason }}</p>
-            </div>
+          <div class="form-group clearfix error help-block alert alert-danger" id="logout_reason">
+            <p>{{ request.COOKIES.logout_reason }}</p>
+          </div>
         {% endif %}
         {% if next %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />
@@ -68,7 +67,7 @@
       {% block login_footer %}
         <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
           <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
-          <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Sign In" %}</span>
+          <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
         </button>
         <div class="clearfix"></div>
       {% endblock %}

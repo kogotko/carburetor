@@ -37,7 +37,7 @@ class Version(generic.View):
     def get(self, request):
         """Get active glance version.
         """
-        return {'version': str(api.glance.get_version())}
+        return {'version': api.glance.get_version()}
 
 
 @urls.register
@@ -135,7 +135,7 @@ class Images(generic.View):
         an image.
 
         Example GET:
-        http://localhost/api/glance/images?sort_dir=desc&sort_key=name&name=cirros-0.3.2-x86_64-uec
+        http://localhost/api/glance/images?sort_dir=desc&sort_key=name&name=cirros-0.3.2-x86_64-uec  # noqa
 
         The following get parameters may be passed in the GET
         request:
@@ -249,7 +249,7 @@ class MetadefsNamespaces(generic.View):
         a namespace.
 
         Example GET:
-        http://localhost/api/glance/metadefs/namespaces?resource_types=OS::Nova::Flavor&sort_dir=desc&marker=OS::Compute::Watchdog&paginate=False&sort_key=namespace
+        http://localhost/api/glance/metadefs/namespaces?resource_types=OS::Nova::Flavor&sort_dir=desc&marker=OS::Compute::Watchdog&paginate=False&sort_key=namespace  # noqa
 
         The following get parameters may be passed in the GET
         request:

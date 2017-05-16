@@ -15,7 +15,7 @@
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from neutronclient.v2_0.client import Client as neutronclient
+from neutronclient.v2_0.client import Client as neutronclient  # noqa
 
 
 class FwaasApiTests(test.APITestCase):

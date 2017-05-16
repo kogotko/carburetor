@@ -11,7 +11,8 @@
 # under the License.
 
 from django.core import urlresolvers
-from django.template.defaultfilters import floatformat
+from django.template.defaultfilters import floatformat  # noqa
+from django.template.defaultfilters import timesince  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables

@@ -22,12 +22,14 @@ import sys
 
 import six
 
-from django.core.management import color_style
+from django.core.management import color_style  # noqa
+from django.http import HttpRequest  # noqa
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
-from django.views.debug import SafeExceptionReporterFilter
+from django.views.debug import CLEANSED_SUBSTITUTE  # noqa
+from django.views.debug import SafeExceptionReporterFilter  # noqa
 
-from horizon.conf import HORIZON_CONFIG
+from horizon.conf import HORIZON_CONFIG  # noqa
 from horizon import messages
 
 LOG = logging.getLogger(__name__)
@@ -224,7 +226,7 @@ def handle_unauthorized(request, message, redirect, ignore, escalate, handled,
         # access settings.CACHES in django.core.caches) while
         # openstack_dashboard.settings requires django.contrib.auth to be
         # loaded while importing openstack_auth.utils
-        from django.contrib.auth import logout
+        from django.contrib.auth import logout  # noqa
         logout(request)
         raise NotAuthorized
     # Otherwise continue and present our "unauthorized" error message.

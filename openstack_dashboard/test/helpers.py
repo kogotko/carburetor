@@ -18,17 +18,17 @@
 
 import collections
 import copy
-from functools import wraps
+from functools import wraps  # noqa
 import os
 import traceback
 import unittest
 
 import django
 from django.conf import settings
-from django.contrib.messages.storage import default_storage
+from django.contrib.messages.storage import default_storage  # noqa
 from django.core.handlers import wsgi
 from django.core import urlresolvers
-from django.test.client import RequestFactory
+from django.test.client import RequestFactory  # noqa
 from django.test import utils as django_test_utils
 from django.utils import http
 
@@ -321,8 +321,8 @@ class TestCase(horizon_helpers.TestCase):
                                     row_actions))
 
         msg_args = (action_name, table_name, row_id)
-        self.assertGreater(
-            len(actions), 0,
+        self.assertTrue(
+            len(actions) > 0,
             "No action named '%s' found in '%s' table for id '%s'" % msg_args)
 
         self.assertEqual(
@@ -339,8 +339,8 @@ class TestCase(horizon_helpers.TestCase):
         actions = list(moves.filter(lambda x: x.name == action_name,
                                     table_actions))
         msg_args = (action_name, table_name)
-        self.assertGreater(
-            len(actions), 0,
+        self.assertTrue(
+            len(actions) > 0,
             "No action named '%s' found in '%s' table" % msg_args)
 
         self.assertEqual(

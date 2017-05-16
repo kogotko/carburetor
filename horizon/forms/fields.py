@@ -20,16 +20,16 @@ import six
 
 from oslo_utils import uuidutils
 
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
 from django.forms import fields
 from django.forms import forms
-from django.forms.utils import flatatt
+from django.forms.utils import flatatt  # noqa
 from django.forms import widgets
-from django.template import Context
-from django.template.loader import get_template
+from django.template import Context  # noqa
+from django.template.loader import get_template  # noqa
 from django.utils.encoding import force_text
-from django.utils.functional import Promise
+from django.utils.functional import Promise  # noqa
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
 
@@ -127,33 +127,6 @@ class MultiIPField(IPField):
     def clean(self, value):
         super(MultiIPField, self).clean(value)
         return str(','.join(getattr(self, "addresses", [])))
-
-
-class MACAddressField(fields.Field):
-    """Form field for entering a MAC address with validation.
-
-    Supports all formats known by netaddr.EUI(), for example:
-    .. xx:xx:xx:xx:xx:xx
-    .. xx-xx-xx-xx-xx-xx
-    .. xxxx.xxxx.xxxx
-    """
-    def validate(self, value):
-        super(MACAddressField, self).validate(value)
-
-        if not value:
-            return
-
-        try:
-            self.mac_address = netaddr.EUI(value)
-            # NOTE(rubasov): Normalize MAC address to the most usual format.
-            self.mac_address.dialect = netaddr.mac_unix_expanded
-        except Exception:
-            raise ValidationError(_("Invalid MAC Address format"),
-                                  code="invalid_mac")
-
-    def clean(self, value):
-        super(MACAddressField, self).clean(value)
-        return str(getattr(self, "mac_address", ""))
 
 
 class SelectWidget(widgets.Select):

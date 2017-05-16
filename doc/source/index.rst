@@ -92,9 +92,8 @@ the following topic guides.
    topics/workflows
    topics/tables
    topics/policy
-   topics/microversion_support
-   topics/angularjs
    topics/testing
+   topics/angularjs
    topics/javascript_testing
    topics/styling
    topics/translation

@@ -49,8 +49,7 @@
    * var nameFacet = {
    *   label: gettext('Name'),
    *   name: 'name',
-   *   singleton: true,
-   *   isServer: true
+   *   singleton: true
    * };
    *
    * var sizeFacet = {
@@ -69,8 +68,6 @@
    * name - this is the column key provided to Smart-Table
    * singleton - 'true' if free text can be used as search term
    * options - list of options shown in selected facet dropdown menu
-   * isServer - 'true' if the search needs to be executed against an API.
-   *            'false' or undefined if the search will be executed only in the client side
    * @restrict E
    * @scope
    *

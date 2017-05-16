@@ -22,9 +22,9 @@ import operator
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.utils.decorators import method_decorator
+from django.utils.decorators import method_decorator  # noqa
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_post_parameters
+from django.views.decorators.debug import sensitive_post_parameters  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -241,8 +241,9 @@ class DetailView(views.HorizonTemplateView):
             try:
                 tenant = api.keystone.tenant_get(self.request, project_id)
             except Exception as e:
-                LOG.error('Failed to get tenant %(project_id)s: %(reason)s',
-                          {'project_id': project_id, 'reason': e})
+                msg = ('Failed to get tenant %(project_id)s: %(reason)s' %
+                       {'project_id': project_id, 'reason': e})
+                LOG.error(msg)
         return tenant
 
     @memoized.memoized_method

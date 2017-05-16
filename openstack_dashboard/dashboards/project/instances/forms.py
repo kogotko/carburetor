@@ -14,9 +14,9 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import filesizeformat
+from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables
+from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
@@ -171,7 +171,6 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
 
 class AttachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
-                               widget=forms.ThemableSelectWidget(),
                                help_text=_("Select a volume to attach "
                                            "to this instance."))
     device = forms.CharField(label=_("Device Name"),
@@ -231,7 +230,6 @@ class AttachVolume(forms.SelfHandlingForm):
 
 class DetachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
-                               widget=forms.ThemableSelectWidget(),
                                help_text=_("Select a volume to detach "
                                            "from this instance."))
     instance_id = forms.CharField(widget=forms.HiddenInput())
