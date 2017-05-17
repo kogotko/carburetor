@@ -26,7 +26,7 @@ class Uvr(horizon.Dashboard):
     panels = (
         'instances',
         'flavors',
-        'vm_manage',
+        'images',
         'hypervisors',
     )
     default_panel = 'instances'
