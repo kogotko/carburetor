@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2012 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -20,16 +21,16 @@ from django.conf.urls import include
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 from horizon.browsers.views import AngularIndexView
-from openstack_dashboard.dashboards.project.images.images \
+from openstack_dashboard.dashboards.uvr.images.images \
     import urls as image_urls
-from openstack_dashboard.dashboards.project.images.snapshots \
+from openstack_dashboard.dashboards.uvr.images.snapshots \
     import urls as snapshot_urls
-from openstack_dashboard.dashboards.project.images import views
+from openstack_dashboard.dashboards.uvr.images import views
 
 
 if settings.ANGULAR_FEATURES['images_panel']:
 
-    title = _("Images")
+    title = "Образы ВМ"
     # New angular images
     urlpatterns = [
         url(r'^$', AngularIndexView.as_view(title=title), name='index'),

@@ -33,7 +33,7 @@ NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
 class LaunchImage(tables.LinkAction):
     name = "launch_image"
     verbose_name = _("Launch Instance")
-    url = "horizon:project:instances:launch"
+    url = "horizon:uvr:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
     policy_rules = (("compute", "compute:create"),)
@@ -61,7 +61,7 @@ class LaunchImage(tables.LinkAction):
 class LaunchImageNG(LaunchImage):
     name = "launch_image_ng"
     verbose_name = _("Launch")
-    url = "horizon:project:images:index"
+    url = "horizon:uvr:images:index"
     classes = ("btn-launch", )
     ajax = False
 
@@ -146,7 +146,7 @@ class EditImage(tables.LinkAction):
 class CreateVolumeFromImage(tables.LinkAction):
     name = "create_volume_from_image"
     verbose_name = _("Create Volume")
-    url = "horizon:project:volumes:volumes:create"
+    url = "horizon:uvr:volumes:volumes:create"
     classes = ("ajax-modal",)
     icon = "camera"
     policy_rules = (("volume", "volume:create"),)
@@ -232,7 +232,7 @@ def get_image_categories(im, user_tenant_id):
     if im.is_public:
         categories.append('public')
     if im.owner == user_tenant_id:
-        categories.append('project')
+        categories.append('uvr')
     elif im.owner in filter_tenant_ids():
         categories.append(im.owner)
     elif not im.is_public:

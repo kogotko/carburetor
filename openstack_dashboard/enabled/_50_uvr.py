@@ -24,6 +24,8 @@ ADD_INSTALLED_APPS = [
 ]
 
 ADD_ANGULAR_MODULES = [
+    'horizon.dashboard.project',
 ]
+
 
 AUTO_DISCOVER_STATIC_FILES = True

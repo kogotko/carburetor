@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2012 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -37,7 +38,7 @@ LOG = logging.getLogger(__name__)
 
 class IndexView(tables.DataTableView):
     table_class = images_tables.ImagesTable
-    page_title = _("Images")
+    page_title = "Образы ВМ"
     LOG.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!: I AM HERE!!!")
     def has_prev_data(self, table):
         return getattr(self, "_prev", False)
@@ -46,20 +47,20 @@ class IndexView(tables.DataTableView):
         return getattr(self, "_more", False)
 
     def get_data(self):
-        if not policy.check((("image", "get_images"),), self.request):
-            msg = _("Insufficient privilege level to retrieve image list.")
-            messages.info(self.request, msg)
-            return []
+        # if not policy.check((("image", "get_images"),), self.request):
+        #     msg = _("Insufficient privilege level to retrieve image list.")
+        #     messages.info(self.request, msg)
+        #     return []
         # LOG.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!: I AM HERE!!!")
-        prev_marker = self.request.GET.get(
-            images_tables.ImagesTable._meta.prev_pagination_param, None)
-
-        if prev_marker is not None:
-            marker = prev_marker
-        else:
-            marker = self.request.GET.get(
-                images_tables.ImagesTable._meta.pagination_param, None)
-        reversed_order = prev_marker is not None
+        # prev_marker = self.request.GET.get(
+        #     images_tables.ImagesTable._meta.prev_pagination_param, None)
+        #
+        # if prev_marker is not None:
+        #     marker = prev_marker
+        # else:
+        #     marker = self.request.GET.get(
+        #         images_tables.ImagesTable._meta.pagination_param, None)
+        # reversed_order = prev_marker is not None
         try:
             images, self._more, self._prev = api.glance.image_list_detailed(
                 self.request,

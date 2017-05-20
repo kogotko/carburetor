@@ -44,7 +44,7 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateImageForm
     form_id = "create_image_form"
     submit_label = _("Create Image")
-    submit_url = reverse_lazy('horizon:project:images:images:create')
+    submit_url = reverse_lazy('horizon:uvr:images:images:create')
     template_name = 'uvr/images/images/create.html'
     context_object_name = 'image'
     success_url = reverse_lazy("horizon:project:images:index")
@@ -141,7 +141,7 @@ class DetailView(tabs.TabView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse_lazy('horizon:project:images:index')
+        return reverse_lazy('horizon:uvr:images:index')
 
     @memoized.memoized_method
     def get_data(self):

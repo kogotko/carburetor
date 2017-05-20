@@ -23,7 +23,7 @@ from openstack_dashboard.dashboards.uvr import dashboard
 class Images(horizon.Panel):
     name = "Управление образами ВМ"
     slug = 'images'
-    # permissions = ('openstack.services.image',)
-    # policy_rules = (('image', 'get_images'),)
+    permissions = ('openstack.services.image',)
+    policy_rules = (('image', 'get_images'),)
 
 dashboard.Uvr.register(Images)

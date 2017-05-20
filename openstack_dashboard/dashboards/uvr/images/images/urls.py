@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2012 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -24,7 +25,7 @@ from openstack_dashboard.dashboards.uvr.images.images import views
 
 
 if settings.ANGULAR_FEATURES['images_panel']:
-    title = _("Images")
+    title = "Образы ВМ"
     urlpatterns = [
         url(r'^(?P<image_id>[^/]+)/$', AngularIndexView.as_view(title=title),
             name='detail'),
