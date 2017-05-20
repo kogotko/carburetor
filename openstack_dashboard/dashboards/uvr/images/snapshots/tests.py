@@ -25,7 +25,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-INDEX_URL = reverse('horizon:project:images:index')
+INDEX_URL = reverse('horizon:uvr:images:index')
 
 
 class SnapshotsViewTests(test.TestCase):
@@ -34,11 +34,11 @@ class SnapshotsViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:images:snapshots:create',
+        url = reverse('horizon:uvr:images:snapshots:create',
                       args=[server.id])
         res = self.client.get(url)
         self.assertTemplateUsed(res,
-                                'project/images/snapshots/create.html')
+                                'uvr/images/snapshots/create.html')
 
     def test_create_snapshot_post(self):
         server = self.servers.first()
@@ -55,7 +55,7 @@ class SnapshotsViewTests(test.TestCase):
                     'tenant_id': self.tenant.id,
                     'instance_id': server.id,
                     'name': snapshot.name}
-        url = reverse('horizon:project:images:snapshots:create',
+        url = reverse('horizon:uvr:images:snapshots:create',
                       args=[server.id])
         res = self.client.post(url, formData)
 
@@ -75,8 +75,8 @@ class SnapshotsViewTests(test.TestCase):
                     'tenant_id': self.tenant.id,
                     'instance_id': server.id,
                     'name': snapshot.name}
-        url = reverse('horizon:project:images:snapshots:create',
+        url = reverse('horizon:uvr:images:snapshots:create',
                       args=[server.id])
         res = self.client.post(url, formData)
-        redirect = reverse("horizon:project:instances:index")
+        redirect = reverse("horizon:uvr:instances:index")
         self.assertRedirectsNoFollow(res, redirect)

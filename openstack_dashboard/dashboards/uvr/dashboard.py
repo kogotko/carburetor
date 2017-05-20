@@ -28,6 +28,7 @@ class Uvr(horizon.Dashboard):
         'flavors',
         'images',
         'hypervisors',
+        'volumes',
     )
     default_panel = 'instances'
 

@@ -31,11 +31,11 @@ from horizon import tables as horizon_tables
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.project.images.images import forms
-from openstack_dashboard.dashboards.project.images.images import tables
+from openstack_dashboard.dashboards.uvr.images.images import forms
+from openstack_dashboard.dashboards.uvr.images.images import tables
 
 
-IMAGES_INDEX_URL = reverse('horizon:project:images:index')
+IMAGES_INDEX_URL = reverse('horizon:uvr:images:index')
 
 
 class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
@@ -143,7 +143,7 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
            .AndReturn(image)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:images:images:update',
+        url = reverse('horizon:uvr:images:images:update',
                       args=[image.id])
         res = self.client.get(url)
         self.assertNoFormErrors(res)
@@ -185,7 +185,7 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                     'architecture':
                                     data['architecture']}).AndReturn(image)
         self.mox.ReplayAll()
-        url = reverse('horizon:project:images:images:update',
+        url = reverse('horizon:uvr:images:images:update',
                       args=[image.id])
         res = self.client.post(url, data)
         self.assertNoFormErrors(res)
@@ -224,7 +224,7 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                 architecture=data['architecture']).\
             AndReturn(image)
         self.mox.ReplayAll()
-        url = reverse('horizon:project:images:images:update',
+        url = reverse('horizon:uvr:images:images:update',
                       args=[image.id])
         res = self.client.post(url, data)
         self.assertNoFormErrors(res)
@@ -244,10 +244,10 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             [self.images.list(), False, False])
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:images:images:create')
+        url = reverse('horizon:uvr:images:images:create')
         res = self.client.get(url)
         self.assertTemplateUsed(res,
-                                'project/images/images/create.html')
+                                'uvr/images/images/create.html')
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     @test.create_stubs({api.glance: ('image_create',)})
@@ -397,7 +397,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             **api_data).AndReturn(self.images.first())
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:images:images:create')
+        url = reverse('horizon:uvr:images:images:create')
         res = self.client.post(url, data)
 
         self.assertNoFormErrors(res)
@@ -408,7 +408,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             .AndReturn(image)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:images:images:detail',
+        res = self.client.get(reverse('horizon:uvr:images:images:detail',
                                       args=[image.id]))
 
         self.assertTemplateUsed(res,
@@ -434,7 +434,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             .AndReturn(image)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:images:images:detail',
+        res = self.client.get(reverse('horizon:uvr:images:images:detail',
                                       args=[image.id]))
 
         image_props = res.context['image_props']
@@ -472,7 +472,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(
-            reverse('horizon:project:images:images:detail',
+            reverse('horizon:uvr:images:images:detail',
                     args=[image.id]))
         self.assertTemplateUsed(res,
                                 'horizon/common/_detail.html')
@@ -499,7 +499,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             .AndRaise(self.exceptions.glance)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:images:images:detail',
+        url = reverse('horizon:uvr:images:images:detail',
                       args=[image.id])
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, IMAGES_INDEX_URL)
@@ -513,11 +513,11 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(
-            reverse('horizon:project:images:images:update',
+            reverse('horizon:uvr:images:images:update',
                     args=[image.id]))
 
         self.assertTemplateUsed(res,
-                                'project/images/images/_update.html')
+                                'uvr/images/images/_update.html')
         self.assertEqual(res.context['image'].name, image.name)
         # Bug 1076216 - is_public checkbox not being set correctly
         self.assertContains(res, "<input type='checkbox' id='id_public'"
@@ -543,8 +543,8 @@ class OwnerFilterTests(test.TestCase):
 
         filter_ = tables.OwnerFilter()
 
-        images = filter_.filter(table, all_images, 'project')
-        self.assertEqual(images, self._expected('project'))
+        images = filter_.filter(table, all_images, 'uvr')
+        self.assertEqual(images, self._expected('uvr'))
 
         images = filter_.filter(table, all_images, 'public')
         self.assertEqual(images, self._expected('public'))
@@ -567,6 +567,6 @@ class OwnerFilterTests(test.TestCase):
                     if (not im.is_public and
                         im.owner != my_tenant_id and
                         im.owner not in special)]
-        if filter_string == 'project':
+        if filter_string == 'uvr':
             filter_string = my_tenant_id
         return [im for im in images if im.owner == filter_string]

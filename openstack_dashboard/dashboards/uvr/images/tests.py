@@ -33,13 +33,13 @@ from horizon import exceptions
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.images import utils
+from openstack_dashboard.dashboards.uvr.images import utils
 from openstack_dashboard.test import helpers as test
 
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
-INDEX_URL = reverse('horizon:project:images:index')
-CREATE_URL = reverse('horizon:project:images:images:create')
+INDEX_URL = reverse('horizon:uvr:images:index')
+CREATE_URL = reverse('horizon:uvr:images:images:create')
 
 
 class ImagesAndSnapshotsTests(test.TestCase):

@@ -18,7 +18,7 @@
 
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.images.snapshots import views
+from openstack_dashboard.dashboards.uvr.images.snapshots import views
 
 
 urlpatterns = [

@@ -47,7 +47,7 @@ class CreateView(forms.ModalFormView):
     submit_url = reverse_lazy('horizon:uvr:images:images:create')
     template_name = 'uvr/images/images/create.html'
     context_object_name = 'image'
-    success_url = reverse_lazy("horizon:project:images:index")
+    success_url = reverse_lazy("horizon:uvr:images:index")
     page_title = _("Create An Image")
 
     def get_initial(self):
@@ -81,9 +81,9 @@ class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm
     form_id = "update_image_form"
     submit_label = _("Edit Image")
-    submit_url = "horizon:project:images:images:update"
+    submit_url = "horizon:uvr:images:images:update"
     template_name = 'uvr/images/images/update.html'
-    success_url = reverse_lazy("horizon:project:images:index")
+    success_url = reverse_lazy("horizon:uvr:images:index")
     page_title = _("Edit Image")
 
     @memoized.memoized_method
@@ -92,7 +92,7 @@ class UpdateView(forms.ModalFormView):
             return api.glance.image_get(self.request, self.kwargs['image_id'])
         except Exception:
             msg = _('Unable to retrieve image.')
-            url = reverse('horizon:project:images:index')
+            url = reverse('horizon:uvr:images:index')
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):

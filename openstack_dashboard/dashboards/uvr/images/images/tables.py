@@ -120,7 +120,7 @@ class DeleteImage(tables.DeleteAction):
 class CreateImage(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Image")
-    url = "horizon:project:images:images:create"
+    url = "horizon:uvr:images:images:create"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("image", "add_image"),)
@@ -129,7 +129,7 @@ class CreateImage(tables.LinkAction):
 class EditImage(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Image")
-    url = "horizon:project:images:images:update"
+    url = "horizon:uvr:images:images:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("image", "modify_image"),)
@@ -308,7 +308,7 @@ class ImagesTable(tables.DataTable):
         ("snapshot", pgettext_lazy("Type of an image", u"Snapshot")),
     )
     name = tables.WrappingColumn(get_image_name,
-                                 link="horizon:project:images:images:detail",
+                                 link="horizon:uvr:images:images:detail",
                                  verbose_name=_("Image Name"),)
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),

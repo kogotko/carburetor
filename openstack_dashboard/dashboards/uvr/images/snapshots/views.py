@@ -25,7 +25,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 
-from openstack_dashboard.dashboards.project.images.snapshots \
+from openstack_dashboard.dashboards.uvr.images.snapshots \
     import forms as project_forms
 
 
@@ -34,8 +34,8 @@ class CreateView(forms.ModalFormView):
     form_id = "create_snapshot_form"
     modal_id = "create_snapshot_modal"
     submit_label = _("Create Snapshot")
-    submit_url = "horizon:project:images:snapshots:create"
-    template_name = 'project/images/snapshots/create.html'
+    submit_url = "horizon:uvr:images:snapshots:create"
+    template_name = 'project/uvr/snapshots/create.html'
     success_url = reverse_lazy("horizon:project:images:index")
     page_title = _("Create Snapshot")
 

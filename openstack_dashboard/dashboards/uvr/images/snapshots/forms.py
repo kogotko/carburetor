@@ -44,7 +44,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
                                         'instance "%(inst)s"') % vals)
             return snapshot
         except Exception:
-            redirect = reverse("horizon:project:instances:index")
+            redirect = reverse("horizon:uvr:instances:index")
             exceptions.handle(request,
                               _('Unable to create snapshot.'),
                               redirect=redirect)
