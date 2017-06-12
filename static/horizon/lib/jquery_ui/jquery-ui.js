@@ -7705,7 +7705,7 @@ $.extend( Datepicker.prototype, {
 	/* Redraw the date picker attached to an input field or division.
 	 * @param  target  element - the target input field or division or span
 	 */
-	_refreshDatepicker: function( target ) {
+	_refreuvratepicker: function( target ) {
 		var inst = this._getInst( target );
 		if ( inst ) {
 			this._updateDatepicker( inst );

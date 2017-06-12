@@ -1,9 +1,11 @@
 {% extends 'auth/_login_form.html' %}
 {% load i18n %}
 
+
 {% block pre_login %}
   <div class="container login">
     <div class="row">
+    <image class="bg-image">
       <div class="col-xs-11 col-sm-8 col-md-6 col-lg-5 horizontal-center">
         {{ block.super }}
 {% endblock %}

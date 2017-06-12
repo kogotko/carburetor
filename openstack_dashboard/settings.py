@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2012 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -43,7 +44,7 @@ if ROOT_PATH not in sys.path:
 
 DEBUG = False
 
-SITE_BRANDING = 'OpenStack Dashboard'
+SITE_BRANDING = 'Управление виртуальными ресурсами'
 
 WEBROOT = '/'
 LOGIN_URL = None
@@ -67,7 +68,7 @@ HORIZON_CONFIG = {
         'types': ['alert-success', 'alert-info']
     },
     'bug_url': None,
-    'help_url': "http://docs.openstack.org",
+    'help_url': "http://ya.ru",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
                    'not_found': exceptions.NOT_FOUND,
                    'unauthorized': exceptions.UNAUTHORIZED},
@@ -163,7 +164,7 @@ COMPRESS_CSS_FILTERS = (
     'compressor.filters.css_default.CssAbsoluteFilter',
 )
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'

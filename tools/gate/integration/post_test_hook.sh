@@ -13,7 +13,7 @@ sudo dpkg -i firefox.deb
 sudo rm firefox.deb
 
 HORIZON_DIR=/opt/stack/new/horizon
-pushd $HORIZON_DIR
+puuvr $HORIZON_DIR
 sudo -H -E -u stack tox -e py27integration
 retval=$?
 

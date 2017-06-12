@@ -18,42 +18,42 @@
           {% trans "Settings" %}
         </a>
       </li>
-      {% if HORIZON_CONFIG.bug_url %}
-        <li>
-          <a href="{{ HORIZON_CONFIG.bug_url }}" target="_blank">
-            <span class="fa fa-bug"></span>
-            {% trans "Report Bug" %}
-          </a>
-        </li>
-      {% endif %}
-      {% if HORIZON_CONFIG.help_url %}
-        <li>
-          <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
-            <span class="fa fa-question-circle"></span>
-            {% trans "Help" %}
-          </a>
-        </li>
-      {% endif %}
-      <li>
-        <a href="{% url 'horizon:project:api_access:openrcv2' %}">
-          <span class="fa fa-download"></span>
-          {% trans "OpenStack RC File v2" %}
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'horizon:project:api_access:openrc' %}">
-          <span class="fa fa-download"></span>
-          {% trans "OpenStack RC File v3" %}
-        </a>
-      </li>
-      {% themes as available_themes %}
-      {% if available_themes and available_themes|length > 1 %}
-        <li class="divider"></li>
-        <li>
-          {% include 'header/_theme_list.html' %}
-        </li>
-      {% endif %}
-      <li class="divider"></li>
+{#      {% if HORIZON_CONFIG.bug_url %}#}
+{#        <li>#}
+{#          <a href="{{ HORIZON_CONFIG.bug_url }}" target="_blank">#}
+{#            <span class="fa fa-bug"></span>#}
+{#            {% trans "Report Bug" %}#}
+{#          </a>#}
+{#        </li>#}
+{#      {% endif %}#}
+{#      {% if HORIZON_CONFIG.help_url %}#}
+{#        <li>#}
+{#          <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">#}
+{#            <span class="fa fa-question-circle"></span>#}
+{#            {% trans "Help" %}#}
+{#          </a>#}
+{#        </li>#}
+{#      {% endif %}#}
+{#      <li>#}
+{#        <a href="{% url 'horizon:project:api_access:openrcv2' %}">#}
+{#          <span class="fa fa-download"></span>#}
+{#          {% trans "OpenStack RC File v2" %}#}
+{#        </a>#}
+{#      </li>#}
+{#      <li>#}
+{#        <a href="{% url 'horizon:project:api_access:openrc' %}">#}
+{#          <span class="fa fa-download"></span>#}
+{#          {% trans "OpenStack RC File v3" %}#}
+{#        </a>#}
+{#      </li>#}
+{#      {% themes as available_themes %}#}
+{#      {% if available_themes and available_themes|length > 1 %}#}
+{#        <li class="divider"></li>#}
+{#        <li>#}
+{#          {% include 'header/_theme_list.html' %}#}
+{#        </li>#}
+{#      {% endif %}#}
+{#      <li class="divider"></li>#}
       <li>
         <a href="{% url 'logout' %}" target="_self">
           <span class="fa fa-sign-out"></span>
