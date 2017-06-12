@@ -32,7 +32,6 @@
 
 #sidebar {
   width: $sidebar-width;
-
   // Make sure the side nav is always shown at larger screen sizes,
   // regardless of previous state
   @media (min-width: $screen-sm-min) {
@@ -40,6 +39,7 @@
   }
 
   @media (max-width: $screen-xs-max) {
+
     transition: all 0.3s ease 0s;
     position: fixed;
     top: $navbar-height;

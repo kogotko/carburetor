@@ -119,7 +119,9 @@
   }
   tr.even {
     td {
-      background-color: inherit;
+      background-color: $table-bg-odd;
+      opacity: 0.9;
+
     }
   }
 
