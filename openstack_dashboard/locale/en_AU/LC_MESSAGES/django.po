@@ -1,8 +1,9 @@
+# Andi Chandler <andi@gowling.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Tom Fifield <tom@openstack.org>, 2015. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+# Andi Chandler <andi@gowling.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
-# Tom Fifield <tom@openstack.org>, 2016. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon 11.0.1.dev4\n"
@@ -13,8 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-11-10 03:58+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: English (Australia)\n"
-"Language: en-AU\n"
+"Language-Team: English (United Kingdom)\n"
+"Language: en-GB\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
@@ -240,14 +241,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -679,9 +672,6 @@ msgstr "An external (HTTP) URL to load the template from."
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "An external (HTTP/HTTPS) URL to load the image from."
 
-msgid "An image file or an external location must be specified."
-msgstr "An image file or an external location must be specified."
-
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -799,10 +789,10 @@ msgid "Authorization Key"
 msgstr "Authorisation Key"
 
 msgid "Authorization algorithm"
-msgstr "Authorization algorithm"
+msgstr "Authorisation algorithm"
 
 msgid "Authorization mode"
-msgstr "Authorization mode"
+msgstr "Authorisation mode"
 
 msgid "Automatic"
 msgstr "Automatic"
@@ -1113,7 +1103,7 @@ msgstr ""
 "and drop, you may change their order by drag and drop as well."
 
 msgid "Choose the flavor to launch."
-msgstr "Choose the flavor to launch."
+msgstr "Choose the flavour to launch."
 
 msgid "Choose the router(s) you want to add."
 msgstr "Choose the router(s) you want to add."
@@ -1636,7 +1626,7 @@ msgstr "Created new domain \"%s\"."
 
 #, python-format
 msgid "Created new flavor \"%s\"."
-msgstr "Created new flavor \"%s\"."
+msgstr "Created new flavour \"%s\"."
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
@@ -1739,11 +1729,6 @@ msgstr ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service."
 
-msgid ""
-"Currently only images uploaded from your local file system are supported."
-msgstr ""
-"Currently only images uploaded from your local file system are supported."
-
 msgctxt "Custom style theme"
 msgid "Custom"
 msgstr "Custom"
@@ -1761,7 +1746,7 @@ msgid "Custom UDP Rule"
 msgstr "Custom UDP Rule"
 
 msgid "Customization Script Source"
-msgstr "Customization Script Source"
+msgstr "Customisation Script Source"
 
 msgid "DENY"
 msgstr "DENY"
@@ -2497,7 +2482,7 @@ msgid ""
 "different organizations."
 msgstr ""
 "Domains provide separation between users and infrastructure used by "
-"different organizations."
+"different organisations."
 
 msgid ""
 "Domains provide separation between users and infrastructure used by "
@@ -2505,7 +2490,7 @@ msgid ""
 "the domain."
 msgstr ""
 "Domains provide separation between users and infrastructure used by "
-"different organizations. Edit the domain details to add or remove groups in "
+"different organisations. Edit the domain details to add or remove groups in "
 "the domain."
 
 msgid "Domains:"
@@ -2604,7 +2589,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Edit Firewall {{ name }}"
 
 msgid "Edit Flavor"
-msgstr "Edit Flavor"
+msgstr "Edit Flavour"
 
 msgid "Edit Group"
 msgstr "Edit Group"
@@ -2627,15 +2612,6 @@ msgstr "Edit Image"
 msgid "Edit Instance"
 msgstr "Edit Instance"
 
-msgid "Edit Metadata Namespace"
-msgstr "Edit Metadata Namespace"
-
-msgid "Edit Namespace"
-msgstr "Edit Namespace"
-
-msgid "Edit Namespace Attributes"
-msgstr "Edit Namespace Attributes"
-
 msgid "Edit Network"
 msgstr "Edit Network"
 
@@ -2650,9 +2626,6 @@ msgstr "Edit Port"
 
 msgid "Edit Project"
 msgstr "Edit Project"
-
-msgid "Edit Public/Protected attributes for the namespace."
-msgstr "Edit Public/Protected attributes for the namespace."
 
 msgid "Edit QoS Spec Consumer"
 msgstr "Edit QoS Spec Consumer"
@@ -2700,7 +2673,7 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"Edit the flavour details. Flavors define the sizes for RAM, disk, number of "
+"Edit the flavour details. Flavours define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavours are selected when users deploy "
 "instances."
 
@@ -2764,9 +2737,6 @@ msgstr "Enabled"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Enabled"
-
-msgid "Enabled ="
-msgstr "Enabled ="
 
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
@@ -2943,9 +2913,6 @@ msgstr "Error getting resource type associations."
 msgid "Error updating QoS Spec association."
 msgstr "Error updating QoS Spec association."
 
-msgid "Error updating attributes for namespace."
-msgstr "Error updating attributes for namespace."
-
 #, python-format
 msgid "Error updating resource types for namespace %s."
 msgstr "Error updating resource types for namespace %s."
@@ -2984,7 +2951,7 @@ msgid ""
 msgstr ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
-"applied to flavors."
+"applied to flavours."
 
 msgid "Extend Volume"
 msgstr "Extend Volume"
@@ -3347,20 +3314,20 @@ msgid "Flavor"
 msgstr "Flavour"
 
 msgid "Flavor Access"
-msgstr "Flavor Access"
+msgstr "Flavour Access"
 
 msgid "Flavor Choice"
-msgstr "Flavor Choice"
+msgstr "Flavour Choice"
 
 msgid "Flavor Details"
 msgstr "Flavour Details"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Flavor Details: %(name)s\">%(name)s"
+msgstr "Flavour Details: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
-msgstr "Flavor ID"
+msgstr "Flavour ID"
 
 msgid "Flavor ID ="
 msgstr "Flavour ID ="
@@ -3376,7 +3343,7 @@ msgid "Flavor Information"
 msgstr "Flavour Information"
 
 msgid "Flavor Name"
-msgstr "Flavor Name"
+msgstr "Flavour Name"
 
 msgid "Flavor name cannot be empty."
 msgstr "Flavour name cannot be empty."
@@ -3510,9 +3477,6 @@ msgstr "Group \"%s\" was successfully created."
 msgid "Group ID"
 msgstr "Group ID"
 
-msgid "Group ID ="
-msgstr "Group ID ="
-
 msgid "Group Management"
 msgstr "Group Management"
 
@@ -3521,9 +3485,6 @@ msgstr "Group Management: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Group Members"
-
-msgid "Group Name ="
-msgstr "Group Name ="
 
 msgid "Group has been updated successfully."
 msgstr "Group has been updated successfully."
@@ -4276,7 +4237,7 @@ msgid "Log Lines Per Instance"
 msgstr "Log Lines Per Instance"
 
 msgid "Log length must be a nonnegative integer."
-msgstr "Log length must be a nonnegative integer."
+msgstr "Log length must be a non negative integer."
 
 msgid "MAC Address"
 msgstr "MAC Address"
@@ -4489,10 +4450,10 @@ msgstr "Modified domain \"%s\"."
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "Modified flavor \"%s\"."
+msgstr "Modified flavour \"%s\"."
 
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Modified flavor information, but unable to modify flavor access."
+msgstr "Modified flavour information, but unable to modify flavour access."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -4597,9 +4558,6 @@ msgstr "Namespace Overview"
 msgid "Namespace Resource Type Associations"
 msgstr "Namespace Resource Type Associations"
 
-msgid "Namespace successfully updated."
-msgstr "Namespace successfully updated."
-
 msgid "Namespaces"
 msgstr "Namespaces"
 
@@ -4695,7 +4653,7 @@ msgid "New DHCP Agent"
 msgstr "New DHCP Agent"
 
 msgid "New Flavor"
-msgstr "New Flavor"
+msgstr "New Flavour"
 
 msgid "New Host"
 msgstr "New Host"
@@ -4844,7 +4802,7 @@ msgid "No projects found."
 msgstr "No projects found."
 
 msgid "No projects selected. All projects can use the flavor."
-msgstr "No projects selected. All projects can use the flavor."
+msgstr "No projects selected. All projects can use the flavour."
 
 msgid "No router"
 msgstr "No router"
@@ -4912,9 +4870,6 @@ msgstr "Non admin users are not allowed to make images public."
 msgid "Non-Members"
 msgstr "Non-Members"
 
-msgid "Non-Public from Other Projects"
-msgstr "Non-Public from Other Projects"
-
 msgid "None"
 msgstr "None"
 
@@ -4977,7 +4932,7 @@ msgid "Object Store"
 msgstr "Object Store"
 
 msgid "Old Flavor"
-msgstr "Old Flavor"
+msgstr "Old Flavour"
 
 msgid "On Demand"
 msgstr "On Demand"
@@ -5053,7 +5008,7 @@ msgid ""
 "create</tt> command."
 msgstr ""
 "Ownership of a volume can be transferred from one project to another. Once a "
-"volume transfer is created in a donor project, it then can be \"accepted\" "
+"volume transfer is created in a donor project, it can then be \"accepted\" "
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
 
@@ -5070,7 +5025,7 @@ msgid "Parameters"
 msgstr "Parameters"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Пароль"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
@@ -5113,7 +5068,7 @@ msgstr[1] "Paused Instances"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
-msgstr "Pause"
+msgstr "Pausing"
 
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr "Peer gateway public IPv4/IPv6 Address or FQDN"
@@ -5319,9 +5274,6 @@ msgstr "Project Groups"
 msgid "Project ID"
 msgstr "Project ID"
 
-msgid "Project ID ="
-msgstr "Project ID ="
-
 msgid "Project ID:"
 msgstr "Project ID:"
 
@@ -5336,9 +5288,6 @@ msgstr "Project Members"
 
 msgid "Project Name"
 msgstr "Project Name"
-
-msgid "Project Name ="
-msgstr "Project Name ="
 
 msgid "Project Quotas"
 msgstr "Project Quotas"
@@ -5860,14 +5809,8 @@ msgstr "Role"
 msgid "Role ID"
 msgstr "Role ID"
 
-msgid "Role ID ="
-msgstr "Role ID ="
-
 msgid "Role Name"
 msgstr "Role Name"
-
-msgid "Role Name ="
-msgstr "Role Name ="
 
 msgid "Role created successfully."
 msgstr "Role created successfully."
@@ -6056,7 +5999,7 @@ msgstr[1] "Scheduled deletion of VPN Services"
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] "Scheduled deletion of Volume"
-msgstr[1] "Scheduled deletion of Volumes"
+msgstr[1] "Scheduled deletion of Volume"
 
 msgid "Scheduled deletion of Volume Backup"
 msgid_plural "Scheduled deletion of Volume Backups"
@@ -6118,7 +6061,7 @@ msgid "Segmentation ID:"
 msgstr "Segmentation ID:"
 
 msgid "Select Flavor"
-msgstr "Select Flavor"
+msgstr "Select Flavour"
 
 msgid "Select IKE Policy"
 msgstr "Select IKE Policy"
@@ -6163,7 +6106,7 @@ msgid "Select Volume Snapshot"
 msgstr "Select Volume Snapshot"
 
 msgid "Select a New Flavor"
-msgstr "Select a New Flavor"
+msgstr "Select a New Flavour"
 
 msgid "Select a Policy"
 msgstr "Select a Policy"
@@ -6583,8 +6526,8 @@ msgid ""
 "manually or configured by a non-OpenStack system."
 msgstr ""
 "Specifies how IPv6 addresses and additional information are configured. We "
-"can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
-"specify no option. 'No options specified' means addresses are configured "
+"can specify SLAAC/ DHCPv6 stateful/ DHCPv6 stateless provided by OpenStack, "
+"or specify no option. 'No options specified' means addresses are configured "
 "manually or configured by a non-OpenStack system."
 
 msgid "Specifies that the newly created volume should be marked as bootable"
@@ -7114,7 +7057,7 @@ msgid ""
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorization Key and provide them to your transfer recipient."
 msgstr ""
-"The Transfer ID and the Authorization Key are needed by the recipient in "
+"The Transfer ID and the Authorisation Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorisation Key and provide them to your transfer recipient."
 
@@ -7150,15 +7093,6 @@ msgid "The container cannot be deleted since it is not empty."
 msgstr "The container cannot be deleted since it is not empty."
 
 msgid ""
-"The current Horizon settings indicate no valid image creation methods are "
-"available. Providing an image location and/or uploading from the local file "
-"system must be allowed to support image creation."
-msgstr ""
-"The current Horizon settings indicate no valid image creation methods are "
-"available. Providing an image location and/or uploading from the local file "
-"system must be allowed to support image creation."
-
-msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
@@ -7181,7 +7115,7 @@ msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
+"The flavour '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
 msgid "The instance is preparing the live migration to a new host."
@@ -7213,7 +7147,7 @@ msgstr "The name \"%s\" is already used by another consistency group."
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
-msgstr "The name \"%s\" is already used by another flavor."
+msgstr "The name \"%s\" is already used by another flavour."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -7230,7 +7164,7 @@ msgstr ""
 "implemented."
 
 msgid "The page you were looking for doesn't exist"
-msgstr "The page you were looking for doesn't exist"
+msgstr "The page you were looking for does not exist"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "The physical mechanism by which the virtual network is implemented."
@@ -7395,7 +7329,7 @@ msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
 msgstr ""
-"There is not enough capacity for this flavor in the selected availability "
+"There is not enough capacity for this flavour in the selected availability "
 "zone. Try again later or select a different availability zone."
 
 #, python-format
@@ -7725,7 +7659,7 @@ msgstr "Unable to create encrypted volume type."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
-msgstr "Unable to create flavor \"%s\"."
+msgstr "Unable to create flavour \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "Unable to create flavour."
@@ -8013,7 +7947,7 @@ msgstr "Unable to modify domain \"%s\"."
 
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "Unable to modify flavor \"%s\"."
+msgstr "Unable to modify flavour \"%s\"."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -8230,7 +8164,7 @@ msgid "Unable to retrieve firewall list."
 msgstr "Unable to retrieve firewall list."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "Unable to retrieve flavor access list. Please try again later."
+msgstr "Unable to retrieve flavour access list. Please try again later."
 
 msgid "Unable to retrieve flavor details."
 msgstr "Unable to retrieve flavour details."
@@ -8239,17 +8173,17 @@ msgstr "Unable to retrieve flavour details."
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
-"Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
+"Unable to retrieve flavour information for instance \"%(name)s\" (%(id)s)."
 
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
-msgstr "Unable to retrieve flavor information for instance \"%s\"."
+msgstr "Unable to retrieve flavour information for instance \"%s\"."
 
 msgid "Unable to retrieve flavor list."
-msgstr "Unable to retrieve flavor list."
+msgstr "Unable to retrieve flavour list."
 
 msgid "Unable to retrieve flavors."
-msgstr "Unable to retrieve flavors."
+msgstr "Unable to retrieve flavours."
 
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Unable to retrieve floating IP addresses."
@@ -8318,7 +8252,7 @@ msgid "Unable to retrieve instance details."
 msgstr "Unable to retrieve instance details."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "Unable to retrieve instance flavors."
+msgstr "Unable to retrieve instance flavours."
 
 msgid "Unable to retrieve instance list."
 msgstr "Unable to retrieve instance list."
@@ -8641,7 +8575,7 @@ msgstr "Unable to set bootable flag on volume."
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
-msgstr "Unable to set flavor access for project %s."
+msgstr "Unable to set flavour access for project %s."
 
 msgid "Unable to set gateway."
 msgstr "Unable to set gateway."
@@ -8650,7 +8584,7 @@ msgid "Unable to set project quotas."
 msgstr "Unable to set project quotas."
 
 msgid "Unable to sort instance flavors."
-msgstr "Unable to sort instance flavors."
+msgstr "Unable to sort instance flavours."
 
 msgid "Unable to unmanage volume."
 msgstr "Unable to unmanage volume."
@@ -8752,7 +8686,7 @@ msgid "Unknown"
 msgstr "Unknown"
 
 msgid "Unknown instance"
-msgstr "Unknown instance"
+msgstr "Unknown Instance"
 
 msgid "Unknown instance (None)"
 msgstr "Unknown instance (None)"
@@ -8901,9 +8835,6 @@ msgstr "Update Volume Status"
 
 msgid "Update Volume Type Encryption"
 msgstr "Update Volume Type Encryption"
-
-msgid "Update a Metadata Namespace"
-msgstr "Update a Metadata Namespace"
 
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
@@ -9056,14 +8987,8 @@ msgstr "User Details"
 msgid "User ID"
 msgstr "User ID"
 
-msgid "User ID ="
-msgstr "User ID ="
-
 msgid "User Name"
-msgstr "User Name"
-
-msgid "User Name ="
-msgstr "User Name ="
+msgstr "Имя пользователя"
 
 msgid "User Settings"
 msgstr "User Settings"
@@ -9621,9 +9546,6 @@ msgstr "e.g. UP / DOWN"
 
 msgid "e.g. Yes / No"
 msgstr "e.g. Yes / No"
-
-msgid "e.g. Yes/No"
-msgstr "e.g. Yes/No"
 
 msgid "environment"
 msgstr "environment"

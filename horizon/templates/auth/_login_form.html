@@ -15,7 +15,7 @@
     <div class="panel-heading">
     {% block login_header %}
       <h3 class="login-title">
-        {% trans 'Log in' %}
+        Войти
       </h3>
     {% endblock %}
     </div>
@@ -42,7 +42,7 @@
         {% if request.user.is_authenticated and 'next' in request.GET %}
           <div class="form-group clearfix error help-block alert alert-danger">
             <p>
-              {% trans "You do not have permission to access the resource:" %}
+              У вас не хватает прав на доступа к этому содержимому:
             </p>
             <p>
               <strong>
@@ -51,9 +51,7 @@
             </p>
             <p>
               {% url 'horizon:user_home' as home_url %}
-              {% blocktrans trimmed %}
-                Login as different user or go back to <a href="{{ home_url }}">home page</a>
-              {% endblocktrans %}
+                Войдите как другой пользователь или вернитесь <a href="{{ home_url }}">home page</a>
             </p>
           </div>
         {% endif  %}
@@ -73,8 +71,8 @@
     <div class="panel-footer">
       {% block login_footer %}
         <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
-          <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
-          <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
+          <span ng-show="auth_type==='credentials'">Войти</span>
+          <span ng-hide="auth_type==='credentials'" ng-cloak>Подключиться</span>
         </button>
         <div class="clearfix"></div>
       {% endblock %}

@@ -5025,7 +5025,7 @@ msgid "Parameters"
 msgstr "Parameters"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Пароль"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
@@ -8988,7 +8988,7 @@ msgid "User ID"
 msgstr "User ID"
 
 msgid "User Name"
-msgstr "User Name"
+msgstr "Имя пользователя"
 
 msgid "User Settings"
 msgstr "User Settings"
