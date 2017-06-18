@@ -24,7 +24,7 @@ LOG = logging.getLogger(__name__)
 class Firewall(horizon.Panel):
     name = _("Firewalls")
     slug = "firewalls"
-    # permissions = ('openstack.services.network',)
+    permissions = ('openstack.services.network',)
 
     def allowed(self, context):
         request = context['request']

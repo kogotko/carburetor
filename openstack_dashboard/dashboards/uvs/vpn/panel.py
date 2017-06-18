@@ -26,7 +26,7 @@ LOG = logging.getLogger(__name__)
 class VPN(horizon.Panel):
     name = "ВПН"
     slug = 'vpn'
-    # permissions = ('openstack.services.network',)
+    permissions = ('openstack.services.network',)
 
     def allowed(self, context):
         request = context['request']
