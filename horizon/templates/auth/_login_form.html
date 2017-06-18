@@ -1,5 +1,7 @@
 {% load i18n %}
 
+{% load themes %}
+
 {% block pre_login %}
 
 <form id="" class="ng-pristine ng-valid ng-scope"
@@ -21,7 +23,7 @@
     </div>
       <style>
         body {
-              background-image: url('/dashboard/static/dashboard/cnii/back4.gif');
+              background-image: url({% themable_asset  "cnii/back4.gif" %});
               background-size: cover;
         }
       </style>

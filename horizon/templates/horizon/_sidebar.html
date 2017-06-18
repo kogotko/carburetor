@@ -1,5 +1,7 @@
 {% load horizon i18n %}
 
+{% load themes %}
+
 <ul id="sidebar-accordion" class="nav nav-pills nav-stacked">
 
   {% for dashboard, panel_info in components %}
@@ -21,10 +23,11 @@
             class="nav collapse panel-collapse{% if current.slug == dashboard.slug %} in{% endif %}">
               <style>
                 body {
-                    background-image: url('/dashboard/static/dashboard/cnii/mainback.gif');
+                    background-image: url({% themable_asset  "cnii/mainback.gif" %});
                     background-repeat: no-repeat;
                     background-position: center center;
-                    background-size: cover;  }
+                    background-size: cover;
+                }
               </style>
           {% for group, panels in panel_info.iteritems %}
             {% with panels|has_permissions_on_list:user as filtered_panels %}
