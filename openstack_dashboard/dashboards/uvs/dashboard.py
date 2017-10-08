@@ -14,6 +14,7 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
+from django.conf import settings
 
 # class Mygroup(horizon.PanelGroup):
 #     slug = "uvr_group"
@@ -31,5 +32,6 @@ class Uvs(horizon.Dashboard):
         'vpn'
     )
     default_panel = 'vpn'
+    subsystem = getattr(settings, "SYBSYSTEM", "uvr")
 
 horizon.register(Uvs)

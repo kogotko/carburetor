@@ -16,7 +16,7 @@
 DASHBOARD = 'uvs'
 
 DISABLED = False
-DEFAULT = True
+DEFAULT = False
 
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = [

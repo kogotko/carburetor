@@ -19,7 +19,7 @@ HORIZON_CONFIG = {
     'dashboards': None,
 
     # Name of a default dashboard; defaults to first alphabetically if None
-    'default_dashboard': None,
+    'default_dashboard': getattr(settings, 'SYBSYSTEM'),
 
     # Default redirect url for users' home
     'user_home': settings.LOGIN_REDIRECT_URL,

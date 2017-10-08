@@ -20,6 +20,7 @@ Context processors used by Horizon.
 """
 
 from horizon import conf
+from django.conf import settings
 
 
 def horizon(request):

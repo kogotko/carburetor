@@ -1,5 +1,31 @@
 {% load themes %}
+{% load i18n %}
 
 <div class="text-center">
   <img class="splash-logo" style="max-width: 100%; margin-top: 18%;margin-bottom: 18%" src={% themable_asset "cnii/logotip2.png" %}>
+    {% if SYBSYSTEM == 'uhd' %}
+        <h3 class="login-title">
+            УПРАВЛЕНИЕ ХРАНЕНИЕМ ДАННЫХ
+        </h3>
+    {% endif %}
+    {% if SYBSYSTEM == 'ud' %}
+        <h3 class="login-title">
+            УПРАВЛЕНИЕ ДОСТУПОМ
+        </h3>
+    {% endif %}
+    {% if SYBSYSTEM == 'uvr' %}
+        <h3 class="login-title">
+           УПРАВЛЕНИЕ ВИРТУАЛЬНЫМИ РЕСУРСАМИ
+        </h3>
+    {% endif %}
+    {% if SYBSYSTEM == 'uvs' %}
+        <h3 class="login-title">
+            УПРАВЛЕНИЕ ВЫЧИСЛИТЕЛЬНЫМИ СЕТЯМИ
+        </h3>
+    {% endif %}
+    {% if SYBSYSTEM == 'usr' %}
+        <h3 class="login-title">
+            УПРАВЛЕНИЕ СЦЕНАРИЯМИ РАЗВЕРТЫВАНИЯ
+        </h3>
+    {% endif %}
 </div>

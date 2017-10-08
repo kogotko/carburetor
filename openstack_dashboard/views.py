@@ -23,7 +23,7 @@ from horizon import notifications
 
 
 MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
-
+SYBSYSTEM = getattr(settings, "SYBSYSTEM", "uvr")
 
 def get_user_home(user):
     try:
@@ -33,12 +33,11 @@ def get_user_home(user):
     # Domain Admin, Project Admin will default to identity
     if token.project.get('id') is None or user.is_superuser:
         try:
-            dashboard = horizon.get_dashboard('uvr')
+            dashboard = horizon.get_dashboard(SYBSYSTEM)
         except base.NotRegistered:
             pass
     else:
         dashboard = horizon.get_default_dashboard()
-
     return dashboard.get_absolute_url()
 
 

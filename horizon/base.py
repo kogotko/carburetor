@@ -773,6 +773,9 @@ class Site(Registry, HorizonComponent):
         else:
             raise NotRegistered("No dashboard modules have been registered.")
 
+
+
+
     def get_user_home(self, user):
         """Returns the default URL for a particular user.
 
@@ -811,6 +814,7 @@ class Site(Registry, HorizonComponent):
         else:
             return self.get_absolute_url()
 
+
     def get_absolute_url(self):
         """Returns the default URL for Horizon's URLconf.
 
@@ -819,6 +823,9 @@ class Site(Registry, HorizonComponent):
         on the :class:`~horizon.Dashboard` instance returned by
         :meth:`~horizon.get_default_dashboard`.
         """
+        # ss = self.get_dashboard(getattr(settings, 'SYBSYSTEM')).get_absolute_url()
+        # LOG.error("ABS_URL_!!!!!!!!!!!!!!!!!!!! = %s" % ss)
+        # return ss
         return self.get_default_dashboard().get_absolute_url()
 
     @property

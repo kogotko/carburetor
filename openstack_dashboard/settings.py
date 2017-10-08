@@ -44,7 +44,13 @@ if ROOT_PATH not in sys.path:
 
 DEBUG = False
 
-SITE_BRANDING = 'Управление виртуальными ресурсами'
+SITE_BRANDING = 'ЦНИИ ЭИСУ'
+
+# SYBSYSTEM = "usr"
+# SYBSYSTEM = "ud"
+# SYBSYSTEM = "uhd"
+SYBSYSTEM = "uvr"
+# SYBSYSTEM = "uvs"
 
 WEBROOT = '/'
 LOGIN_URL = None
@@ -56,6 +62,7 @@ STATIC_ROOT = None
 STATIC_URL = None
 INTEGRATION_TESTS_SUPPORT = False
 NG_TEMPLATE_CACHE_AGE = 2592000
+
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -186,7 +193,7 @@ INSTALLED_APPS = [
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
-AUTHENTICATION_URLS = ['openstack_auth.urls']
+AUTHENTICATION_URLS = ['pi_urls']
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
@@ -371,11 +378,11 @@ OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
 if LOGIN_URL is None:
-    LOGIN_URL = WEBROOT + 'auth/login/'
+    LOGIN_URL = WEBROOT + 'auth/login_%s/'% SYBSYSTEM
 if LOGOUT_URL is None:
-    LOGOUT_URL = WEBROOT + 'auth/logout/'
+    LOGOUT_URL = WEBROOT + 'auth/logout_%s/'% SYBSYSTEM
 if LOGIN_REDIRECT_URL is None:
-    LOGIN_REDIRECT_URL = WEBROOT
+    LOGIN_REDIRECT_URL = WEBROOT + SYBSYSTEM + '/'
 
 if MEDIA_ROOT is None:
     MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))

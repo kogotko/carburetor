@@ -19,7 +19,7 @@
 """
 URL patterns for the OpenStack Dashboard.
 """
-
+import logging
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static  # noqa
@@ -35,10 +35,10 @@ from openstack_dashboard import views
 urlpatterns = [
     url(r'^$', views.splash, name='splash'),
     url(r'^api/', include(rest.urls)),
-    url(r'baseurl/', include(horizon.urls)),
+    url(r'', include(horizon.urls)),
 ]
 
-for u in getattr(settings, 'AUTHENTICATION_URLS', ['openstack_auth.urls']):
+for u in getattr(settings, 'AUTHENTICATION_URLS', ['pi_urls']):
     urlpatterns.append(url(r'^auth/', include(u)))
 
 # Development static app and project media serving using the staticfiles app.

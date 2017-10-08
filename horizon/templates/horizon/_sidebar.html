@@ -1,11 +1,9 @@
 {% load horizon i18n %}
-
 {% load themes %}
 
 <ul id="sidebar-accordion" class="nav nav-pills nav-stacked">
-
   {% for dashboard, panel_info in components %}
-    {% if dashboard.slug != 'project' and dashboard.slug != 'admin' and dashboard.slug != 'identity' %}
+    {% if dashboard.slug == dashboard.subsystem %}
     {% if user|has_permissions:dashboard %}
       <li class="panel openstack-dashboard">
 

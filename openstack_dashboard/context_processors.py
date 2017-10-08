@@ -85,6 +85,7 @@ def openstack(request):
 
     # Adding webroot access
     context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
+    context['SYBSYSTEM'] = getattr(settings, "SYBSYSTEM", "uvr")
 
     # Adding profiler support flag
     profiler_settings = getattr(settings, 'OPENSTACK_PROFILER', {})
