@@ -47,9 +47,9 @@ DEBUG = False
 SITE_BRANDING = 'ЦНИИ ЭИСУ'
 
 # SYBSYSTEM = "usr"
-# SYBSYSTEM = "ud"
+SYBSYSTEM = "ud"
 # SYBSYSTEM = "uhd"
-SYBSYSTEM = "uvr"
+# SYBSYSTEM = "uvr"
 # SYBSYSTEM = "uvs"
 
 WEBROOT = '/'

@@ -7,6 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon.utils import secret_key
 
 from openstack_dashboard.settings import HORIZON_CONFIG
+from django.conf import settings
+
 
 DEBUG = True
 
@@ -839,7 +841,8 @@ ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
 #   'phone_num': _('Phone Number'),
 #}
 
-WEBROOT="/dashboard/"
+
+WEBROOT="/"
 
 COMPRESS_OFFLINE=True
 

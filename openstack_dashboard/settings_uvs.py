@@ -49,8 +49,8 @@ SITE_BRANDING = 'ЦНИИ ЭИСУ'
 # SYBSYSTEM = "usr"
 # SYBSYSTEM = "ud"
 # SYBSYSTEM = "uhd"
-SYBSYSTEM = "uvr"
-# SYBSYSTEM = "uvs"
+# SYBSYSTEM = "uvr"
+SYBSYSTEM = "uvs"
 
 WEBROOT = '/'
 LOGIN_URL = None
